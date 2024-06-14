@@ -1,0 +1,635 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Teko";
+  font-style: normal; /* Light */
+  font-weight: 300;
+  src: url("./assets/font/Teko-Light.ttf");
+}
+
+@font-face {
+  font-family: "Teko";
+  font-style: normal; /* Regular */
+  font-weight: 400;
+  src: url("./assets/font/Teko-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Teko";
+  font-style: normal; /* Medium */
+  font-weight: 500;
+  src: url("./assets/font/Teko-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Teko";
+  font-style: normal; /* SemiBold */
+  font-weight: 600;
+  src: url("./assets/font/Teko-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Teko";
+  font-style: normal; /* Bold */
+  font-weight: 700;
+  src: url("./assets/font/Teko-Bold.ttf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Ultra-Light */
+  font-weight: 100;
+  src: url("./assets/font/sf-ui-display-ultralight.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Thin */
+  font-weight: 200;
+  src: url("./assets/font/sf-ui-display-thin.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Light */
+  font-weight: 300;
+  src: url("./assets/font/sf-ui-display-light.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Medium */
+  font-weight: 500;
+  src: url("./assets/font/sf-ui-display-medium.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* SemiBold */
+  font-weight: 600;
+  src: url("./assets/font/sf-ui-display-semibold.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Bold */
+  font-weight: 700;
+  src: url("./assets/font/sf-ui-display-bold.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Heavy */
+  font-weight: 800;
+  src: url("./assets/font/sf-ui-display-heavy.otf");
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-style: normal; /* Black */
+  font-weight: 900;
+  src: url("./assets/font/sf-ui-display-black.otf");
+}
+
+:root {
+  font-family: Teko, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #f8f8f8;
+  background-color: #0e0d0d;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  /* place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+  --base-text: #f8f8f8;
+  --primary: #0e0d0d;
+  --gold: #efb325;
+  --dark-box: #252424;
+  --light-text: #f5f5f5;
+  --dark-text: #151515;
+  --hint-text: #646464;
+}
+
+li::marker {
+  display: none;
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 10;
+  background: var(--gold);
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  width: 200%; /* This ensures it covers at least twice the screen width */
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-content span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Keyframes for the scrolling effect */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.explore-tag-item {
+  background: var(--gold);
+  text-align: center;
+  color: var(--dark-text);
+  font-family: "SF UI Display";
+  font-weight: bold;
+  padding: 18px 0;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 4px;
+  width: 128px;
+  @media only screen and (min-width: 1200px) {
+    font-size: 18px;
+    line-height: 18px;
+    width: 176px;
+  }
+}
+
+.section-title {
+  font-weight: 500;
+  color: var(--base-text);
+  font-size: 48px;
+  line-height: 44px;
+  @media only screen and (min-width: 1000px) {
+    font-size: 90px;
+    line-height: 80px;
+    text-align: center;
+  }
+}
+
+.start-tap-img {
+  border-radius: 5px 5px 0 0;
+}
+
+.road-bg {
+  background-size: contain;
+  background-image: url("assets/img/road.png");
+  background-repeat: repeat-y;
+}
+
+#explore {
+  background-image: url("./assets/img/sun.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  @media only screen and (max-width: 600px) {
+    background-size: cover;
+  }
+}
+
+.right-anim {
+  transform: translate(150%);
+  position: absolute;
+  animation: right-move 8s linear infinite;
+}
+
+@keyframes right-move {
+  0% {
+    transform: translate(150%);
+  }
+  100% {
+    transform: translate(-150%);
+  }
+}
+
+.left-anim {
+  transform: translate(-150%);
+  position: absolute;
+  animation: left-move 8s linear infinite;
+}
+
+@keyframes left-move {
+  0% {
+    transform: translate(-150%);
+  }
+  100% {
+    transform: translate(150%);
+  }
+}
+
+.main-anim {
+  transform: translate(0%);
+  position: absolute;
+  animation: main-move 5s linear infinite;
+}
+
+@keyframes main-move {
+  0% {
+    transform: translate(125%);
+  }
+  100% {
+    transform: translate(-125%);
+  }
+}
+
+.anim-button {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 20px;
+  justify-content: center;
+  width: 48px;
+  z-index: 10;
+  transition-duration: 300ms;
+}
+
+.anim-button:hover {
+  gap: 5px;
+}
+
+.anim-button div {
+  background-color: white;
+  height: 2px;
+  width: 100%;
+  transition: background-color 300ms;
+}
+
+.anim-button div:last-child {
+  width: 22px;
+}
+
+.anim-button:hover div {
+  &:last-child {
+    transition: width 300ms;
+    width: 100%;
+  }
+  background-color: var(--gold);
+}
+
+.navbar {
+  height: 100vh;
+  top: -100vh;
+  transition: 1s;
+  z-index: 50;
+}
+
+.navbar-show {
+  height: 100vh;
+  top: 0;
+  transition: 1s;
+  z-index: 50;
+}
+
+.mini-button {
+  height: 20px;
+  justify-content: center;
+  width: 48px;
+  z-index: 10;
+  transition-duration: 300ms;
+}
+
+.mini-button div {
+  background-color: white;
+  height: 2px;
+  width: 100%;
+  transition: background-color 300ms;
+}
+
+.mini-button:hover div {
+  background-color: var(--gold);
+}
+
+.nav-item {
+  border-bottom: 1px solid #f8f8f81a;
+  padding-top: 20px;
+  padding-bottom: 13px;
+  font-weight: 500;
+  color: #d9d9d9;
+  font-size: 49px;
+  line-height: 44px;
+}
+
+.card-item {
+  border-radius: 0.375rem;
+  background-color: var(--dark-box);
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  transition: transform 0.2s ease;
+  @media only screen and (min-width: 1024px) {
+    padding: 1.5rem;
+  }
+}
+
+.card-item:hover {
+  transform: scale(1.01);
+  margin: -2px;
+  border: 1px solid var(--gold);
+  /* transform: translateY(-10px); */
+  /* animation: moveUpDown 3s ease infinite; */
+}
+
+@keyframes moveUpDown {
+  0%,
+  20%,
+  40%,
+  100% {
+    transform: translateY(-10px);
+  }
+  10%,
+  30% {
+    transform: translateY(-30px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  @keyframes moveUpDown {
+    0%,
+    20%,
+    40%,
+    100% {
+      transform: translateY(-5px);
+    }
+    10%,
+    30% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  height: 45px;
+}
+
+.image {
+  display: block;
+  /* width: 45px; */
+  height: 45px;
+}
+
+.shine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 23px;
+  height: 31px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="23" height="31" viewBox="0 0 23 31" fill="none"><path opacity="0.4" d="M0.5 0.916626L21.3333 15.5L0.49998 30.0833" stroke="%23F5F5F5" stroke-width="1.4"/></svg>');
+  background-size: cover;
+  transform: translateY(-50%);
+  pointer-events: none;
+  animation: shineMove 1s infinite;
+  filter: blur(2px);
+}
+
+@keyframes shineMove {
+  0% {
+    left: 10px;
+  }
+  100% {
+    left: calc(50%);
+  }
+}
+
+.footer-image-container {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+}
+
+.footer-image {
+  display: block;
+  /* width: 45px; */
+  height: 20px;
+}
+
+.footer-shine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 11px;
+  height: 18px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18" fill="none"><path opacity="0.4" d="M1 0.666671L9.33334 9.00001L1 17.3333" stroke="%23EFB325" stroke-width="1.4"/></svg>');
+  background-size: cover;
+  transform: translateY(-50%);
+  pointer-events: none;
+  animation: footerShineMove 1s infinite;
+  filter: blur(2px);
+}
+
+@keyframes footerShineMove {
+  0% {
+    left: 10px;
+  }
+  100% {
+    left: calc(100%);
+  }
+}
+
+.arrow-image-container {
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  @media only screen and (max-width: 600px) {
+    height: 30px;
+  }
+}
+
+.arrow-image {
+  display: block;
+  /* width: 45px; */
+  height: 48px;
+  @media only screen and (max-width: 600px) {
+    height: 30px;
+  }
+}
+
+.arrow-shine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 26px;
+  height: 43px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="26" height="43" viewBox="0 0 26 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.4" d="M2.11263 2.25304L21.8933 21.3818L2.11262 40.5106" stroke="%23151515" stroke-opacity="0.99" stroke-width="4.4"/></svg>');
+  background-size: cover;
+  transform: translateY(-50%);
+  pointer-events: none;
+  animation: arrowShineMove 1s infinite;
+  filter: blur(2px);
+  @media only screen and (max-width: 600px) {
+    width: 19px;
+    height: 29px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="19" height="29" viewBox="0 0 19 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.4" d="M2.43918 1.86523L15.3698 14.3753L2.43918 26.8854" stroke="%23151515" stroke-opacity="0.99" stroke-width="4.4"/></svg>');
+  }
+}
+
+@keyframes arrowShineMove {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(80%);
+  }
+}
+
+.start-item {
+  border-radius: 0.375rem;
+  background-color: var(--dark-box);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.start-item:hover {
+  /* transform: scale(1.01); */
+  /* margin: -3px; */
+  /* border: 1px solid var(--gold); */
+  /* border: 2px solid transparent;
+  border-image: linear-gradient(to right, #b0ebb2, #a0cdf1) 1;
+  border-radius: 0.5rem; */
+  box-shadow: 0 0 4px 4px #a0cdf198;
+  /* transform: translateY(-10px); */
+  /* animation: moveUpDown 3s ease infinite; */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  z-index: 20;
+  background-color: var(--gold);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #caab67;
+}
+
+.filter-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 20px;
+  justify-content: center;
+  width: 48px;
+  z-index: 10;
+  transition-duration: 300ms;
+}
+
+.filter-icon:hover {
+  gap: 5px;
+}
+
+.filter-icon div {
+  background-color: white;
+  height: 2px;
+  width: 100%;
+  transition: background-color 300ms;
+}
+
+.filter-icon div:last-child {
+  width: 22px;
+}
+
+.filter-icon:hover div {
+  &:last-child {
+    transition: width 300ms;
+    width: 100%;
+  }
+  background-color: var(--gold);
+}
+
+.mini-filter-icon {
+  height: 20px;
+  justify-content: center;
+  width: 48px;
+  z-index: 10;
+  transition-duration: 300ms;
+}
+
+.mini-filter-icon div {
+  background-color: white;
+  height: 2px;
+  width: 100%;
+  transition: background-color 300ms;
+}
+
+.mini-filter-icon:hover div {
+  background-color: var(--gold);
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it covers all content */
+  flex-direction: column;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #76c7c0;
+  transition: width 0.2s;
+}
+
+.progress-text {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 10px;
+}
