@@ -309,5 +309,34 @@ li::marker {
 
 .nav-text-item:hover {
   text-shadow: none;
-  color: var(--white);
+  color: white;
+}
+
+.globe_container_flame {
+  position: absolute;
+  top: 0%;
+  right: -20%;
+  width: 80%;
+  height: 60%;
+  mix-blend-mode: screen;
+  opacity: 1;
+  z-index: 2;
+  transform: rotate(60deg);
+}
+
+@keyframes flame_appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .globe_container_flame {
+    width: 80%;
+    height: 60%;
+  }
 }

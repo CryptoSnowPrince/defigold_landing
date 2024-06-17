@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/header";
 import ProgressBar from "./components/progressbar";
+import Welcome from "./components/welcome";
+import Summary from "./components/summary";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -54,15 +56,12 @@ function App() {
     <div className="relative">
       <div className="flex flex-col items-start w-screen">
         <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
-        {/* {!showNavbar && (
+        {!showNavbar && (
           <>
-            <Home />
-            <Explore />
-            <Mint />
-            <Start />
-            <Footer />
+            <Welcome />
+            <Summary />
           </>
-        )} */}
+        )}
       </div>
     </div>
   );

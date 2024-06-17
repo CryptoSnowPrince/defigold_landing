@@ -1,0 +1,11 @@
+.split-line {
+  background: linear-gradient(to bottom, #efb22500, #efb325);
+}
+
+.point {
+  box-shadow: 0 0 2px 2px #efb3253e;
+}
+
+.candle {
+  box-shadow: 0px -10px 30px 0px #efb32580;
+}
