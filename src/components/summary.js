@@ -10,8 +10,8 @@ const Summary = () => {
         <div className="flex-1 w-[1px] split-line mx-auto"></div>
         <div className="w-[9px] h-[9px] my-10 rounded-full bg-gold point mx-auto"></div>
         <div className="w-[38px] h-16 bg-gold candle mx-auto"></div>
-        <Fade duration={500} triggerOnce={false} direction="up">
-          <div className="absolute h-full w-full lg:px-[250px] md:px-28 sm:px-14 flex flex-row bottom-0 z-10">
+        <div className="absolute h-full w-full lg:px-[250px] md:px-28 sm:px-14 flex flex-row bottom-0 z-10">
+          <Fade duration={500} triggerOnce={false} direction="up">
             <div className="flex-1 lg:pr-[120px] pt-32 md:pr-14 sm:pr-6 font-light text-[68px] leading-[62px]">
               <span className="text-gold">DeFi.Gold</span> is shaking things up
               as the first DEX and NFT marketplace on the Bitcoin blockchain.
@@ -29,8 +29,8 @@ const Summary = () => {
                 run as a public commons, it is not a company.
               </p>
             </div>
-          </div>
-        </Fade>
+          </Fade>
+        </div>
         <div className="pl-10 flex flex-row justify-start ml-0">
           <img src={landPath} alt="path" />
         </div>
@@ -39,7 +39,7 @@ const Summary = () => {
         <div className="flex flex-row my-auto justify-end">
           <img src={mobilePath} alt="path" />
         </div>
-        <div className="absolute flex flex-col justify-between h-full w-full z-10 px-5 py-[60px]">
+        <div className="absolute top-0 flex flex-col justify-between h-full w-full z-10 px-5 py-[60px]">
           <Fade duration={500} triggerOnce={false} direction="up">
             <p className="text-base-text font-light text-[42px] leading-[38px]">
               <span className="text-gold">DeFi.Gold</span> is shaking things up

@@ -4,6 +4,7 @@ import Header from "./components/header";
 import ProgressBar from "./components/progressbar";
 import Welcome from "./components/welcome";
 import Summary from "./components/summary";
+import Pioneer from "./components/pioneer";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -60,6 +61,7 @@ function App() {
           <>
             <Welcome />
             <Summary />
+            <Pioneer />
           </>
         )}
       </div>

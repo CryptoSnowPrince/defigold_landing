@@ -1,0 +1,7 @@
+.right-arrow {
+  transform-origin: 0;
+}
+
+.left-arrow {
+  transform-origin: center right;
+}
