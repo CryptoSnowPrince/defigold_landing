@@ -43,3 +43,95 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
   width: 100%;
 }
+
+.launchpadMonkey {
+  opacity: 0;
+}
+
+.newHomeCity {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media screen and (max-width: 650px) {
+  .launchpadMonkey {
+    opacity: 1;
+  }
+}
+
+/* monkey  */
+
+.launchpadMonkey {
+  /* border: 1px solid red; */
+  position: relative;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary);
+  border: none !important;
+}
+
+.fallingStars {
+  position: absolute;
+  top: 3vw;
+  left: 4.5vw;
+  /* height: 100%; */
+  mix-blend-mode: screen !important;
+  border-radius: 0 0 6vw 6vw;
+  background-color: #d6a020;
+  filter: sepia(100%) hue-rotate(1105deg) brightness(0.39);
+  border: none !important;
+}
+
+.fallingDna {
+  /* border: 1px solid red ; */
+  position: absolute;
+  mix-blend-mode: screen !important;
+  top: 10vw;
+  rotate: 90deg;
+  filter: sepia(100%) hue-rotate(1105deg) brightness(0.2);
+  opacity: 0.6;
+}
+
+.fallingMonkey {
+  position: absolute;
+
+  z-index: 9;
+}
+
+/* monkey media  */
+
+@media screen and (min-width: 651px) and (max-width: 800px) {
+  .fallingDna {
+    top: 16vw;
+  }
+  .fallingStars {
+    left: 5.5vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .launchpadMonkey {
+    min-height: 102.8vw;
+  }
+  .fallingMonkey {
+    left: 5vw;
+  }
+  .fallingStars {
+    top: 6vw;
+    border-radius: 0 0 21.86vw 21.86vw;
+    top: 10vw;
+    left: 14vw;
+  }
+
+  .fallingDna {
+    left: 8vw;
+    top: 33vw;
+  }
+}
