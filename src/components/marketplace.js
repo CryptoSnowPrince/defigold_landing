@@ -162,7 +162,7 @@ const MarketPlace = () => {
                   </defs>
                 </svg>
               </div>
-              <div class='-mr-[3px] ml-auto mt-1 w-fit'>
+              <div className='-mr-[3px] ml-auto mt-1 w-fit'>
                 <svg
                   width='15'
                   height='10'
