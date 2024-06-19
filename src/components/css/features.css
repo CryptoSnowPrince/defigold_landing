@@ -1,0 +1,35 @@
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate360Reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.galaxy__image {
+  animation: rotate360 15s linear infinite;
+}
+
+.sparkles__image-bottom,
+.sparkles__image-top {
+  animation: rotate360Reverse 15s linear infinite;
+}
+
+.feature-container {
+  height: 100%;
+  @media only screen and (max-width: 600px) {
+    height: calc(100vh - 212px);
+  }
+}

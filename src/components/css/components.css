@@ -5,3 +5,41 @@
 .left-arrow {
   transform-origin: center right;
 }
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 10;
+  background: var(--gold);
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  width: 200%; /* This ensures it covers at least twice the screen width */
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-content span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Keyframes for the scrolling effect */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.newHomeCity {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  width: 100%;
+}
