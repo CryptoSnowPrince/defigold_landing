@@ -8,6 +8,8 @@ import Pioneer from './components/pioneer';
 import Features from './components/features';
 import MarketPlace from './components/marketplace';
 import Launchpad from './components/launchpad';
+import Presentation from './components/presentation';
+import Footer from './components/footer';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -64,6 +66,8 @@ function App() {
             <Features />
             <MarketPlace />
             <Launchpad />
+            {/* <Presentation /> */}
+            <Footer />
           </>
         )}
       </div>

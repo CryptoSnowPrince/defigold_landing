@@ -1,143 +1,352 @@
-import XIcon from '../assets/img/X.png';
-import TelegramIcon from '../assets/img/telegram.png';
-import DiscordIcon from '../assets/img/discord.png';
-import MediumIcon from '../assets/img/medium.png';
-import GithubIcon from '../assets/img/github.png';
-import LinkIcon from '../assets/img/link.svg';
-import Logo from '../assets/img/Logo.svg';
-import GoldArrow from '../assets/img/gold-arrow.svg';
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ContactFormBit from '../assets/img/contactFormAssets/compressed/contactFormBit.webp';
+import FormArrow from '../assets/img/contactFormAssets/formArrow.png';
+import FormLight from '../assets/img/contactFormAssets/compressed/formLight.mp4';
+import ArrowUp from '../assets/img/arrow-up.svg';
+import HorizontalDirection from './horizontaldirection';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  useEffect(() => {
+    const contact = document.getElementById('footer');
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '.swiper-slide',
+        start: 'top 30%',
+        onEnter: () => {
+          contact.classList.remove('hidden');
+        },
+        onLeaveBack: () => {
+          contact.classList.add('hidden');
+        },
+      },
+    });
+    gsap.to('#scrollUpArrow', {
+      scrollTrigger: {
+        trigger: '.swiper-slide',
+        start: '+=300',
+        end: '+=150',
+        scrub: true,
+      },
+      opacity: 1,
+      scale: 1.5,
+    });
+    gsap.to('#scrollUpArrow', {
+      y: -10, // Move up by 10 pixels
+      duration: 0.8, // Duration of each pulse
+      repeat: -1, // Repeat infinitely
+      yoyo: true, // Go back to the original position
+      ease: 'power1.inOut', // Easing function for smooth effect
+    });
+
+    const telegramFooter = document.querySelector('.telegram__footer');
+    const xFooter = document.querySelector('.x__footer');
+
+    const telegramTween = gsap.to('.hover__link-telegram', {
+      width: '100%',
+      duration: 0.5,
+      paused: true,
+    });
+    const xTween = gsap.to('.hover__link-x', {
+      width: '100%',
+      duration: 0.3,
+      paused: true,
+    });
+
+    telegramFooter.addEventListener('mouseover', () => telegramTween.play());
+    telegramFooter.addEventListener('mouseleave', () =>
+      telegramTween.reverse()
+    );
+    xFooter.addEventListener('mouseover', () => xTween.play());
+    xFooter.addEventListener('mouseleave', () => xTween.reverse());
+
+    const scrollUpButton = document.getElementById('scrollUp');
+    scrollUpButton.addEventListener('click', () => {
+      gsap.to(window, {
+        duration: 2,
+        scrollTo: 0,
+        ease: 'power2.inOut',
+      });
+    });
+    const btn3Container = document.getElementById(
+      'stagger_button_ani_container_3'
+    );
+    const tl3 = gsap.timeline({ paused: true });
+    const button3Eles3 = gsap.utils.toArray(
+      document.querySelectorAll('.stagger_button_3_ani')
+    );
+
+    if (window.innerWidth <= 768) {
+      button3Eles3.reverse().forEach((ele, incex) => {
+        tl3.fromTo(
+          ele,
+          {
+            y: 0,
+          },
+          {
+            y: '-3.667vw',
+            duration: 0.225,
+            ease: 'power1.inOut',
+          },
+          '-=0.22125'
+        );
+      });
+    } else {
+      button3Eles3.reverse().forEach((ele, incex) => {
+        tl3.fromTo(
+          ele,
+          {
+            y: 0,
+          },
+          {
+            y: '-1.33vw',
+            duration: 0.225,
+            ease: 'power1.inOut',
+          },
+          '-=0.22125'
+        );
+      });
+    }
+
+    btn3Container.addEventListener('mouseenter', (e) => {
+      tl3.play();
+    });
+    btn3Container.addEventListener('mouseleave', (e) => {
+      tl3.reverse();
+    });
+    const btn4Container = document.getElementById(
+      'stagger_button_ani_container_4'
+    );
+    const tl4 = gsap.timeline({ paused: true });
+    const button4Eles4 = gsap.utils.toArray(
+      document.querySelectorAll('.stagger_button_4_ani')
+    );
+    if (window.innerWidth <= 768) {
+      button4Eles4.reverse().forEach((ele, incex) => {
+        tl4.fromTo(
+          ele,
+          {
+            y: 0,
+          },
+          {
+            y: '-3.667vw',
+            duration: 0.225,
+            ease: 'power1.inOut',
+          },
+          '-=0.22125'
+        );
+      });
+    } else {
+      button4Eles4.reverse().forEach((ele, incex) => {
+        tl4.fromTo(
+          ele,
+          {
+            y: 0,
+          },
+          {
+            y: '-1.33vw',
+            duration: 0.225,
+            ease: 'power1.inOut',
+          },
+          '-=0.22125'
+        );
+      });
+    }
+
+    btn4Container.addEventListener('mouseenter', (e) => {
+      tl4.play();
+    });
+    btn4Container.addEventListener('mouseleave', (e) => {
+      tl4.reverse();
+    });
+  }, []);
+
   return (
-    <div className='flex flex-col lg:w-full bg-dark-text/95'>
-      <div className='flex flex-col px-5 py-9 lg:hidden'>
-        <span className='text-gold font-sfui font-semibold text-lg leading-[22px] text-center py-5 px-14 mb-5'>
-          Subscribe for News, Updates and Articles
-        </span>
-        <input type='email' placeholder='E-mail' className='py-4 px-[18px] border-solid border-[1px] border-white rounded-md bg-transparent mx-[1px] font-sfui text-base leading-5 placeholder:text-hint-text mb-3' />
-        <button className='bg-base-text rounded-md text-dark-text px-6 py-4 text-base leading-4 font-bold font-sfui'>SUBSCRIBE NOW</button>
-      </div>
-      <div className='flex flex-col gap-6 lg:hidden py-9 text-center font-teko'>
-        <span className='pb-4 text-gold text-[40px] leading-9'>Join Us</span>
-        <div className='flex flex-row justify-center items-center text-base-text text-4xl leading-8'>
-          <img src={XIcon} alt='twitter' className='mr-7' />
-          <span className='mr-4'>X</span>
-          <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-        </div>
-        <div className='flex flex-row justify-center items-center text-base-text text-4xl leading-8'>
-          <img src={TelegramIcon} alt='twitter' className='mr-6' />
-          <span className='mr-4'>Telegram</span>
-          <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-        </div>
-        <div className='flex flex-row justify-center items-center text-base-text text-4xl leading-8'>
-          <img src={DiscordIcon} alt='twitter' className='mr-5' />
-          <span className='mr-4'>Discord</span>
-          <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-        </div>
-        <div className='flex flex-row justify-center items-center text-base-text text-4xl leading-8'>
-          <img src={MediumIcon} alt='twitter' className='mr-4' />
-          <span className='mr-4'>Medium</span>
-          <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-        </div>
-        <div className='flex flex-row justify-center items-center text-base-text text-4xl leading-8'>
-          <img src={GithubIcon} alt='twitter' className='mr-6' />
-          <span className='mr-4'>Github</span>
-          <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-        </div>
-      </div>
-      <div className='flex flex-col gap-6 lg:hidden py-9 text-center font-sfui'>
-        <img src={Logo} alt='logo' className='w-3/5 m-auto' />
-        <span className='px-10 text-base-text text-base leading-5'>
-          The most secure, transparent and decentralized Taproot asset marketplace. Discover and collect digital artifacts!
-        </span>
-      </div>
-      <div className='grid grid-cols-2 lg:hidden py-9 font-sfui'>
-        <div className='flex flex-col justify-start mx-auto gap-2.5 text-base-text text-lg leading-6'>
-          <span className='text-gold font-teko text-[30px] leading-7 pb-1'>Marketplace</span>
-          <span>All NFTs</span>
-          <span>Collections</span>
-          <span>Launchpad</span>
-          <span>Mint</span>
-        </div>
-        <div className='flex flex-col justify-start px-12 gap-2.5 text-base-text text-lg leading-6'>
-          <span className='text-gold font-teko text-[30px] leading-7 pb-1'>Resources</span>
-          <span>Help Center</span>
-          <span>About Us</span>
-          <span>Terms & Conditions</span>
-          <span>Privacy Policy</span>
-        </div>
-      </div>
-      <div className='hidden lg:flex flex-col pt-16'>
-        <div className='flex flex-row px-[250px] py-5 justify-between items-center'>
-          <span className='text-gold font-sfui font-semibold text-2xl leading-7'>
-            Subscribe for News, Updates and Articles
-          </span>
-          <div className='footer-image-container'>
-            <img src={GoldArrow} alt='arrow' className='footer-image' />
-            <div className='footer-shine'></div>
-          </div>
-          <div className='flex flex-row p-[2px] border-solid border-2 border-light-text rounded-md w-1/2 items-center'>
-            <input type='email' placeholder='E-mail' className='px-5 py-[14px] border-0 bg-transparent font-sfui text-xl leading-6 placeholder:text-hint-text flex-1' />
-            <button className='bg-base-text rounded-md text-dark-text px-6 py-[18px] text-base leading-4 font-bold font-sfui'>SUBSCRIBE NOW</button>
-          </div>
-        </div>
-      </div>
-      <div className='hidden lg:flex flex-row pt-20 px-48 gap-44 pb-9'>
-        <div className='flex flex-col px-3 gap-8 w-[390px]'>
-          <img src={Logo} alt='logo' className='h-[120px]' />
-          <p className='font-sfui text-2xl text-base-text'>
-            The most secure, transparent and decentralized Taproot asset marketplace. Discover and collect digital artifacts!
-          </p>
-        </div>
-        <div className='flex flex-row flex-1'>
-          <div className='flex flex-col flex-1 mx-auto gap-7 text-2xl'>
-            <span className='text-gold font-teko text-[40px] leading-9 pb-3'>Marketplace</span>
-            <span>All NFTs</span>
-            <span>Collections</span>
-            <span>Launchpad</span>
-            <span>Mint</span>
-          </div>
-          <div className='flex flex-col flex-1 mx-auto gap-7 text-2xl'>
-            <span className='text-gold font-teko text-[40px] leading-9 pb-3'>Resources</span>
-            <span>Help Center</span>
-            <span>About Us</span>
-            <span>Terms & Conditions</span>
-            <span>Privacy Policy</span>
-          </div>
-          <div className='flex flex-col flex-1 gap-8 mx-auto'>
-            <span className='pb-2 text-gold text-[40px] leading-9'>Join Us</span>
-            <div className='flex flex-row items-center text-base-text text-4xl leading-8'>
-              <img src={XIcon} alt='twitter' className='mr-7' />
-              <span className='mr-4'>X</span>
-              <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
+    <div
+      id='footer'
+      className='static bottom-0 left-0 w-full right-0 hidden md:block'
+    >
+      <div id='mainContactFormContainer'>
+        <video id='formVideoContainer' autoPlay playsInline loop muted>
+          <source src={FormLight} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
+        <div id='mainContactForm'>
+          <div id='mainContactForm-logo-container'>
+            <div id='mainContactForm-logo'>
+              <img src={ContactFormBit} id='contactFormBit' alt='bitLogo' />
+              <div>
+                <div className='mainContactForm-con-head'>
+                  <a
+                    target='_blank'
+                    href='https://t.me/+lCxBNCrBuNRiNmZh'
+                    className='telegram__footer relative'
+                  >
+                    <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
+                      Telegram
+                    </span>
+                    <div className='hover__link-telegram absolute bottom-[6px] h-[1px] bg-gold'></div>
+                  </a>
+                  <img
+                    src={FormArrow}
+                    alt='arrowLogo'
+                    className='mainContactForm-head-arrow'
+                  />
+                </div>
+                <div className='mainContactForm-con-head'>
+                  <a
+                    target='_blank'
+                    href='https://twitter.com/TeamDefiGold'
+                    className='x__footer relative'
+                  >
+                    <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
+                      X
+                    </span>
+                    <div className='hover__link-x absolute bottom-[6px] h-[1px] bg-gold'></div>
+                  </a>
+                  <img
+                    src={FormArrow}
+                    alt='arrowLogo'
+                    className='mainContactForm-head-arrow'
+                  />
+                </div>
+              </div>
             </div>
-            <div className='flex flex-row items-center text-base-text text-4xl leading-8'>
-              <img src={TelegramIcon} alt='twitter' className='mr-6' />
-              <span className='mr-4'>Telegram</span>
-              <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-            </div>
-            <div className='flex flex-row items-center text-base-text text-4xl leading-8'>
-              <img src={DiscordIcon} alt='twitter' className='mr-5' />
-              <span className='mr-4'>Discord</span>
-              <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-            </div>
-            <div className='flex flex-row items-center text-base-text text-4xl leading-8'>
-              <img src={MediumIcon} alt='twitter' className='mr-4' />
-              <span className='mr-4'>Medium</span>
-              <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
-            </div>
-            <div className='flex flex-row items-center text-base-text text-4xl leading-8'>
-              <img src={GithubIcon} alt='twitter' className='mr-6' />
-              <span className='mr-4'>Github</span>
-              <a target='_blank' href='#'><img src={LinkIcon} alt='link' className='w-8 h-8'/></a>
+            <div id='mainContactForm-copyRight'>
+              <p className='mainContactForm-copyRight-text font-sfui'>
+                Copyright © 2024 DeFi.Gold. All rights reserved
+              </p>
             </div>
           </div>
+          <div id='mainContactForm-subscribe'>
+            <p className='subscribe-heading pb-[2vh] pt-[2vw] font-sfui'>
+              Subscribe for News, Updates and Articles
+            </p>
+            <form id='subscribeForm' className='subscribeForm'>
+              <input
+                type='email'
+                name='formEmail'
+                required
+                placeholder='E-mail'
+                id='formEmail'
+                className='subscribe-form-input font-sfui'
+              />
+              <input
+                type='submit'
+                value='SUBSCRIBE NOW'
+                className='subscribe-form-button font-sfui'
+              />
+            </form>
+          </div>
+          <div id='mainContactForm-form'>
+            <p className='mainContactForm-form-head font-teko'>
+              You have questions? Contact Us!
+            </p>
+            <p className='mainContactForm-form-text font-sfui'>
+              Our team will be in contact within 1 business day.
+            </p>
+            <form id='myContactForm'>
+              <input
+                type='text'
+                placeholder='Full Name'
+                required
+                id='formName'
+                className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
+              />
+              <input
+                type='email'
+                placeholder='E-mail'
+                required
+                id='formEmail'
+                name='email'
+                className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
+              />
+              <div id='form-message' className='md:mt-[1.5vw]'>
+                <textarea
+                  rows='4'
+                  placeholder='Message (optional)'
+                  className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
+                  id='formMessage'
+                ></textarea>
+                <input
+                  type='submit'
+                  value='SUBMIT'
+                  className='form-button inline font-sfui md:hidden'
+                />
+                <button
+                  id='stagger_button_ani_container_3'
+                  type='submit'
+                  className='stagger_animation_btn form-button hidden font-bold font-sfui md:inline'
+                >
+                  <span className='flex items-center justify-center overflow-hidden md:p-0'>
+                    <p className='stagger_button_3_ani'>S</p>
+                    <p className='stagger_button_3_ani'>U</p>
+                    <p className='stagger_button_3_ani'>B</p>
+                    <p className='stagger_button_3_ani'>M</p>
+                    <p className='stagger_button_3_ani'>I</p>
+                    <p className='stagger_button_3_ani'>T</p>
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <button
+          id='scrollUp'
+          className='absolute bottom-28 right-[5vw] z-10 flex-row md:bottom-24'
+        >
+          <img
+            id='scrollUpArrow'
+            src={ArrowUp}
+            className='h-5 w-5 text-white md:h-6 md:w-6'
+            alt='Scroll up'
+          />
+        </button>
+        <div className='subsribeFormLapContainer'>
+          <div className='subsribe-child f-18 flex items-center justify-between'>
+            <p className='md:text-2xl md:leading-7 text-lg leading-[22px] font-sfui text-gold'>
+              Subscribe for News, Updates and Articles
+            </p>
+            <div className='arrow__container flex gap-x-2'>
+              <HorizontalDirection />
+            </div>
+            <form className='border-1 subscribeForm relative flex w-[45%] items-center rounded-md border-[1px] border-white border-opacity-15 duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'>
+              <input
+                type='email'
+                name='formEmail'
+                id='formEmail'
+                required
+                className='w-full bg-transparent py-[0.65rem] pl-3 font-sfui font-extralight text-white placeholder:font-sfui placeholder:font-extralight placeholder:opacity-45 hover:cursor-pointer'
+                placeholder='E-mail'
+              />
+              <button
+                id='stagger_button_ani_container_4'
+                type='submit'
+                className='stagger_animation_btn absolute right-0.5 w-[35%] content-center rounded-sm bg-white py-[0.63vw] font-sfui text-[16px] font-bold text-[#151515] md:text-[0.83vw] xl:text-[0.83vw]'
+              >
+                <span className='stagger_button_ani_wrapper_4'>
+                  <p className='stagger_button_4_ani'>S</p>
+                  <p className='stagger_button_4_ani'>U</p>
+                  <p className='stagger_button_4_ani'>B</p>
+                  <p className='stagger_button_4_ani'>S</p>
+                  <p className='stagger_button_4_ani'>C</p>
+                  <p className='stagger_button_4_ani'>R</p>
+                  <p className='stagger_button_4_ani'>I</p>
+                  <p className='stagger_button_4_ani'>B</p>
+                  <p className='stagger_button_4_ani'>E</p>
+                  <p className='stagger_button_4_ani ml-2'></p>
+                  <p className='stagger_button_4_ani'>N</p>
+                  <p className='stagger_button_4_ani'>O</p>
+                  <p className='stagger_button_4_ani'>W</p>
+                </span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-      <div className='border-t-[1px] mx-8 lg:mx-[360px]' style={{borderColor: 'rgb(248, 248, 248, 0.1)'}}></div>
-      <span className='text-center text-hint-text text-base leading-5 font-sfui py-5'>
-        Copyright © 2024 DeFi.Gold. All rights reserved
-      </span>
     </div>
   );
 };

@@ -39,7 +39,7 @@ const ArrowLogo = () => {
           <path
             d='M562 0.5H9.53674e-07'
             stroke='#F8F8F8'
-            stroke-dasharray='6 6'
+            strokeDasharray='6 6'
             className='nft__line-horizontal'
           />
         </g>

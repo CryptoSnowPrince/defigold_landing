@@ -3,94 +3,94 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Teko";
+  font-family: 'Teko';
   font-style: normal; /* Light */
   font-weight: 300;
-  src: url("./assets/font/Teko-Light.ttf");
+  src: url('./assets/font/Teko-Light.ttf');
 }
 
 @font-face {
-  font-family: "Teko";
+  font-family: 'Teko';
   font-style: normal; /* Regular */
   font-weight: 400;
-  src: url("./assets/font/Teko-Regular.ttf");
+  src: url('./assets/font/Teko-Regular.ttf');
 }
 
 @font-face {
-  font-family: "Teko";
+  font-family: 'Teko';
   font-style: normal; /* Medium */
   font-weight: 500;
-  src: url("./assets/font/Teko-Medium.ttf");
+  src: url('./assets/font/Teko-Medium.ttf');
 }
 
 @font-face {
-  font-family: "Teko";
+  font-family: 'Teko';
   font-style: normal; /* SemiBold */
   font-weight: 600;
-  src: url("./assets/font/Teko-SemiBold.ttf");
+  src: url('./assets/font/Teko-SemiBold.ttf');
 }
 
 @font-face {
-  font-family: "Teko";
+  font-family: 'Teko';
   font-style: normal; /* Bold */
   font-weight: 700;
-  src: url("./assets/font/Teko-Bold.ttf");
+  src: url('./assets/font/Teko-Bold.ttf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Ultra-Light */
   font-weight: 100;
-  src: url("./assets/font/sf-ui-display-ultralight.otf");
+  src: url('./assets/font/sf-ui-display-ultralight.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Thin */
   font-weight: 200;
-  src: url("./assets/font/sf-ui-display-thin.otf");
+  src: url('./assets/font/sf-ui-display-thin.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Light */
   font-weight: 300;
-  src: url("./assets/font/sf-ui-display-light.otf");
+  src: url('./assets/font/sf-ui-display-light.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Medium */
   font-weight: 500;
-  src: url("./assets/font/sf-ui-display-medium.otf");
+  src: url('./assets/font/sf-ui-display-medium.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* SemiBold */
   font-weight: 600;
-  src: url("./assets/font/sf-ui-display-semibold.otf");
+  src: url('./assets/font/sf-ui-display-semibold.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Bold */
   font-weight: 700;
-  src: url("./assets/font/sf-ui-display-bold.otf");
+  src: url('./assets/font/sf-ui-display-bold.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Heavy */
   font-weight: 800;
-  src: url("./assets/font/sf-ui-display-heavy.otf");
+  src: url('./assets/font/sf-ui-display-heavy.otf');
 }
 
 @font-face {
-  font-family: "SF UI Display";
+  font-family: 'SF UI Display';
   font-style: normal; /* Black */
   font-weight: 900;
-  src: url("./assets/font/sf-ui-display-black.otf");
+  src: url('./assets/font/sf-ui-display-black.otf');
 }
 
 :root {
@@ -296,7 +296,7 @@ li::marker {
     1px -1px 0 white;
   transition-duration: 0.4s;
   font-weight: 500;
-  font-family: "Teko";
+  font-family: 'Teko';
   font-size: 160px;
   line-height: 144px;
   width: fit-content;
@@ -338,5 +338,424 @@ li::marker {
   .globe_container_flame {
     width: 80%;
     height: 60%;
+  }
+}
+
+#mainContactFormContainer {
+  position: relative;
+  overflow: hidden;
+
+  /* background-color: #000; */
+  background-color: #151515;
+  /* border:1px solid red ; */
+}
+
+#formVideoContainer {
+  position: absolute;
+  top: -5.5%;
+  left: -6%;
+  width: 30vw;
+  transform: rotate(-45deg);
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  /* border: 1px solid red; */
+}
+
+#mainContactForm {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  /* background-color: transparent; */
+  padding: 5.2vw 6.25vw 6.9vw 6.25vw;
+  /* opacity: 2.5; */
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  #formVideoContainer {
+    display: none;
+  }
+}
+/* ist div with logo------------ */
+
+#mainContactForm-logo-container {
+  width: 100%;
+}
+
+#mainContactForm-logo {
+  display: flex;
+  flex-direction: column;
+  /* gap:0 */
+  width: 50%;
+  /* border: 1px solid red; */
+}
+
+#contactFormBit {
+  width: 7.08vw;
+  margin-bottom: 3vw;
+}
+
+.mainContactForm-con-head {
+  display: flex;
+  gap: 0.83vw;
+  /* align-items: ; */
+}
+.mainContactForm-head {
+  font-size: 2.6vw;
+  color: #f8f8f8;
+  font-weight: 400;
+  /* border: 1px solid red; */
+}
+.mainContactForm-head-arrow {
+  height: 1.45vw;
+  width: 1.45vw;
+  margin-top: 10px;
+}
+
+#mainContactForm-copyRight {
+  border-top: 1.8px solid #202020;
+  width: 18vw;
+  margin-top: 2vw;
+}
+.mainContactForm-copyRight-text {
+  font-weight: 400;
+  font-size: 0.93vw;
+  color: #646464;
+  margin-top: 1vw;
+}
+
+/* secod div with form --------------- */
+
+#mainContactForm-form {
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContactForm-form-head {
+  color: #f8f8f8;
+  font-weight: 500;
+  font-size: 5.1vw;
+  line-height: 95%;
+}
+.mainContactForm-form-text {
+  font-size: 1.25vw;
+  font-weight: 400;
+  color: #f8f8f8;
+  margin: 0.7vw 0;
+}
+
+#myContactForm {
+  width: 83%;
+}
+#myContactForm input,
+#myContactForm input:focus {
+  width: 100%;
+  margin-top: 1.5vw;
+  background-color: rgba(255, 0, 0, 0);
+  border-radius: 6px;
+  color: #646464;
+  padding: 0.93vw 1.04vw;
+}
+
+#myContactForm input:focus {
+  outline: none !important;
+}
+
+#myContactForm input::placeholder {
+  color: #646464;
+  font-size: 1.04vw;
+}
+#myContactForm textarea::placeholder {
+  color: #646464;
+  font-size: 1.04vw;
+}
+
+#form-message {
+  display: flex;
+  gap: 1vw;
+}
+#form-message textarea:first-child {
+  width: 160%;
+  background-color: rgba(255, 0, 0, 0);
+  border-radius: 6px;
+  color: #646464;
+  padding: 0.93vw 1.04vw;
+  height: 100%;
+}
+
+#form-message textarea:first-child:focus {
+  outline: none !important;
+}
+
+#form-message input:nth-child(2) {
+  /* border: 1px solid red; */
+  color: #000;
+  background-color: #efb325;
+  font-size: 1.04vw;
+  font-weight: 700;
+  border: none;
+}
+
+#mainContactForm-subscribe {
+  display: none;
+}
+
+.subsribeFormLapContainer {
+  padding: 0 13.25vw 3.9vw 6.25vw;
+  position: relative;
+  z-index: 2;
+  background-color: #151515 !important;
+}
+.subsribe-child {
+  border-top: 1px solid #202020;
+  padding-top: 1.5vw;
+}
+
+@media screen and (max-width: 650px) {
+  .subsribeFormLapContainer {
+    display: none;
+  }
+
+  #mainContactForm {
+    flex-direction: column-reverse;
+    padding: 16vw 5.33vw 5.33vw 5.33vw;
+  }
+
+  #mainContactForm-form {
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+
+  .mainContactForm-form-head {
+    font-size: 12.8vw;
+  }
+  .mainContactForm-form-text {
+    font-size: 4.8vw;
+    width: 70%;
+    line-height: 6.24vw;
+  }
+
+  /* form css */
+  #myContactForm {
+    width: 100%;
+    margin-top: 2.66vw;
+  }
+
+  #myContactForm input,
+  #myContactForm input:focus {
+    padding: 4vw 4.8vw !important ;
+    margin-top: 3.2vw;
+  }
+
+  /* #myContactForm input:focus{
+    padding: 15px 18px !important;
+  } */
+
+  #form-message {
+    flex-direction: column;
+  }
+
+  #form-message textarea:first-child {
+    padding: 4vw 4.8vw;
+    height: 34.66vw;
+    width: 100%;
+    margin-top: 3.2vw;
+  }
+
+  #myContactForm input::placeholder {
+    font-size: 4.26vw;
+  }
+  #myContactForm textarea::placeholder {
+    font-size: 4.26vw;
+  }
+
+  #form-message input:nth-child(2) {
+    font-size: 4.26vw;
+    border-radius: 1.06vw;
+  }
+
+  /* bit logo box  */
+  #mainContactForm-logo-container {
+    flex-direction: column;
+  }
+
+  #mainContactForm-logo {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 13.33vw;
+  }
+
+  #contactFormBit {
+    width: 16.8vw;
+    height: 20.26vw;
+
+    /* border: 1px solid red; */
+  }
+
+  .mainContactForm-head {
+    font-size: 8.53vw;
+    margin-right: 2.13vw;
+  }
+  .mainContactForm-head-arrow {
+    width: 4.8vw;
+    height: 4.8vw;
+  }
+
+  #mainContactForm-copyRight {
+    width: 100%;
+    margin-top: 8vw;
+  }
+
+  .mainContactForm-copyRight-text {
+    font-size: 4.26vw;
+    margin-top: 4vw;
+  }
+
+  #mainContactForm-subscribe {
+    display: flex;
+    /* border: 1px solid red; */
+    margin-top: 16vw;
+
+    border-top: 1.8px solid #202020;
+    flex-direction: column;
+  }
+  .subscribe-heading {
+    font-weight: 600;
+    font-size: 4.8vw;
+    color: #efb325;
+    width: 70%;
+    line-height: 5.76vw;
+  }
+
+  #subscribeEmail {
+    margin-top: 5.6vw;
+  }
+
+  #subscribeForm input::placeholder {
+    font-size: 4.26vw;
+    color: #646464;
+  }
+
+  #subscribeForm input,
+  #subscribeForm input:focus {
+    width: 100%;
+
+    border: 1px solid #202020;
+    background-color: rgba(255, 0, 0, 0);
+    border-radius: 6px;
+    color: #646464;
+    padding: 4vw 4.8vw;
+  }
+
+  #subscribeForm input:focus {
+    outline: none !important;
+  }
+
+  #subscribeForm input:nth-child(2) {
+    font-size: 4.26vw;
+    border-radius: 4px;
+    margin-top: 3.73vw;
+    color: #000;
+    background-color: #f8f8f8;
+    font-weight: 700;
+    border: none;
+  }
+}
+
+.stagger_animation_btn {
+  z-index: 100;
+  position: relative;
+  /* white-space: nowrap; */
+}
+
+@media only screen and (max-width: 600px) {
+  .stagger_animation_btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.stagger_button_ani_wrapper_1,
+.stagger_button_ani_wrapper_2,
+.stagger_button_ani_wrapper_4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 0.833vw;
+  font-size: 0.833vw;
+  width: 100%;
+  letter-spacing: normal;
+  /* -webkit-text-size-adjust: 100%; */
+  -webkit-letter-spacing: normal;
+}
+
+@media only screen and (max-width: 768px) {
+  .stagger_button_ani_wrapper_1,
+  .stagger_button_ani_wrapper_2,
+  .stagger_button_ani_wrapper_4 {
+    height: 3.667vw;
+    font-size: 3.667vw;
+  }
+}
+
+#stagger_button_ani_container_2 {
+  border-radius: 0.208vw;
+}
+
+@media only screen and (max-width: 600px) {
+  #stagger_button_ani_container_2 {
+    padding: 10px;
+    letter-spacing: -1px !important;
+    -webkit-text-size-adjust: 100%;
+    -webkit-letter-spacing: normal;
+    /* margin-top: -0.75vw !important; */
+  }
+}
+
+#stagger_button_ani_container_3 {
+  background-color: #efb325;
+  width: 100%;
+  /* height: 100%; */
+  color: var(--dark-text);
+  /* margin-top: 3vh; */
+  border-radius: 5px !important;
+}
+
+.stagger_animation_btn span {
+  color: var(--medium-black);
+}
+
+.stagger_animation_btn span p {
+  font-family: 'SF UI Display Bold';
+}
+
+@media only screen and (max-width: 600px) {
+  #stagger_button_ani_container_3 {
+    margin-top: 1.5vw;
+  }
+
+  #stagger_button_ani_container_3 span {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+}
+
+.stagger_button_1_ani,
+.stagger_button_2_ani,
+.stagger_button_3_ani,
+.stagger_button_4_ani {
+  text-shadow: 0 1.33vw 0px #151515;
+}
+
+@media only screen and (max-width: 768px) {
+  .stagger_button_1_ani,
+  .stagger_button_2_ani,
+  .stagger_button_3_ani,
+  .stagger_button_4_ani {
+    text-shadow: 0 3.883vw 0px #151515;
   }
 }
