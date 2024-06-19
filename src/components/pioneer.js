@@ -67,7 +67,7 @@ const Pioneer = () => {
           </div>
         </div>
       </div>
-      <div className='md:hidden flex flex-col relative bg-gold h-screen'>
+      <div className='md:hidden flex flex-col relative bg-gold h-screen w-screen'>
         <div className='absolute top-0 right-0' style={{ perspective: 1000 }}>
           <img
             className='w-[120px] h-[120px]'

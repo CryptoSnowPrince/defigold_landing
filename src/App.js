@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import Header from "./components/header";
-import ProgressBar from "./components/progressbar";
-import Welcome from "./components/welcome";
-import Summary from "./components/summary";
-import Pioneer from "./components/pioneer";
+import { useEffect, useState } from 'react';
+import './App.css';
+import Header from './components/header';
+import ProgressBar from './components/progressbar';
+import Welcome from './components/welcome';
+import Summary from './components/summary';
+import Pioneer from './components/pioneer';
+import Features from './components/features';
+import MarketPlace from './components/marketplace';
+import Launchpad from './components/launchpad';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -14,10 +17,6 @@ function App() {
   const modifyNavbarStatus = () => {
     setShowNavbar(!showNavbar);
   };
-
-  useEffect(() => {
-    console.log(showNavbar);
-  }, [showNavbar]);
 
   useEffect(() => {
     const resources = [...document.images];
@@ -37,8 +36,8 @@ function App() {
       if (img.complete) {
         updateProgress();
       } else {
-        img.addEventListener("load", updateProgress);
-        img.addEventListener("error", updateProgress); // Consider resource loaded even on error
+        img.addEventListener('load', updateProgress);
+        img.addEventListener('error', updateProgress); // Consider resource loaded even on error
       }
     });
 
@@ -54,14 +53,17 @@ function App() {
   }
 
   return (
-    <div className="relative">
-      <div className="flex flex-col items-start w-screen">
+    <div className='relative'>
+      <div className='flex flex-col items-start w-screen'>
         <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
         {!showNavbar && (
           <>
             <Welcome />
             <Summary />
             <Pioneer />
+            <Features />
+            <MarketPlace />
+            <Launchpad />
           </>
         )}
       </div>
