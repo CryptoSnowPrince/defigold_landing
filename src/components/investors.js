@@ -146,7 +146,7 @@ const Investors = () => {
       >
         {investor_list.map((investor, index) => {
           return (
-            <SwiperSlide className='swiper-slide invester-slide'>
+            <SwiperSlide key={index} className='swiper-slide invester-slide'>
               <div className='image-container'>
                 <img src={investor.avatar} alt='investor-img' />
               </div>
