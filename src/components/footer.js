@@ -44,6 +44,8 @@ const Footer = () => {
 
     const telegramFooter = document.querySelector('.telegram__footer');
     const xFooter = document.querySelector('.x__footer');
+    const mediumFooter = document.querySelector('.medium__footer');
+    const zealyFooter = document.querySelector('.zealy__footer');
 
     const telegramTween = gsap.to('.hover__link-telegram', {
       width: '100%',
@@ -55,6 +57,16 @@ const Footer = () => {
       duration: 0.3,
       paused: true,
     });
+    const mediumTween = gsap.to('.hover__link-medium', {
+      width: '100%',
+      duration: 0.4,
+      paused: true,
+    });
+    const zealyTween = gsap.to('.hover__link-zealy', {
+      width: '100%',
+      duration: 0.4,
+      paused: true,
+    });
 
     telegramFooter.addEventListener('mouseover', () => telegramTween.play());
     telegramFooter.addEventListener('mouseleave', () =>
@@ -62,6 +74,10 @@ const Footer = () => {
     );
     xFooter.addEventListener('mouseover', () => xTween.play());
     xFooter.addEventListener('mouseleave', () => xTween.reverse());
+    mediumFooter.addEventListener('mouseover', () => mediumTween.play());
+    mediumFooter.addEventListener('mouseleave', () => mediumTween.reverse());
+    zealyFooter.addEventListener('mouseover', () => zealyTween.play());
+    zealyFooter.addEventListener('mouseleave', () => zealyTween.reverse());
 
     const scrollUpButton = document.getElementById('scrollUp');
     scrollUpButton.addEventListener('click', () => {
@@ -206,6 +222,40 @@ const Footer = () => {
                       X
                     </span>
                     <div className='hover__link-x absolute bottom-[6px] h-[1px] bg-gold'></div>
+                  </a>
+                  <img
+                    src={FormArrow}
+                    alt='arrowLogo'
+                    className='mainContactForm-head-arrow'
+                  />
+                </div>
+                <div className='mainContactForm-con-head'>
+                  <a
+                    target='_blank'
+                    href='https://t.me/+lCxBNCrBuNRiNmZh'
+                    className='medium__footer relative'
+                  >
+                    <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
+                      Medium
+                    </span>
+                    <div className='hover__link-medium absolute bottom-[6px] h-[1px] bg-gold'></div>
+                  </a>
+                  <img
+                    src={FormArrow}
+                    alt='arrowLogo'
+                    className='mainContactForm-head-arrow'
+                  />
+                </div>
+                <div className='mainContactForm-con-head'>
+                  <a
+                    target='_blank'
+                    href='https://t.me/+lCxBNCrBuNRiNmZh'
+                    className='zealy__footer relative'
+                  >
+                    <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
+                      Zealy
+                    </span>
+                    <div className='hover__link-zealy absolute bottom-[6px] h-[1px] bg-gold'></div>
                   </a>
                   <img
                     src={FormArrow}
