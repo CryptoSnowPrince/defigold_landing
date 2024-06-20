@@ -150,7 +150,7 @@ const Investors = () => {
               <div className='image-container'>
                 <img src={investor.avatar} alt='investor-img' />
               </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 text-[32px] leading-7 md:text-[50px] md:leading-[45px] text-dark-text py-2 '>
+              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 text-[32px] leading-7 md:text-[34px] md:leading-7 xl:text-[50px] xl:leading-[45px] text-dark-text py-2 '>
                 <p>{investor.name}</p>
               </div>
             </SwiperSlide>

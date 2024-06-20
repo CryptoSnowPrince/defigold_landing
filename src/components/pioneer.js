@@ -18,7 +18,7 @@ const Pioneer = () => {
 
   return (
     <>
-      <div className='hidden md:flex flex-col h-screen w-screen bg-gold px-5 md:px-32 lg:px-[250px] sm:pt-[100px]'>
+      <div className='hidden md:flex flex-col h-screen md:h-full xl:h-screen w-screen bg-gold px-5 md:px-8 lg:px-16 xl:px-[250px] sm:pt-[100px]'>
         <h1 className='font-medium text-[98px] pb-20 leading-[88px] text-center sm:w-[50vw] mx-auto text-dark-text'>
           Pioneering on Bitcoin's Blockchain
         </h1>
@@ -78,7 +78,7 @@ const Pioneer = () => {
           />
         </div>
         <div className='flex flex-col pt-[85px] px-5 gap-5'>
-          <h1 className='pb-2.5 text-dark-text font-medium text-5xl leading-[43px]'>
+          <h1 className='pb-2.5 text-dark-text font-medium md:text-3xl md:leading-6 xl:text-5xl xl:leading-[43px] '>
             Pioneering on
             <br />
             Bitcoin's Blockchain

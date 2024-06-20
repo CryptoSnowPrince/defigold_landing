@@ -114,7 +114,7 @@ const Features = () => {
         <div className='steps h-[78px] w-[100vw] bg-[#EFB325]'></div>
         <div className='steps h-[78px] w-[75vw] bg-[#EFB325]'></div>
       </div>
-      <div className='relative flex flex-col w-screen'>
+      <div className='relative flex flex-col w-screen xl:h-screen md:h-full h-screen'>
         <div className='hidden md:flex flex-col w-1/2 mx-auto pt-36 lg:pt-52 gap-5'>
           <h1 className='text-center text-base-text text-[64px] leading-[56px] lg:text-[98px] lg:leading-[88px]'>
             A Unified DEX for All Bitcoin Assets

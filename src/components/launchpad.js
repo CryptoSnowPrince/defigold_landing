@@ -27,14 +27,14 @@ const Launchpad = () => {
   }, []);
 
   return (
-    <section className='runes relative flex w-screen flex-col items-center overflow-hidden px-5 md:h-screen md:flex-row md:px-5 xl:h-screen xl:flex-row xl:px-0'>
+    <section className='runes relative flex w-screen flex-col items-center overflow-hidden h-fit px-5 md:flex-row md:px-5 xl:h-screen xl:flex-row xl:px-0'>
       <div className='flex w-[100%] flex-col justify-end md:h-[70%] md:w-[40%] md:flex-row xl:h-[70%] xl:w-[40%] xl:flex-row'>
         <h3 className='font-teko text-[12.8vw] font-medium leading-[43.2px] text-white md:hidden md:text-[5.10vw] md:leading-[100%] xl:hidden'>
           The <span className='text-gold'>DeFi.Gold</span> Runes <br />
           Launchpad
         </h3>
 
-        <div className='launchpadMonkey m:w-[70%] my:mt-0 my-5 h-full w-[100%] xl:my-0 xl:w-[70%]'>
+        <div className='launchpadMonkey m:w-[70%] my:mt-0 my-5 h-[50vw] w-[100%] xl:my-0 xl:w-[70%]'>
           <div className='background-overlay'></div>
           <img
             className='fallingStars m-auto h-[75vw] w-[56vw] md:m-0 md:h-[40vw] md:w-[27vw] xl:h-[28vw] xl:w-[19vw]'

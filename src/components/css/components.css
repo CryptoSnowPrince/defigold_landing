@@ -72,7 +72,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   background-color: var(--primary);
   border: none !important;
 }
@@ -93,7 +93,7 @@
   /* border: 1px solid red ; */
   position: absolute;
   mix-blend-mode: screen !important;
-  top: 10vw;
+  top: 15vw;
   rotate: 90deg;
   filter: sepia(100%) hue-rotate(1105deg) brightness(0.2);
   opacity: 0.6;
