@@ -4,8 +4,8 @@ import heroImage from '../assets/img/hero.webp';
 
 const Welcome = () => {
   return (
-    <div className='flex flex-col items-center overflow-x-hidden mx-auto h-[calc(100vh - 62px)] sm:h-[calc(100vh - 92px)]'>
-      <div className='relative mt-[58px] sm:mt-[-20px]'>
+    <div className='flex flex-col items-center z-10 overflow-x-hidden mx-auto h-[calc(100vh - 62px)] sm:h-[calc(100vh - 92px)]'>
+      <div className='relative max-sm:mt-[58px]'>
         <video
           className='globe_container_flame'
           autoPlay

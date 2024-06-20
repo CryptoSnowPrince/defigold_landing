@@ -157,26 +157,26 @@ const Investors = () => {
           );
         })}
       </Swiper>
-      <div class='z-99 mt-6 flex justify-center 2xl:mt-12'>
-        <div class='mr-[20vw] hidden items-center justify-center gap-2.5 md:flex lg:mr-[14vw]'>
+      <div className='z-99 mt-6 flex justify-center 2xl:mt-12'>
+        <div className='mr-[20vw] hidden items-center justify-center gap-2.5 md:flex lg:mr-[14vw]'>
           <button
             id='prevSlide'
-            class='flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 transition-all delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
+            className='flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 transition-all delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
           >
             <img src={prevImg} alt='prev-slide' />
           </button>
           <button
             id='nextSlide'
-            class='ttransition-all flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
+            className='ttransition-all flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
           >
             <img src={nextImg} alt='next-slide' />
           </button>
         </div>
 
-        <div class='absolute left-1 pl-6 md:left-1/2 lg:pl-0'>
+        <div className='absolute left-1 pl-6 md:left-1/2 lg:pl-0'>
           <img src={upPointer} alt='' />
 
-          <p class='invester-text w-[95%] text-left font-sfui text-[4.27vw] leading-6 text-white md:text-[0.93vw] md:leading-[1.3vw] md:w-[35vw]'></p>
+          <p className='invester-text w-[95%] text-left font-sfui text-[4.27vw] leading-6 text-white md:text-[0.93vw] md:leading-[1.3vw] md:w-[35vw]'></p>
         </div>
       </div>
       <div className='pb-20 pt-[95vw] md:pl-[15vw] md:pt-[5vw]'>
