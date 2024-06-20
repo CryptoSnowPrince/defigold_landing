@@ -107,7 +107,7 @@ const Features = () => {
     };
   }, []);
   return (
-    <div className='flex flex-col h-screen md:h-full relative'>
+    <div className='flex flex-col h-screen md:h-full relative overflow-x-hidden'>
       <div className='yellow-stairs absolute left-0 top-[0%] z-[99] hidden w-full flex-col overflow-hidden bg-transparent md:flex'>
         <div className='steps h-[78px] w-[150vw] bg-[#EFB325]'></div>
         <div className='steps h-[78px] w-[125vw] bg-[#EFB325]'></div>
@@ -158,8 +158,8 @@ const Features = () => {
             </div>
           </div>
           <div className='feature-container'>
-            <div className='feature-slider'>
-              <div className='info absolute top-[40%] flex w-full flex-col items-center gap-3 md:top-[35%]'>
+            <div className='feature-slider overflow-hidden'>
+              <div className='info absolute top-[40%] overflow-hidden flex w-full flex-col items-center gap-3 md:top-[35%]'>
                 <div className='w-fit'>
                   <p className='flex gap-1 font-sf text-base font-bold uppercase leading-4 text-white'>
                     Feature <span id='currentSlide'>{currentFeature}</span> of{' '}
@@ -212,7 +212,7 @@ const Features = () => {
                 </button>
               </div>
               <div
-                className='features__container flex h-full w-[400vw] translate-x-0 md:w-[200vw] md:translate-y-4 translate-y-12'
+                className='features__container overflow-x-hidden flex h-full w-[400vw] translate-x-0 md:w-[200vw] md:translate-y-4 translate-y-12'
                 ref={featuresContainerRef}
               >
                 {featureTitles.map((title, index) => (
@@ -223,7 +223,7 @@ const Features = () => {
                     }`}
                   >
                     <h4
-                      className={`md:text-[98px] md:leading-[88px] text-[48px] leading-[43px] feature-${
+                      className={`md:text[65px] md:leading-[56px] xl:text-[98px] xl:leading-[88px] text-[48px] leading-[43px] feature-${
                         index + 1
                       }__main mt-7 font-teko font-medium text-white ${
                         currentFeature === index + 1

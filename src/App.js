@@ -10,6 +10,7 @@ import MarketPlace from './components/marketplace';
 import Launchpad from './components/launchpad';
 import Presentation from './components/presentation';
 import Footer from './components/footer';
+import Investors from './components/investors';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -56,7 +57,7 @@ function App() {
 
   return (
     <div className='relative'>
-      <div className='flex flex-col items-start w-screen'>
+      <div className='flex flex-col items-start w-screen overflow-x-hidden'>
         <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
         {!showNavbar && (
           <>
@@ -67,6 +68,7 @@ function App() {
             <MarketPlace />
             <Launchpad />
             <Presentation />
+            <Investors />
             <Footer />
           </>
         )}
