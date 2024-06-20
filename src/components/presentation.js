@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -46,387 +46,278 @@ const investorTexts = [
 ];
 
 const Presentation = () => {
+  const stepsRef = useRef([]);
   useEffect(() => {
-    // Register ScrollTrigger with GSAP
-    gsap.registerPlugin(ScrollTrigger);
+    const btn1Container = document.getElementById(
+      'stagger_button_ani_container_1'
+    );
+    const mobileBreakpoint = 768; //in px
+    const tl1 = gsap.timeline({ paused: true });
+    const button1Eles1 = gsap.utils.toArray(
+      document.querySelectorAll('.stagger_button_1_ani')
+    );
+
+    if (window.innerWidth <= mobileBreakpoint) {
+      button1Eles1.reverse().forEach((ele, incex) => {
+        tl1.fromTo(
+          ele,
+          {
+            y: 0,
+          },
+          {
+            y: '-3.667vw',
+            duration: 0.225,
+            ease: 'power1.inOut',
+          },
+          '-=0.22125'
+        );
+      });
+    } else {
+      button1Eles1.reverse().forEach((ele, incex) => {
+        tl1.fromTo(
+          ele,
+          {
+            y: 0,
+          },
+          {
+            y: '-1.33vw',
+            duration: 0.225,
+            ease: 'power1.inOut',
+          },
+          '-=0.22125'
+        );
+      });
+    }
+
+    btn1Container.addEventListener('mouseenter', (e) => {
+      tl1.play();
+    });
+
+    btn1Container.addEventListener('mouseleave', (e) => {
+      tl1.reverse();
+    });
 
     // GSAP Timeline for animations
-    const investerTimeline = gsap.timeline({
+    // const investerTimeline = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: '#presetation_section',
+    //     start: '-25% top',
+    //     endTrigger: '.stairs',
+    //     end: '90% bottom',
+    //     timeScale: 0.2,
+    //     scrub: 1, // Smooth animation
+    //   },
+    // });
+
+    // Add animations with labels
+    // investerTimeline
+    //   .addLabel('bgStart')
+    //   .fromTo(
+    //     '.slide-up',
+    //     { y: '50%', opacity: 0 },
+    //     { y: '10%', opacity: 1, duration: 2, ease: 'slow(0.7, 0.7)' },
+    //     'start'
+    //   )
+    //   .fromTo(
+    //     '.leftRectangle',
+    //     { x: '-50%', opacity: 0 },
+    //     { x: 0, duration: 1, opacity: 1 },
+    //     'start'
+    //   )
+    //   .fromTo(
+    //     '.rightRectangle',
+    //     { x: '50%', opacity: 0 },
+    //     { x: 0, duration: 1, opacity: 1 },
+    //     'start'
+    //   )
+    //   .addPause()
+    //   .addLabel('stairsStartgrey')
+    //   .to('.step-i', { x: '50vw', ease: 'power2.inOut', duration: 3 })
+    //   .addLabel('stairsMidgrey')
+    //   .to('.step-i', {
+    //     x: '0vw',
+    //     ease: 'power2.inOut',
+    //     duration: 3,
+    //     onComplete: () => {
+    //       console.log('completed');
+    //       // Snap to the section class on timeline completion
+    //       gsap.to(window, {
+    //         scrollTo: {
+    //           y: '.stairs',
+    //           offsetY: 0, // Adjust the offset as needed
+    //           autoKill: true,
+    //         },
+    //         duration: 1,
+    //         ease: 'power1.inOut',
+    //       });
+    //     },
+    //   })
+    //   .addLabel('stairsEndgrey');
+    const presentation = gsap.timeline({
       scrollTrigger: {
-        trigger: '#presentation_section',
+        trigger: '#presetation_section',
         start: '-25% top',
         endTrigger: '.stairs',
         end: '90% bottom',
-        scrub: 1, // Smooth animation
+        timeScale: 0.2,
+        scrub: 1,
       },
     });
-
-    // Add animations with labels
-    investerTimeline
-      .addLabel('bgStart')
-      .fromTo(
-        '.slide-up',
-        { y: '50%', opacity: 0 },
-        { y: '10%', opacity: 1, duration: 2, ease: 'slow(0.7, 0.7)' },
-        'start'
-      )
-      .fromTo(
-        '.leftRectangle',
-        { x: '-50%', opacity: 0 },
-        { x: 0, duration: 1, opacity: 1 },
-        'start'
-      )
-      .fromTo(
-        '.rightRectangle',
-        { x: '50%', opacity: 0 },
-        { x: 0, duration: 1, opacity: 1 },
-        'start'
-      )
-      .addPause()
-      .addLabel('stairsStartgrey')
-      .to('.step-i', { x: '50vw', ease: 'power2.inOut', duration: 3 })
-      .addLabel('stairsMidgrey')
-      .to('.step-i', {
-        x: '0vw',
-        ease: 'power2.inOut',
-        duration: 3,
-        onComplete: () => {
-          console.log('completed');
-          // Snap to the section class on timeline completion
-          gsap.to(window, {
-            scrollTo: {
-              y: '.stairs',
-              behavior: 'smooth',
-              offsetY: 0, // Adjust the offset as needed
-              autoKill: true,
-            },
-            duration: 1,
-            ease: 'power1.inOut',
-          });
-        },
-      })
-      .addLabel('stairsEndgrey');
-
-    // Initialize Swiper instance
-    new Swiper('.mySwiper', {
-      modules: [Navigation, Pagination],
-      spaceBetween: 20,
-      slidesPerView: 1.2,
-      centeredSlides: true,
-      loop: true,
-      freeMode: false,
-      mousewheel: false,
-      navigation: {
-        nextEl: '#nextSlide',
-        prevEl: '#prevSlide',
-      },
-      breakpoints: {
-        600: {
-          slidesPerView: 3,
-          spaceBetween: 110,
-          centeredSlides: true,
-        },
-        920: {
-          slidesPerView: 5,
-          spaceBetween: 110,
-          centeredSlides: true,
-        },
-        1600: {
-          slidesPerView: 5,
-          spaceBetween: 110,
-          centeredSlides: true,
-        },
-      },
-      on: {
-        slideChange: function () {
-          let timeout;
-          if (timeout) {
-            clearTimeout(timeout);
-          }
-          var classesToRemove = ['slide-next', 'slide-prev'];
-          var investorText = document.querySelector('.invester-text');
-          classesToRemove.forEach((cls) => investorText.classList.remove(cls));
-
-          // Determine swipe direction
-          if (this.activeIndex < this.previousIndex) {
-            this.swipeDirection = 'prev';
-          } else {
-            this.swipeDirection = 'next';
-          }
-
-          // Timeout for animation throttling
-          timeout = setTimeout(() => {
-            var currentIndex = this.realIndex;
-            investorText.textContent = investorTexts[currentIndex];
-            investorText.classList.add(`slide-${this.swipeDirection}`);
-          }, 100);
-        },
-      },
+    presentation.fromTo(
+      '.slide-up',
+      { y: '50%', opacity: 0 },
+      { y: '10%', opacity: 1, duration: 2, ease: 'slow(0.7, 0.7)' }
+    );
+    presentation.fromTo(
+      '.leftRectangle',
+      { x: '-50%', opacity: 0 },
+      { x: 0, duration: 1, opacity: 1 }
+    );
+    presentation.fromTo(
+      '.rightRectangle',
+      { x: '50%', opacity: 0 },
+      { x: 0, duration: 1, opacity: 1 }
+    );
+    const steps = stepsRef.current;
+    steps.forEach((step, index) => {
+      gsap.fromTo(
+        step,
+        { x: '50%', ease: 'power2.inOut', duration: 3 },
+        {
+          x: '0%',
+          scrollTrigger: {
+            trigger: step,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        }
+      );
     });
   }, []);
 
   return (
-    <>
-      <section
-        id='presetation_section'
-        className='presentation relative overflow-hidden'
-      >
-        <div className='handSection relative bg-[#151515] px-[20px] pt-[60px] md:pb-[8vw] md:pl-[13.02vw] md:pr-[13.02vw] md:pt-[7.65vw]'>
-          <p className='w-[100%] font-teko text-[48px] font-medium leading-[43.2px] text-[#F8F8F8] md:w-[48.95vw] md:text-[5.1vw] md:leading-[4.58vw] xl:w-[48.95vw] xl:text-[5.1vw] xl:leading-[4.58vw]'>
-            Become part of the{' '}
-            <span className='text-[#d7a223]'>revolution with DeFi.Gold</span>
-          </p>
-          <div className='mt-4 flex flex-col-reverse md:-ml-[4.5vw] md:-mt-[3.5vw] md:flex-row'>
-            <div className='leftRectangle absolute bottom-[5%] left-0 z-[1]'>
-              <img
-                className='md:w-[54.39vw] xl:w-[54.39vw]'
-                src={rectLeft}
-                alt=''
-              />
+    <section
+      id='presetation_section'
+      className='presentation relative overflow-hidden'
+    >
+      <div className='handSection relative bg-[#151515] px-[20px] pt-[60px] md:pb-[8vw] md:pl-[13.02vw] md:pr-[13.02vw] md:pt-[7.65vw]'>
+        <p className='w-[100%] font-teko text-[48px] font-medium leading-[43.2px] text-[#F8F8F8] md:w-[48.95vw] md:text-[5.1vw] md:leading-[4.58vw] xl:w-[48.95vw] xl:text-[5.1vw] xl:leading-[4.58vw]'>
+          Become part of the{' '}
+          <span className='text-[#d7a223]'>revolution with DeFi.Gold</span>
+        </p>
+        <div className='mt-4 flex flex-col-reverse md:-ml-[4.5vw] md:-mt-[3.5vw] md:flex-row'>
+          <div className='leftRectangle absolute bottom-[5%] left-0 z-[1]'>
+            <img
+              className='md:w-[54.39vw] xl:w-[54.39vw]'
+              src={rectLeft}
+              alt=''
+            />
+          </div>
+          <div className='rightRectangle absolute bottom-0 right-0'>
+            <img
+              className='md:w-[38.39vw] xl:w-[38.39vw]'
+              src={rectRight}
+              alt=''
+            />
+          </div>
+          <div className='phoneRectangle absolute bottom-0 right-0 z-[9] md:hidden xl:hidden'>
+            <img className='w-[100%]' src={reactPhone} alt='' />
+          </div>
+          <div className='phoneRectangle z-[9] mt-[-100px] md:hidden xl:hidden'>
+            <img className='w-[100%]' src={hand} alt='' />
+          </div>
+          <div className='slide-up hidden md:inline'>
+            <img
+              className='md:height-[100%] md:w-[100%]'
+              src={handHold}
+              alt='hand'
+            />
+          </div>
+          <div className='flex flex-col'>
+            <div className='z-[1] md:mt-[6vw]'>
+              <p className='text__hand w-[100%] font-sfui text-[18px] font-normal leading-[23.4px] text-[#F8F8F8] md:w-[45.14vw] md:text-[1.75vw] md:leading-[2.125vw] xl:w-[45.14vw] xl:text-[1.25vw] xl:leading-[1.625vw]'>
+                As the trailblazer in the DEX and NFT marketplace on the Bitcoin
+                blockchain, we're not just setting trends; we're creating a
+                whole new playground for decentralized finance.
+                <br />
+                Whether you're into NFTs, tokens, DAOs, or derivatives, there's
+                something here for everyone. With our cutting-edge technology
+                and a vision for the future, now is the perfect time for
+                investors who want to ride the wave of innovation.
+                <br />
+                <br />
+                <span className='text-[#EFB325]'>
+                  Don't miss out on this unique opportunity to be at the
+                  forefront of blockchain evolution with DeFi.Gold. Join us and
+                  let's redefine the digital marketplace together!
+                </span>
+              </p>
             </div>
-            <div className='rightRectangle absolute bottom-0 right-0'>
-              <img
-                className='md:w-[38.39vw] xl:w-[38.39vw]'
-                src={rectRight}
-                alt=''
-              />
-            </div>
-            <div className='phoneRectangle absolute bottom-0 right-0 z-[9] md:hidden xl:hidden'>
-              <img className='w-[100%]' src={reactPhone} alt='' />
-            </div>
-            <div className='phoneRectangle z-[9] mt-[-100px] md:hidden xl:hidden'>
-              <img className='w-[100%]' src={hand} alt='' />
-            </div>
-            <div className='slide-up hidden md:inline'>
-              <img
-                className='md:height-[100%] md:w-[100%]'
-                src={handHold}
-                alt='hand'
-              />
-            </div>
-            <div className='flex flex-col'>
-              <div className='z-[1] md:mt-[6vw]'>
-                <p className='text__hand w-[100%] font-sf text-[18px] font-normal leading-[23.4px] text-[#F8F8F8] md:w-[45.14vw] md:text-[1.75vw] md:leading-[2.125vw] xl:w-[45.14vw] xl:text-[1.25vw] xl:leading-[1.625vw]'>
-                  As the trailblazer in the DEX and NFT marketplace on the
-                  Bitcoin blockchain, we're not just setting trends; we're
-                  creating a whole new playground for decentralized finance.
-                  <br />
-                  Whether you're into NFTs, tokens, DAOs, or derivatives,
-                  there's something here for everyone. With our cutting-edge
-                  technology and a vision for the future, now is the perfect
-                  time for investors who want to ride the wave of innovation.
-                  <br />
-                  <br />
-                  <span className='text-[#EFB325]'>
-                    Don't miss out on this unique opportunity to be at the
-                    forefront of blockchain evolution with DeFi.Gold. Join us
-                    and let's redefine the digital marketplace together!
-                  </span>
-                </p>
-              </div>
 
-              <div className='button-container z-[10]'>
-                <a
-                  target='_blank'
-                  href='https://docsend.com/view/ucfgjceckmzkt2yc'
+            <div className='button-container z-[10]'>
+              <a
+                target='_blank'
+                href='https://docsend.com/view/ucfgjceckmzkt2yc'
+              >
+                <button
+                  id='stagger_button_ani_container_1'
+                  className='stagger_animation_btn mt-8 w-[100%] rounded bg-[#efb325] py-[14px] md:mt-[3vw] md:w-[19.38vw] md:py-[1.75vw] text-dark-text'
                 >
-                  <button
-                    id='stagger_button_ani_container_1'
-                    className='stagger_animation_btn mt-8 w-[100%] rounded bg-[#efb325] py-[14px] md:mt-[3vw] md:w-[19.38vw] md:py-[1.75vw]'
-                  >
-                    <span className='stagger_button_ani_wrapper_1 hidden items-center justify-center overflow-hidden font-sf text-[16px] font-bold text-[#151515] md:text-[10px] xl:flex xl:text-[1.04vw]'>
-                      <p className='stagger_button_1_ani'>V</p>
-                      <p className='stagger_button_1_ani'>I</p>
-                      <p className='stagger_button_1_ani'>E</p>
-                      <p className='stagger_button_1_ani'>W</p>
-                      <p className='stagger_button_1_ani ml-1'>P</p>
-                      <p className='stagger_button_1_ani'>R</p>
-                      <p className='stagger_button_1_ani'>E</p>
-                      <p className='stagger_button_1_ani'>S</p>
-                      <p className='stagger_button_1_ani'>E</p>
-                      <p className='stagger_button_1_ani'>N</p>
-                      <p className='stagger_button_1_ani'>T</p>
-                      <p className='stagger_button_1_ani'>A</p>
-                      <p className='stagger_button_1_ani'>T</p>
-                      <p className='stagger_button_1_ani'>I</p>
-                      <p className='stagger_button_1_ani'>O</p>
-                      <p className='stagger_button_1_ani'>N</p>
-                    </span>
-                    <span className='stagger_button_ani_wrapper_1 flex items-center justify-center overflow-hidden font-sf text-[16px] font-bold text-[#151515] md:text-[10px] xl:hidden xl:text-[1.04vw]'>
-                      <p className='stagger_button_1_ani ml-1'>P</p>
-                      <p className='stagger_button_1_ani'>R</p>
-                      <p className='stagger_button_1_ani'>E</p>
-                      <p className='stagger_button_1_ani'>S</p>
-                      <p className='stagger_button_1_ani'>E</p>
-                      <p className='stagger_button_1_ani'>N</p>
-                      <p className='stagger_button_1_ani'>T</p>
-                      <p className='stagger_button_1_ani'>A</p>
-                      <p className='stagger_button_1_ani'>T</p>
-                      <p className='stagger_button_1_ani'>I</p>
-                      <p className='stagger_button_1_ani'>O</p>
-                      <p className='stagger_button_1_ani'>N</p>
-                    </span>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Stairs */}
-        <div className='stairs absolute bottom-[0%] left-0 z-[99] hidden w-full flex-col items-end overflow-hidden bg-transparent md:flex'>
-          <div className='step-i inv-1 h-[5vw] w-[100vw] translate-x-[100%] pl-[30vw]'></div>
-          <div className='step-i inv-1 h-[5vw] w-[115vw] translate-x-[100%] pl-[15vw]'></div>
-          <div className='step-i inv-1 h-[5vw] w-[130vw] translate-x-[100%] pl-[0vw]'></div>
-        </div>
-      </section>
-      <section className='invester-slider inv-1 relative z-[10] bg-cover bg-no-repeat pl-4 pt-[30vw] md:z-[999] md:pt-[0vw]'>
-        <h2 className='absolute top-20 transform text-center font-teko text-[29.3vw] font-medium leading-[90%] text-white md:left-1/2 md:top-[-8vw] md:-translate-x-1/2 md:text-[14.5vw]'>
-          The Team
-        </h2>
-
-        <div className='swiper mySwiper'>
-          <div className='swiper-wrapper'>
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester1} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-[5vw] py-[3vw] font-teko text-[8.53vw] text-[8.53vw] leading-7 text-black-400 md:p-[1vw] md:text-[1.5vw] md:leading-[100%]'>
-                <p>Srjdan Jevdjenovic</p>
-              </div>
-            </div>
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester2} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Walid Benothman</p>
-              </div>
-            </div>
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester3} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Kevin Soltani</p>
-              </div>
-            </div>
-            <div className='swiper-slide invester-slide relative'>
-              <div className='image-container relative'>
-                <img src={Invester4} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Philip Lord</p>
-              </div>
-            </div>
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester5} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Aleksey Mahanov</p>
-              </div>
-            </div>
-
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester6} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Natasha Ingram</p>
-              </div>
-            </div>
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester7} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Coach K</p>
-              </div>
-            </div>
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester8} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Mona Coyle</p>
-              </div>
-            </div>
-
-            <div className='swiper-slide invester-slide'>
-              <div className='image-container'>
-                <img src={Invester9} alt='investor-img' />
-              </div>
-              <div className='text absolute bottom-0 w-full items-center justify-center rounded-b bg-white px-5 py-2 font-teko text-[8.53vw] leading-7 text-black-400 md:text-[1.5vw] md:leading-[100%] lg:pb-2 2xl:py-8'>
-                <p>Mike Koroshun</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='z-99 mt-6 flex justify-center 2xl:mt-12'>
-          <div className='mr-[20vw] hidden items-center justify-center gap-2.5 md:flex lg:mr-[14vw]'>
-            <button
-              id='prevSlide'
-              className='flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 transition-all delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
-            >
-              <img src={prev} className='' alt='prev-slide' />
-            </button>
-            <button
-              id='nextSlide'
-              className='ttransition-all flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
-            >
-              <img src={next} className='' alt='next-slide' />
-            </button>
-          </div>
-
-          <div className='absolute left-1 pl-6 md:left-1/2 lg:pl-0'>
-            <img src={upPointer} className='' alt='' />
-
-            <p className='invester-text max-w-sm text-left font-sf text-[4.27vw] leading-6 text-white md:max-w-2xl md:text-[0.93vw] md:leading-[1.3vw] 2xl:max-w-7xl'></p>
-          </div>
-        </div>
-
-        <div className='pb-20 pt-[95vw] md:pl-[15vw] md:pt-[5vw]'>
-          <h6 className='font-teko text-[12.8vw] font-medium leading-[90%] text-white md:text-[5.1vw]'>
-            Lead Investors
-          </h6>
-
-          <div className='mt-8 flex flex-col items-start gap-4 md:flex-row md:items-center lg:gap-0'>
-            <div className='invester-logo bg-white'>
-              <a target='_blank' href='https://www.bluesphere.earth/'>
-                <img
-                  src={leadInvester1}
-                  className='menu-item'
-                  alt='invester-logo'
-                />
-                <img
-                  src={leadInvester2}
-                  className='menu-item-active'
-                  alt='invester-logo'
-                />
+                  <span className='stagger_button_ani_wrapper_1 items-center justify-center overflow-hidden font-sfui text-[16px] font-bold text-[#151515] hidden md:flex md:text-[10px] xl:text-[1.04vw]'>
+                    <p className='stagger_button_1_ani'>V</p>
+                    <p className='stagger_button_1_ani'>I</p>
+                    <p className='stagger_button_1_ani'>E</p>
+                    <p className='stagger_button_1_ani'>W</p>
+                    <p className='stagger_button_1_ani ml-1'>P</p>
+                    <p className='stagger_button_1_ani'>R</p>
+                    <p className='stagger_button_1_ani'>E</p>
+                    <p className='stagger_button_1_ani'>S</p>
+                    <p className='stagger_button_1_ani'>E</p>
+                    <p className='stagger_button_1_ani'>N</p>
+                    <p className='stagger_button_1_ani'>T</p>
+                    <p className='stagger_button_1_ani'>A</p>
+                    <p className='stagger_button_1_ani'>T</p>
+                    <p className='stagger_button_1_ani'>I</p>
+                    <p className='stagger_button_1_ani'>O</p>
+                    <p className='stagger_button_1_ani'>N</p>
+                  </span>
+                  <span className='stagger_button_ani_wrapper_1 flex md:hidden items-center justify-center overflow-hidden font-sf text-[16px] font-bold text-[#151515] md:text-[10px] xl:text-[1.04vw]'>
+                    <p className='stagger_button_1_ani ml-1'>P</p>
+                    <p className='stagger_button_1_ani'>R</p>
+                    <p className='stagger_button_1_ani'>E</p>
+                    <p className='stagger_button_1_ani'>S</p>
+                    <p className='stagger_button_1_ani'>E</p>
+                    <p className='stagger_button_1_ani'>N</p>
+                    <p className='stagger_button_1_ani'>T</p>
+                    <p className='stagger_button_1_ani'>A</p>
+                    <p className='stagger_button_1_ani'>T</p>
+                    <p className='stagger_button_1_ani'>I</p>
+                    <p className='stagger_button_1_ani'>O</p>
+                    <p className='stagger_button_1_ani'>N</p>
+                  </span>
+                </button>
               </a>
             </div>
-            <div className='invester-logo bg-white lg:ml-5'>
-              <a target='_blank' href='https://www.orthogonalthinker.com/'>
-                <img
-                  src={leadInvester2}
-                  className='menu-item'
-                  alt='invester-logo'
-                />
-
-                <img
-                  src={leadInvester2}
-                  className='menu-item-active'
-                  alt='invester-logo'
-                />
-              </a>
-            </div>
-
-            <div className='line__carousel hidden h-px w-full md:block'></div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+      {/* Stairs */}
+      <div className='stairs absolute bottom-[0%] left-0 z-[99] hidden w-full flex-col items-end overflow-hidden bg-transparent md:flex'>
+        <div
+          className='step-i inv-1 h-[5vw] w-[100vw] translate-x-[50%] pl-[30vw]'
+          ref={(el) => (stepsRef.current[0] = el)}
+        ></div>
+        <div
+          className='step-i inv-1 h-[5vw] w-[115vw] translate-x-[50%] pl-[15vw]'
+          ref={(el) => (stepsRef.current[1] = el)}
+        ></div>
+        <div
+          className='step-i inv-1 h-[5vw] w-[130vw] translate-x-[50%] pl-[0vw]'
+          ref={(el) => (stepsRef.current[2] = el)}
+        ></div>
+      </div>
+    </section>
   );
 };
 

@@ -678,7 +678,17 @@ li::marker {
   }
 }
 
-.stagger_button_ani_wrapper_1,
+.stagger_button_ani_wrapper_1 {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 0.833vw;
+  font-size: 0.833vw;
+  width: 100%;
+  letter-spacing: normal;
+  /* -webkit-text-size-adjust: 100%; */
+  -webkit-letter-spacing: normal;
+}
 .stagger_button_ani_wrapper_2,
 .stagger_button_ani_wrapper_4 {
   display: flex;
@@ -758,4 +768,8 @@ li::marker {
   .stagger_button_4_ani {
     text-shadow: 0 3.883vw 0px #151515;
   }
+}
+
+.step-i {
+  background-image: url('./assets/img/compressed/investors-bg.webp');
 }

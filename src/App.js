@@ -66,7 +66,7 @@ function App() {
             <Features />
             <MarketPlace />
             <Launchpad />
-            {/* <Presentation /> */}
+            <Presentation />
             <Footer />
           </>
         )}
