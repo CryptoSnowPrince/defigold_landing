@@ -249,7 +249,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
-                    href='https://t.me/+lCxBNCrBuNRiNmZh'
+                    href='https://zealy.io/cw/defigoldtoken'
                     className='zealy__footer relative'
                   >
                     <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
