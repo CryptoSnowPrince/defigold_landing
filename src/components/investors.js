@@ -13,6 +13,7 @@ import Invester6 from '../assets/img/invester-6.png';
 import Invester7 from '../assets/img/invester-7.png';
 import Invester8 from '../assets/img/invester-8.png';
 import Invester9 from '../assets/img/invester-9.png';
+// import guideVideo from 'https://londonreal.tv/shidan-gouran-defi-gold-revolutionising-finance-on-the-bitcoin-blockchain/';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/zoom';
@@ -21,6 +22,7 @@ import 'swiper/css/pagination';
 import { Zoom, Navigation, Pagination } from 'swiper/modules';
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import ReactPlayer from 'react-player';
 
 const investor_list = [
   {
@@ -179,41 +181,63 @@ const Investors = () => {
           <p className='invester-text w-[95%] text-left font-sfui text-[4.27vw] leading-6 text-white md:text-[0.93vw] md:leading-[1.3vw] md:w-[35vw]'></p>
         </div>
       </div>
-      <div className='pb-20 pt-[95vw] md:pl-[15vw] md:pt-[5vw]'>
-        <h6 className='font-teko text-[12.8vw] font-medium leading-[90%] text-white md:text-[5.1vw]'>
-          Lead Investors
-        </h6>
+      <div className='pb-20 pt-[95vw] md:pt-[10vw]'>
+        <div className='pr-4 px-auto'>
+          <ReactPlayer
+            url='https://hugh.cdn.rumble.cloud/video/s8/2/4/u/v/r/4uvrs.caa.rec.mp4?u=4&amp;b=0'
+            loop
+            muted
+            controls
+            width='80%'
+            height='80%'
+            style={{ display: 'block', margin: '0 auto 3vw auto' }}
+            config={{
+              file: {
+                attributes: {
+                  poster:
+                    'https://hugh.cdn.rumble.cloud/s/s8/1/4/u/v/r/4uvrs.qR4e-small-Shidan-Gouran-Defi-Gold-Rev.jpg',
+                  preload: 'metadata',
+                },
+              },
+            }}
+          />
+        </div>
+        <div className='md:pl-[15vw]'>
+          <h6 className='font-teko text-[12.8vw] font-medium leading-[90%] text-white md:text-[5.1vw]'>
+            Lead Investors
+          </h6>
 
-        <div className='mt-8 flex flex-col items-start gap-4 md:flex-row md:items-center lg:gap-0'>
-          <div className='invester-logo bg-white'>
-            <a target='_blank' href='https://www.bluesphere.earth/'>
-              <img
-                src={leadInvester1}
-                className='menu-item'
-                alt='invester-logo'
-              />
-              <img
-                src={leadInvester1}
-                className='menu-item-active'
-                alt='invester-logo'
-              />
-            </a>
+          <div className='mt-8 flex flex-col items-start gap-4 md:flex-row md:items-center lg:gap-0'>
+            <div className='invester-logo bg-white'>
+              <a target='_blank' href='https://www.bluesphere.earth/'>
+                <img
+                  src={leadInvester1}
+                  className='menu-item'
+                  alt='invester-logo'
+                />
+                <img
+                  src={leadInvester1}
+                  className='menu-item-active'
+                  alt='invester-logo'
+                />
+              </a>
+            </div>
+            <div className='invester-logo bg-white lg:ml-5'>
+              <a target='_blank' href='https://www.orthogonalthinker.com/'>
+                <img
+                  src={leadInvester2}
+                  className='menu-item'
+                  alt='invester-logo'
+                />
+                <img
+                  src={leadInvester2}
+                  className='menu-item-active'
+                  alt='invester-logo'
+                />
+              </a>
+            </div>
+            <div className='line__carousel hidden h-px w-full md:block'></div>
           </div>
-          <div className='invester-logo bg-white lg:ml-5'>
-            <a target='_blank' href='https://www.orthogonalthinker.com/'>
-              <img
-                src={leadInvester2}
-                className='menu-item'
-                alt='invester-logo'
-              />
-              <img
-                src={leadInvester2}
-                className='menu-item-active'
-                alt='invester-logo'
-              />
-            </a>
-          </div>
-          <div className='line__carousel hidden h-px w-full md:block'></div>
         </div>
       </div>
     </section>
