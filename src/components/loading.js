@@ -8,48 +8,29 @@ const Loading = () => {
   const loadingProgressRef = useRef(null);
 
   useEffect(() => {
-    const lodingProgress = () => loadingProgressRef.current;
     const lodingText = loadingTextRef.current;
     const loding = loadingRef.current;
 
-    const heroTimeline = gsap.timeline({});
-    heroTimeline
-      .to(lodingProgress(), {
-        duration: 0.75,
-        width: '25%',
-        onComplete: () => {
-          lodingText.innerText = '25%';
-        },
-      })
-      .to(lodingProgress(), {
-        duration: 1.25,
-        width: '50%',
-        onComplete: () => {
-          lodingText.innerText = '50%';
-        },
-      })
-      .to(lodingProgress(), {
-        duration: 1.5,
-        width: '75%',
-        onComplete: () => {
-          lodingText.innerText = '75%';
-        },
-      })
-      .to(lodingProgress(), {
-        duration: 2,
-        width: '100%',
-        onComplete: () => {
-          lodingText.innerText = '100%';
-        },
-      })
-      .to(loding, {
-        opacity: 0,
-        duration: 0.5,
-        display: 'none',
-        onComplete: () => {
-          // Add any additional code to run after the loading is complete
-        },
-      });
+    const heroTimeline = gsap.timeline({
+      onComplete: () => {
+        gsap.to(loding, {
+          opacity: 0,
+          duration: 0.5,
+          onComplete: () => {
+            loding.style.display = 'none';
+          },
+        });
+      },
+    });
+
+    heroTimeline.to(loadingProgressRef.current, {
+      duration: 2.5,
+      width: '100%',
+      onUpdate: function () {
+        const progress = Math.round(this.progress() * 100);
+        lodingText.innerText = `${progress}%`;
+      },
+    });
   }, []);
 
   return (

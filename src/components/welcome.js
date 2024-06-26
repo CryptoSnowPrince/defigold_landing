@@ -14,7 +14,7 @@ const Welcome = () => {
         scale: 0.3,
         x: '-60%',
         y: '-30vw',
-        duration: 1.8,
+        duration: 4.5,
         opacity: 0,
         onComplete: () => {
           lenis.start();

@@ -63,9 +63,9 @@ function App() {
     return <ProgressBar progress={progress} />;
   }
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
