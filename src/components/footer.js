@@ -232,7 +232,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
-                    href='https://t.me/+lCxBNCrBuNRiNmZh'
+                    href='https://medium.com/@teamdefi.gold'
                     className='medium__footer relative'
                   >
                     <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
