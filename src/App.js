@@ -12,6 +12,7 @@ import Presentation from './components/presentation';
 import Footer from './components/footer';
 import Investors from './components/investors';
 import Loading from './components/loading';
+import { Loader } from '@react-three/drei';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -67,24 +68,27 @@ function App() {
   // }
 
   return (
-    <div className='relative'>
-      <div className='flex flex-col items-start w-screen overflow-x-hidden'>
-        <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
-        {!showNavbar && (
-          <>
-            <Welcome />
-            <Summary />
-            <Pioneer />
-            <Features />
-            <MarketPlace />
-            <Launchpad />
-            <Presentation />
-            <Investors />
-            <Footer />
-          </>
-        )}
+    <>
+      <div className='relative'>
+        <div className='flex flex-col items-start w-screen overflow-x-hidden'>
+          <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
+          {!showNavbar && (
+            <>
+              <Welcome />
+              <Summary />
+              <Pioneer />
+              <Features />
+              <MarketPlace />
+              <Launchpad />
+              <Presentation />
+              <Investors />
+              <Footer />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+      <Loader />
+    </>
   );
 }
 
