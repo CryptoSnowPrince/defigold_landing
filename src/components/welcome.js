@@ -1,27 +1,29 @@
+import React, { useEffect } from 'react';
 import flameVideo from '../assets/img/flames.mp4';
 import lavaVideo from '../assets/img/lava.mp4';
 import heroImage from '../assets/img/hero.webp';
 import { gsap } from 'gsap';
 import Lenis from 'lenis';
-import { useEffect } from 'react';
 
 const Welcome = () => {
-  const lenis = new Lenis();
   useEffect(() => {
-    gsap.from(
-      '.globe_parent',
-      {
+    const animateGlobe = () => {
+      gsap.from('.globe_parent', {
         scale: 0.3,
         x: '-60%',
         y: '-30vw',
-        duration: 4.5,
-        opacity: 0,
-        onComplete: () => {
-          lenis.start();
-        },
-      },
-      '<'
-    );
+        duration: 2.5,
+        opacity: 1,
+      });
+      gsap.to('.globe_parent', {
+        scale: 1,
+        x: 0,
+        y: 0,
+        duration: 2.5,
+        opacity: 1,
+      });
+    };
+    animateGlobe();
   }, []);
 
   return (
