@@ -13,6 +13,7 @@ import Footer from './components/footer';
 import Investors from './components/investors';
 import Loading from './components/loading';
 import { Loader } from '@react-three/drei';
+import ScrollToTopButton from './components/scroll';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -88,6 +89,7 @@ function App() {
         </div>
       </div>
       <Loader />
+      <ScrollToTopButton />
     </>
   );
 }

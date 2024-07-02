@@ -56,8 +56,8 @@ const Welcome = () => {
         </div>
       </div>
 
-      <div className='z-[10] sm:mx-auto mt-[-70px] sm:mt-[-147px] px-5 gap-2.5 sm:gap-0'>
-        <p className='font-medium text-[74px] leading-[66px] sm:text-[202px] sm:leading-[182px] sm:text-center text-base-text'>
+      <div className='z-[10] sm:mx-auto mt-[-70px] xl:mt-[-147px] px-5 gap-2.5 sm:gap-0'>
+        <p className='font-medium text-[74px] leading-[66px] md:text-6xl xl:text-[202px] xl:leading-[182px] sm:text-center text-base-text'>
           Welcome to <span className='text-gold'>DeFi.Gold</span>
         </p>
         <p className='font-sfui text-[22px] leading-[28px] sm:text-[34px] sm:leading-[44px] sm:text-center'>

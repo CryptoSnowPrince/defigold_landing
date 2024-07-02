@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ContactFormBit from '../assets/img/contactFormAssets/compressed/contactFormBit.webp';
 import FormArrow from '../assets/img/contactFormAssets/formArrow.png';
 import FormLight from '../assets/img/contactFormAssets/compressed/formLight.mp4';
-import ArrowUp from '../assets/img/arrow-up.svg';
 import HorizontalDirection from './horizontaldirection';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,23 +22,6 @@ const Footer = () => {
           contact.classList.add('hidden');
         },
       },
-    });
-    gsap.to('#scrollUpArrow', {
-      scrollTrigger: {
-        trigger: '.swiper-slide',
-        start: '+=300',
-        end: '+=150',
-        scrub: true,
-      },
-      opacity: 1,
-      scale: 1.5,
-    });
-    gsap.to('#scrollUpArrow', {
-      y: -10, // Move up by 10 pixels
-      duration: 0.8, // Duration of each pulse
-      repeat: -1, // Repeat infinitely
-      yoyo: true, // Go back to the original position
-      ease: 'power1.inOut', // Easing function for smooth effect
     });
 
     const telegramFooter = document.querySelector('.telegram__footer');
@@ -79,14 +61,6 @@ const Footer = () => {
     zealyFooter.addEventListener('mouseover', () => zealyTween.play());
     zealyFooter.addEventListener('mouseleave', () => zealyTween.reverse());
 
-    const scrollUpButton = document.getElementById('scrollUp');
-    scrollUpButton.addEventListener('click', () => {
-      gsap.to(window, {
-        duration: 2,
-        scrollTo: 0,
-        ease: 'power2.inOut',
-      });
-    });
     const btn3Container = document.getElementById(
       'stagger_button_ani_container_3'
     );
@@ -249,7 +223,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
-                    href='https://zealy.io/cw/defigoldtoken'
+                    href='https://zealy.io/cw/defigoldtoken/questboard'
                     className='zealy__footer relative'
                   >
                     <span className='mainContactForm-head font-teko duration-300 hover:text-gold'>
@@ -344,17 +318,6 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        <button
-          id='scrollUp'
-          className='absolute bottom-28 right-[5vw] z-10 flex-row md:bottom-24'
-        >
-          <img
-            id='scrollUpArrow'
-            src={ArrowUp}
-            className='h-5 w-5 text-white md:h-6 md:w-6'
-            alt='Scroll up'
-          />
-        </button>
         <div className='subsribeFormLapContainer'>
           <div className='subsribe-child f-18 flex items-center justify-between'>
             <p className='md:text-2xl md:leading-7 text-lg leading-[22px] font-sfui text-gold'>
