@@ -10,24 +10,21 @@
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  z-index: 10;
-  background: var(--gold);
-  padding: 0.5rem 0;
+  background: var(--gold); /* Example background color */
+  padding: 10px 0;
   width: 100%;
 }
 
 .marquee-content {
-  display: flex;
-  width: 200%; /* This ensures it covers at least twice the screen width */
-  animation: marquee 20s linear infinite;
+  display: inline-block;
+  animation: marquee 40s linear infinite; /* Adjust animation duration */
 }
 
 .marquee-content span {
-  flex-shrink: 0;
+  display: inline-block;
   white-space: nowrap;
 }
 
-/* Keyframes for the scrolling effect */
 @keyframes marquee {
   0% {
     transform: translateX(0%);

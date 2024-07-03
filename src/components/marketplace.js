@@ -102,10 +102,10 @@ const MarketPlace = () => {
   const bannerText = 'New Home for Bitcoin NFTs - ';
   return (
     <div className='w-screen h-full flex flex-col'>
-      <div className='marquee text-[34px] leading-[30px] md:text-[50px] md:leading-[45px] text-dark-text md:mt-[83px]'>
+      <div className='marquee text-5xl leading-[45px] text-dark-text'>
         <div className='marquee-content'>
-          <span>{bannerText.repeat(20)}</span>
-          <span>{bannerText.repeat(20)}</span>
+          <span className='mr-1'>{bannerText.repeat(20)}</span>
+          <span className='mr-1'>{bannerText.repeat(20)}</span>
         </div>
       </div>
       <div className='nft md:mt-[60px] flex w-full flex-col-reverse justify-center pb-[10vw] md:flex-row md:gap-[3.64vw] md:pb-0'>

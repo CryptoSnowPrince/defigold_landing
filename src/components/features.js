@@ -11,6 +11,7 @@ const Features = () => {
   const [currentFeature, setCurrentFeature] = useState(1);
   const featuresContainerRef = useRef(null);
   const featureProgressRef = useRef(null);
+  const galaxyRef = useRef(null);
   const totalFeatures = 4;
 
   const featureTitles = [
@@ -31,114 +32,66 @@ const Features = () => {
     if (index < 1 || index > totalFeatures) return;
 
     setCurrentFeature(index);
-
     gsap.to(featureProgressRef.current, {
       width: `${(index / totalFeatures) * 100}%`,
     });
 
-    gsap.to(`.feature-${index}__main`, {
-      opacity: 1,
-      duration: 0.4,
-    });
-    gsap.fromTo(
-      `.feature-${index}__side`,
-      {
-        opacity: 0,
-        scale: 1.5,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-      }
-    );
-
-    for (let i = 1; i <= totalFeatures; i++) {
-      if (i !== index) {
-        gsap.to(`.feature-${i}__main`, {
-          opacity: 0.3,
-          duration: 0.1,
-        });
-        gsap.to(`.feature-${i}__side`, {
-          opacity: 0,
-          duration: 0,
-        });
-      }
-    }
-
-    // Move the container to show the current feature
-    const offset = (index - 1) * -100; // Calculate the offset for the current feature
     gsap.to(featuresContainerRef.current, {
-      x: `${offset}vw`,
+      x: `${(index - 1) * -100}vw`,
       duration: 0.8,
+      ease: 'power2.inOut',
     });
-  };
-
-  const handleNextFeature = () => {
-    changeFeature(currentFeature === totalFeatures ? 1 : currentFeature + 1);
-  };
-
-  const handlePrevFeature = () => {
-    changeFeature(currentFeature === 1 ? totalFeatures : currentFeature - 1);
   };
 
   useEffect(() => {
-    changeFeature(1);
-    const yellowStairs = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.yellow-stairs',
-        start: 'top 100%',
-        end: 'bottom 0%',
-        scrub: 0.5,
-        timeScale: 0.2,
-      },
+    gsap.registerPlugin(ScrollTrigger);
+
+    const galaxyTimeline = gsap.timeline({ paused: true, timeScale: 0.2 });
+    galaxyTimeline.to(galaxyRef.current, {
+      top: '20%',
+      scale: 1,
+      duration: 1,
     });
 
-    yellowStairs
-      .addLabel('stairsStart')
-      .to('.steps', { x: '-50vw', ease: 'power2.inOut' })
-      .addLabel('stairsMid')
-      .to('.steps', { x: '-100vw', ease: 'power2.inOut' })
-      .addLabel('stairsEnd');
+    const playImageAnimation = () => {
+      galaxyTimeline.play();
+    };
 
+    gsap.fromTo(
+      galaxyRef.current,
+      {
+        top: '35%',
+        scale: 1.4,
+      },
+      {
+        top: '20%',
+        scale: 1,
+        onStart: () => playImageAnimation(),
+        scrollTrigger: {
+          trigger: '.galaxy',
+          start: 'top 70%',
+          end: 'center 70%',
+          scrub: true,
+          timeScale: 0.2,
+        },
+      }
+    );
+    gsap.to(featureProgressRef.current, {
+      width: `${(1 / totalFeatures) * 100}%`,
+    });
     return () => {
-      yellowStairs.scrollTrigger.kill();
-      yellowStairs.kill();
+      galaxyTimeline.kill();
     };
   }, []);
+
   return (
-    <div className='flex flex-col h-screen md:h-full relative overflow-x-hidden'>
-      <div className='yellow-stairs absolute left-0 top-[0%] z-[99] hidden w-full flex-col overflow-hidden bg-transparent md:flex'>
-        <div className='steps h-[78px] w-[150vw] bg-[#EFB325]'></div>
-        <div className='steps h-[78px] w-[125vw] bg-[#EFB325]'></div>
-        <div className='steps h-[78px] w-[100vw] bg-[#EFB325]'></div>
-        <div className='steps h-[78px] w-[75vw] bg-[#EFB325]'></div>
-      </div>
+    <div className='flex flex-col h-screen md:h-full relative overflow-hidden'>
       <div className='relative flex flex-col w-screen md:h-full h-screen'>
-        <div className='hidden md:flex flex-col w-1/2 mx-auto pt-36 lg:pt-52 gap-5'>
-          <h1 className='text-center text-base-text text-[64px] leading-[56px] lg:text-[98px] lg:leading-[88px]'>
-            A Unified DEX for All Bitcoin Assets
-          </h1>
-          <h3 className='text-gold text-center text-[38px] leading-8 lg:text-[50px] lg:leading-[45px]'>
-            Comprehensive Trading Solutions on DeFi.Gold
-          </h3>
-        </div>
-        <div className='md:hidden flex flex-col px-5 pt-[60px] gap-2.5'>
-          <h1 className='text-base-text text-5xl leading-[43px]'>
-            A Unified DEX for All Bitcoin Assets
-          </h1>
-          <h3 className='text-gold text-[32px] leading-7'>
-            Comprehensive Trading Solutions on DeFi.Gold
-          </h3>
-        </div>
-        {/* <div className='hidden md:block mx-auto pt-8'>
-          <FlowDirection />
-        </div> */}
-        <div className='relative -mt-5 md:mt-10 md:h-screen'>
-          <div className='absolute top-8 md:top-2 left-1/2 -translate-x-1/2'>
-            <FlowDirection />
-          </div>
-          <div className='galaxy absolute left-1/2 h-[150vw] w-[150vw] translate-x-[-50%] rounded md:top-[20%] md:h-[48.95vw] md:w-[48.95vw] md:translate-y-[-20%]'>
+        <div className='galaxy_area relative -mt-5 md:mt-10 md:h-screen'>
+          <div
+            ref={galaxyRef}
+            className='galaxy absolute left-1/2 h-[150vw] w-[150vw] translate-x-[-50%] rounded md:top-[20%] md:h-[48.95vw] md:w-[48.95vw] md:translate-y-[-20%]'
+          >
             <div className='relative h-full w-full'>
               <img
                 src={galaxy}
@@ -159,24 +112,28 @@ const Features = () => {
           </div>
           <div className='feature-container'>
             <div className='feature-slider overflow-hidden'>
-              <div className='info absolute top-[40%] overflow-hidden flex w-full flex-col items-center gap-3 md:top-[35%]'>
+              <div className='info absolute top-[60%] overflow-hidden flex w-full flex-col items-center md:top-[25%] xl:top-[40%]'>
                 <div className='w-fit'>
                   <p className='flex gap-1 font-sf text-base font-bold uppercase leading-4 text-white'>
                     Feature <span id='currentSlide'>{currentFeature}</span> of{' '}
                     {totalFeatures}
                   </p>
-                  <div className='mt-3 h-1.5 w-full rounded-full bg-dark-box'>
-                    <div
-                      ref={featureProgressRef}
-                      className='feature-progress h-1.5 rounded-full bg-gold p-0.5 text-center text-xs font-medium leading-none text-white'
-                    ></div>
-                  </div>
+                </div>
+                <div className='bg-dark-box rounded-sm h-1 w-32 flex'>
+                  <div
+                    ref={featureProgressRef}
+                    className='bg-gold rounded-sm h-1'
+                  ></div>
                 </div>
               </div>
-              <div className='controls absolute left-1/2 z-[10] flex translate-x-[-50%] space-x-[2vw]'>
+              <div className='controls absolute left-1/2 z-[10] flex translate-x-[-50%] space-x-[2vw] bottom-0 md:bottom-[30%] xl:bottom-[20%]'>
                 <button
                   className='prev-feature flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 transition-all delay-100 ease-in hover:border-gold 2xl:size-20'
-                  onClick={handlePrevFeature}
+                  onClick={() =>
+                    changeFeature(
+                      currentFeature === 1 ? totalFeatures : currentFeature - 1
+                    )
+                  }
                 >
                   <svg
                     width='11'
@@ -194,7 +151,11 @@ const Features = () => {
                 </button>
                 <button
                   className='next-feature flex size-14 items-center justify-center rounded border border-[#F8f8f81a] p-5 transition-all delay-100 ease-in hover:border hover:border-gold 2xl:size-20'
-                  onClick={handleNextFeature}
+                  onClick={() =>
+                    changeFeature(
+                      currentFeature === totalFeatures ? 1 : currentFeature + 1
+                    )
+                  }
                 >
                   <svg
                     width='11'
@@ -212,7 +173,7 @@ const Features = () => {
                 </button>
               </div>
               <div
-                className='features__container overflow-x-hidden flex h-full w-[400vw] translate-x-0 md:w-[200vw] md:translate-y-4 translate-y-12'
+                className='features__container overflow-x-hidden flex h-full w-[400vw] translate-x-0 md:w-[200vw] xl:translate-y-10 md:-translate-y-14 translate-y-36'
                 ref={featuresContainerRef}
               >
                 {featureTitles.map((title, index) => (
