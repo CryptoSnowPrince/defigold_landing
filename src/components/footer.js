@@ -183,6 +183,7 @@ const Footer = () => {
         draggable: true,
         className: 'alert-message-error',
       });
+      return;
     }
 
     axios
@@ -255,8 +256,13 @@ const Footer = () => {
       });
   };
 
-  const onSubscribe = () => {
+  const onSubscribe = (e) => {
+    e.preventDefault();
     const email = subEmailRef.current.value;
+    if (!isValidEmail(email)) {
+      toast('Invalid Email format', 'error');
+      return;
+    }
     axios
       .post('https://defigold-email-be.vercel.app/form/subscribe', {
         email: email,
