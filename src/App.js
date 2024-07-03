@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Header from './components/header';
 import ProgressBar from './components/progressbar';
@@ -92,6 +94,7 @@ function App() {
       </div>
       <Loader />
       <ScrollToTopButton />
+      <ToastContainer />
     </>
   );
 }

@@ -1,12 +1,21 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+// import 'animate.css';
 import ContactFormBit from '../assets/img/contactFormAssets/compressed/contactFormBit.webp';
 import FormArrow from '../assets/img/contactFormAssets/formArrow.png';
 import FormLight from '../assets/img/contactFormAssets/compressed/formLight.mp4';
 import HorizontalDirection from './horizontaldirection';
+import { toast } from 'react-toastify';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 const Footer = () => {
   const fullNameRef = useRef(null);
@@ -159,6 +168,161 @@ const Footer = () => {
     });
   }, []);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const name = fullNameRef.current.value;
+    const email = emailRef.current.value;
+    const message = messageRef.current.value;
+    if (name.trim().length === 0 || !isValidEmail(email)) {
+      toast('Input correct type', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        className: 'alert-message-error',
+      });
+    }
+
+    axios
+      .post('https://defigold-email-be.vercel.app/form/contact', {
+        firstName: name,
+        email: email,
+        message: message,
+      })
+      .then((res) => {
+        Swal.fire({
+          showClass: {
+            popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+          },
+          hideClass: {
+            popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+          },
+          customClass: {
+            popup:
+              'font-sfui md:text-[1.4vw] xl:text-[1vw] bg-black-500 text-dark-text',
+            confirmButton: 'px-4 py-2 rounded-md font-bold',
+          },
+          confirmButtonColor: '#EFB325',
+          title: 'Thank you for reaching out to Defi.Gold!',
+          text: "Your message has been received, and we'll get back to you as soon as possible. Your interest in our decentralized exchange and NFT marketplace fuels our mission to innovate on the Bitcoin blockchain.",
+          footer: 'Stay tuned for our response!',
+          icon: 'success',
+          iconColor: '#EFB325',
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          showClass: {
+            popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+          },
+          hideClass: {
+            popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+          },
+          customClass: {
+            popup:
+              'font-sfui md:text-[0.8vw] xl:text-[1vw] bg-black-500 text-dark-text',
+            confirmButton: 'px-4 py-2 bg-gold rounded-md font-bold',
+          },
+          confirmButtonColor: '#EFB325',
+          text: 'Your request has been already submitted!',
+          title: 'Request already submitted!',
+          icon: 'success',
+          iconColor: '#EFB325',
+        });
+      })
+      .finally(() => {
+        fullNameRef.current.value = '';
+        emailRef.current.value = '';
+        messageRef.current.value = '';
+      });
+  };
+
+  const onSubscribe = () => {
+    const email = subEmailRef.current.value;
+    axios
+      .post('https://defigold-email-be.vercel.app/form/subscribe', {
+        email: email,
+      })
+      .then((res) => {
+        Swal.fire({
+          showClass: {
+            popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+          },
+          hideClass: {
+            popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+          },
+          customClass: {
+            popup:
+              'font-sfui md:text-[0.8vw] xl:text-[1vw] bg-black-500 text-dark-text',
+            confirmButton: 'px-4 py-2 bg-gold rounded-md font-bold',
+          },
+          confirmButtonColor: '#EFB325',
+          title: 'Thank you for subscribing to Defi.Gold updates.',
+          text: '🚀 Get ready to stay ahead of the curve in the Bitcoin blockchain revolution. Your subscription means a lot to us as we redefine the future of trading and smart contracts.',
+          footer: 'Stay tuned for exciting news and updates!',
+          icon: 'success',
+          iconColor: '#EFB325',
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          showClass: {
+            popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+          },
+          hideClass: {
+            popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+          },
+          customClass: {
+            popup:
+              'font-sfui md:text-[0.8vw] xl:text-[1vw] bg-black-500 text-dark-text',
+            confirmButton: 'px-4 py-2 bg-gold rounded-md font-bold',
+          },
+          confirmButtonColor: '#EFB325',
+          text: 'Your request has been already submitted!',
+          title: 'Request already submitted!',
+          icon: 'success',
+          iconColor: '#EFB325',
+        });
+      })
+      .finally(() => {
+        subEmailRef.current.value = '';
+      });
+  };
+
   return (
     <div
       id='footer'
@@ -254,21 +418,25 @@ const Footer = () => {
             <p className='subscribe-heading pb-[2vh] pt-[2vw] font-sfui'>
               Subscribe for News, Updates and Articles
             </p>
-            <form id='subscribeForm' className='subscribeForm'>
+            <div id='subscribeForm' className='subscribeForm'>
               <input
                 type='email'
                 name='formEmail'
                 required
+                ref={subEmailRef}
                 placeholder='E-mail'
                 id='formEmail'
                 className='subscribe-form-input font-sfui'
               />
-              <input
+              <button
                 type='submit'
                 value='SUBSCRIBE NOW'
-                className='subscribe-form-button font-sfui'
-              />
-            </form>
+                className='subscribe-form-button font-sfui w-full bg-slate-50 text-dark-text py-3 rounded-md mt-2'
+                onClick={onSubscribe}
+              >
+                SUBSCRIBE NOW{' '}
+              </button>
+            </div>
           </div>
           <div id='mainContactForm-form'>
             <p className='mainContactForm-form-head font-teko'>
@@ -282,6 +450,7 @@ const Footer = () => {
                 type='text'
                 placeholder='Full Name'
                 required
+                ref={fullNameRef}
                 id='formName'
                 className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
               />
@@ -289,6 +458,7 @@ const Footer = () => {
                 type='email'
                 placeholder='E-mail'
                 required
+                ref={emailRef}
                 id='formEmail'
                 name='email'
                 className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
@@ -297,6 +467,7 @@ const Footer = () => {
                 <textarea
                   rows='4'
                   placeholder='Message (optional)'
+                  ref={messageRef}
                   className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
                   id='formMessage'
                 ></textarea>
@@ -304,6 +475,7 @@ const Footer = () => {
                   id='stagger_button_ani_container_3'
                   type='submit'
                   value='SUBMIT'
+                  onClick={onSubmit}
                   className='form-button inline font-sfui md:hidden py-2'
                 >
                   SUBMIT
@@ -311,6 +483,7 @@ const Footer = () => {
                 <button
                   id='stagger_button_ani_container_3'
                   type='submit'
+                  onClick={onSubmit}
                   className='stagger_animation_btn form-button hidden font-bold font-sfui md:inline'
                 >
                   <span className='flex items-center justify-center overflow-hidden md:p-0'>
@@ -339,6 +512,7 @@ const Footer = () => {
                 type='email'
                 name='formEmail'
                 id='formEmail'
+                ref={subEmailRef}
                 required
                 className='w-full bg-transparent py-[0.65rem] pl-3 font-sfui font-extralight text-white placeholder:font-sfui placeholder:font-extralight placeholder:opacity-45 hover:cursor-pointer'
                 placeholder='E-mail'
@@ -346,6 +520,7 @@ const Footer = () => {
               <button
                 id='stagger_button_ani_container_4'
                 type='submit'
+                onClick={onSubscribe}
                 className='stagger_animation_btn absolute right-0.5 w-[35%] content-center rounded-sm bg-white py-[0.63vw] font-sfui text-[16px] font-bold text-[#151515] md:text-[0.83vw] xl:text-[0.83vw]'
               >
                 <span className='stagger_button_ani_wrapper_4'>
