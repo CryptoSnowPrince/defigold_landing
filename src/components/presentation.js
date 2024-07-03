@@ -146,7 +146,7 @@ const Presentation = () => {
           </div>
           <div className='flex flex-col'>
             <div className='z-[1] md:mt-[6vw]'>
-              <p className='text__hand w-[100%] font-sfui text-[18px] font-normal leading-[23.4px] text-[#F8F8F8] md:w-[45.14vw] md:text-[1.75vw] md:leading-[2.125vw] xl:w-[45.14vw] xl:text-[1.25vw] xl:leading-[1.625vw]'>
+              <p className='text__hand w-[100%] font-sfui text-[18px] font-normal leading-[23.4px] text-[#F8F8F8] md:w-[45.14vw] md:text-[1.25vw] md:leading-[2.125vw] xl:w-[45.14vw] xl:text-[1.25vw] xl:leading-[1.625vw]'>
                 As the trailblazer in the DEX and NFT marketplace on the Bitcoin
                 blockchain, we're not just setting trends; we're creating a
                 whole new playground for decentralized finance.

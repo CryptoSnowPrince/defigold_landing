@@ -27,9 +27,9 @@ const Launchpad = () => {
   }, []);
 
   return (
-    <section className='runes relative flex w-screen flex-col items-center overflow-hidden h-fit px-5 md:flex-row md:px-5 xl:h-screen xl:flex-row xl:px-0'>
+    <section className='runes relative flex w-screen flex-col items-center overflow-hidden lg:pt-5 h-fit px-5 md:flex-row md:px-5 xl:h-screen xl:flex-row xl:px-0'>
       <div className='flex w-[100%] flex-col justify-end md:h-[70%] md:w-[40%] md:flex-row xl:h-[70%] xl:w-[40%] xl:flex-row'>
-        <h3 className='font-teko text-[12.8vw] font-medium leading-[43.2px] text-white md:hidden md:text-[5.10vw] md:leading-[100%] xl:hidden'>
+        <h3 className='font-teko text-[12.8vw] pt-4 font-medium leading-[43.2px] text-white md:hidden md:text-[5.10vw] md:leading-[100%] xl:hidden'>
           The <span className='text-gold'>DeFi.Gold</span> Runes <br />
           Launchpad
         </h3>

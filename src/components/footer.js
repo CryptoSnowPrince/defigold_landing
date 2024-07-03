@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ContactFormBit from '../assets/img/contactFormAssets/compressed/contactFormBit.webp';
@@ -9,6 +9,11 @@ import HorizontalDirection from './horizontaldirection';
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  const fullNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+  const subEmailRef = useRef(null);
+
   useEffect(() => {
     const contact = document.getElementById('footer');
     gsap.timeline({
@@ -295,11 +300,14 @@ const Footer = () => {
                   className='border-[1px] border-white border-opacity-15 font-sfui duration-150 hover:cursor-pointer hover:border-opacity-30 active:border-opacity-30'
                   id='formMessage'
                 ></textarea>
-                <input
+                <button
+                  id='stagger_button_ani_container_3'
                   type='submit'
                   value='SUBMIT'
-                  className='form-button inline font-sfui md:hidden'
-                />
+                  className='form-button inline font-sfui md:hidden py-2'
+                >
+                  SUBMIT
+                </button>
                 <button
                   id='stagger_button_ani_container_3'
                   type='submit'

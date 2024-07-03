@@ -14,6 +14,7 @@ import Investors from './components/investors';
 import Loading from './components/loading';
 import { Loader } from '@react-three/drei';
 import ScrollToTopButton from './components/scroll';
+import Stairs from './components/stairs';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -78,6 +79,7 @@ function App() {
               <Welcome />
               <Summary />
               <Pioneer />
+              <Stairs />
               <Features />
               <MarketPlace />
               <Launchpad />
