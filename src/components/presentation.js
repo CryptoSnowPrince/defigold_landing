@@ -66,16 +66,16 @@ const Presentation = () => {
     const presentation = gsap.timeline({
       scrollTrigger: {
         trigger: '#presetation_section',
-        start: '-25% top',
+        start: '-50% top',
         endTrigger: '.stairs',
-        end: '90% bottom',
+        end: '80% bottom',
         timeScale: 0.2,
         scrub: 1,
       },
     });
     presentation.fromTo(
       '.slide-up',
-      { y: '50%', opacity: 0 },
+      { y: '70%', opacity: 0 },
       { y: '10%', opacity: 1, duration: 2, ease: 'slow(0.7, 0.7)' }
     );
     presentation.fromTo(
@@ -92,7 +92,7 @@ const Presentation = () => {
     steps.forEach((step, index) => {
       gsap.fromTo(
         step,
-        { x: '50%', ease: 'power2.inOut', duration: 3 },
+        { x: '30%', ease: 'power2.inOut', duration: 2 },
         {
           x: '0%',
           scrollTrigger: {
@@ -215,15 +215,15 @@ const Presentation = () => {
       {/* Stairs */}
       <div className='stairs absolute bottom-[0%] left-0 z-[99] hidden w-full flex-col items-end overflow-hidden bg-transparent md:flex'>
         <div
-          className='step-i inv-1 h-[5vw] w-[100vw] translate-x-[50%] pl-[30vw]'
+          className='step-i inv-1 h-[5vw] w-[100vw] translate-x-[30%] pl-[30vw]'
           ref={(el) => (stepsRef.current[0] = el)}
         ></div>
         <div
-          className='step-i inv-1 h-[5vw] w-[115vw] translate-x-[50%] pl-[15vw]'
+          className='step-i inv-1 h-[5vw] w-[115vw] translate-x-[30%] pl-[15vw]'
           ref={(el) => (stepsRef.current[1] = el)}
         ></div>
         <div
-          className='step-i inv-1 h-[5vw] w-[130vw] translate-x-[50%] pl-[0vw]'
+          className='step-i inv-1 h-[5vw] w-[130vw] translate-x-[30%] pl-[0vw]'
           ref={(el) => (stepsRef.current[2] = el)}
         ></div>
       </div>
