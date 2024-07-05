@@ -179,7 +179,7 @@ const WelcomeWithLoading = () => {
 
         <div
           ref={welcomeTextRef}
-          className='welcome-text z-[10] sm:mx-auto mt-[-70px] xl:mt-[-147px] px-5 gap-2.5 sm:gap-0 opacity-1'
+          className='welcome-text z-[10] sm:mx-auto mt-[-70px] xl:mt-[-147px] px-5 gap-2.5 sm:gap-0'
         >
           <p className='font-medium text-[74px] leading-[66px] md:text-6xl xl:text-[202px] xl:leading-[182px] sm:text-center text-base-text'>
             Welcome to <span className='text-gold'>DeFi.Gold</span>
@@ -189,13 +189,13 @@ const WelcomeWithLoading = () => {
           </p>
         </div>
         <div className='hidden lg:block right-anim z-0 top-0 overflow-hidden'>
-          <img src={ExAnimLine} alt='lines' />
+          <img src={ExAnimLine} alt='lines' className='h-[70vh]' />
         </div>
         <div className='hidden lg:block z-0 left-anim top-0 overflow-hidden'>
-          <img src={ExAnimLine} alt='lines' />
+          <img src={ExAnimLine} alt='lines' className='h-[70vh]' />
         </div>
         <div className='lg:hidden z-0 main-anim top-0 overflow-hidden'>
-          <img src={AnimLine} alt='lines' />
+          <img src={AnimLine} alt='lines' className='h-[70vh]' />
         </div>
       </div>
     </>
