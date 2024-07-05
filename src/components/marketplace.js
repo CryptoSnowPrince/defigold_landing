@@ -6,6 +6,7 @@ import parachutesImg from '../assets/img/compressed/Parachutes.webp';
 import cityImg from '../assets/img/city.webp';
 import lightsImg from '../assets/img/lights.svg';
 import './css/components.css';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,11 +175,15 @@ const MarketPlace = () => {
                 </svg>
               </div>
             </div>
-            <div className='hidden md:inline mr-[160px] mt-9'>
+            <a
+              href='https://nft.defi.gold'
+              target='_blank'
+              className='hidden md:inline mr-[160px] mt-9'
+            >
               <p className='text-gold text-[50px] leading-[45px] text-end'>
                 DeFi.Gold NFT Marketplace
               </p>
-            </div>
+            </a>
             <div className='city relative mt-2 md:mt-12 px-2.5'>
               <img
                 src={parachutesImg}

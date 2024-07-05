@@ -416,7 +416,7 @@ const Footer = () => {
             </div>
             <div id='mainContactForm-copyRight'>
               <p className='mainContactForm-copyRight-text font-sfui'>
-                Copyright © 2024 DeFi.Gold. All rights reserved
+                © 2024 DG Labs Ltd. All rights reserved
               </p>
             </div>
           </div>
