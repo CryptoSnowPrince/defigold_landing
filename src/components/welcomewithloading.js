@@ -7,7 +7,7 @@ import heroImage from '../assets/img/hero.webp';
 
 const WelcomeWithLoading = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [percent, setPercent] = useState(0);
   const loadingRef = useRef(null);
   const loadingTextRef = useRef(null);
   const loadingProgressRef = useRef(null);
@@ -37,11 +37,10 @@ const WelcomeWithLoading = () => {
 
     const handleAssetLoad = () => {
       loadedAssets += 1;
-      const percent = Math.floor((loadedAssets / assets.length) * 100);
-      setLoadingProgress(percent);
-      loadingText.innerText = `${percent}%`;
+      const percentValue = Math.floor((loadedAssets / assets.length) * 100);
+      setPercent(percentValue);
 
-      gsap.to(loadingProgressRef.current, { width: `${percent}%` });
+      gsap.to(loadingProgressRef.current, { width: `${percentValue}%` });
 
       if (loadedAssets === assets.length) {
         setTimeout(() => {
@@ -77,6 +76,42 @@ const WelcomeWithLoading = () => {
         element.onerror = handleAssetLoad;
       }
     });
+
+    const lodingText = loadingTextRef.current;
+    const loding = loadingRef.current;
+
+    const heroTimeline = gsap.timeline({
+      onComplete: () => {
+        gsap.to(loding, {
+          opacity: 0,
+          duration: 0.5,
+          onComplete: () => {
+            loding.style.display = 'none';
+          },
+        });
+      },
+    });
+
+    heroTimeline.to(loadingProgressRef.current, {
+      duration: 2.5,
+      width: '100%',
+      onUpdate: function () {
+        const progress = Math.round(this.progress() * 100);
+        lodingText.innerText = `${progress}%`;
+      },
+    });
+
+    return () => {
+      assets.forEach(({ type, element }) => {
+        if (type === 'image') {
+          element.onload = null;
+          element.onerror = null;
+        } else if (type === 'video') {
+          element.oncanplaythrough = null;
+          element.onerror = null;
+        }
+      });
+    };
   }, []);
 
   return (
@@ -97,7 +132,7 @@ const WelcomeWithLoading = () => {
               ref={loadingTextRef}
               className='loading__text mt-4 font-teko text-3xl font-light text-gold min-h-[36px]'
             >
-              {loadingProgress}%
+              {percent}%
             </p>
           </div>
         </div>
@@ -106,7 +141,7 @@ const WelcomeWithLoading = () => {
       <div
         ref={welcomeRef}
         className={`welcome-content ${
-          !isLoaded ? 'opacity-0' : 'opacity-1'
+          isLoaded ? 'opacity-100' : 'opacity-0'
         } transition-opacity duration-1000 ease-in-out flex flex-col items-center mx-auto z-[1]`}
       >
         <div
