@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import monkeyLight from '../assets/img/monkeyLight.webm';
+import monkeyLight from '../assets/img/monkeyLight.gif';
 import DNA from '../assets/img/DNA-2.gif';
 import monkeyGroup from '../assets/img/compressed/monkeyGroup.webp';
 import Logo from '../assets/img/icon.svg';
