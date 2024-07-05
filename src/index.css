@@ -983,3 +983,48 @@ li::marker {
   color: gold;
   text-align: center;
 }
+
+.right-anim {
+  transform: translate(150%);
+  position: absolute;
+  animation: right-move 8s linear infinite;
+}
+
+@keyframes right-move {
+  0% {
+    transform: translate(150%);
+  }
+  100% {
+    transform: translate(-150%);
+  }
+}
+
+.left-anim {
+  transform: translate(-150%);
+  position: absolute;
+  animation: left-move 8s linear infinite;
+}
+
+@keyframes left-move {
+  0% {
+    transform: translate(-150%);
+  }
+  100% {
+    transform: translate(150%);
+  }
+}
+
+.main-anim {
+  transform: translate(0%);
+  position: absolute;
+  animation: main-move 5s linear infinite;
+}
+
+@keyframes main-move {
+  0% {
+    transform: translate(125%);
+  }
+  100% {
+    transform: translate(-125%);
+  }
+}

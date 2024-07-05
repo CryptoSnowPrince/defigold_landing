@@ -39,7 +39,7 @@ function App() {
               <Launchpad />
               <Presentation />
               <Investors />
-              {/* <Footer /> */}
+              <Footer />
             </>
           )}
         </div>

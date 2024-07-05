@@ -4,6 +4,8 @@ import Logo from '../assets/img/logo.svg';
 import flameVideo from '../assets/img/flames.mp4';
 import lavaVideo from '../assets/img/lava.mp4';
 import heroImage from '../assets/img/hero.webp';
+import AnimLine from '../assets/img/animated_lines.png';
+import ExAnimLine from '../assets/img/ex_animated_lines.png';
 
 const WelcomeWithLoading = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -142,7 +144,7 @@ const WelcomeWithLoading = () => {
         ref={welcomeRef}
         className={`welcome-content ${
           isLoaded ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-1000 ease-in-out flex flex-col items-center mx-auto z-[1]`}
+        } transition-opacity duration-1000 relative ease-in-out flex flex-col items-center mx-auto z-[1]`}
       >
         <div
           ref={globeParentRef}
@@ -185,6 +187,15 @@ const WelcomeWithLoading = () => {
           <p className='font-sfui text-[22px] leading-[28px] sm:text-[34px] sm:leading-[44px] sm:text-center'>
             Revolutionizing the Bitcoin Blockchain
           </p>
+        </div>
+        <div className='hidden lg:block right-anim z-0 top-0 overflow-hidden'>
+          <img src={ExAnimLine} alt='lines' />
+        </div>
+        <div className='hidden lg:block z-0 left-anim top-0 overflow-hidden'>
+          <img src={ExAnimLine} alt='lines' />
+        </div>
+        <div className='lg:hidden z-0 main-anim top-0 overflow-hidden'>
+          <img src={AnimLine} alt='lines' />
         </div>
       </div>
     </>
