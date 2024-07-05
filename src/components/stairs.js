@@ -8,7 +8,7 @@ const Stairs = () => {
       scrollTrigger: {
         trigger: '.yellow-stairs',
         start: 'top 100%',
-        end: 'bottom 0%',
+        end: 'bottom 20%',
         scrub: 0.5,
         timeScale: 0.2,
       },
