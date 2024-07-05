@@ -332,7 +332,7 @@ const Footer = () => {
   return (
     <div
       id='footer'
-      className='static bottom-0 left-0 w-full right-0 hidden md:block'
+      className='static bottom-0 left-0 w-full right-0 hidden md:sticky'
     >
       <div id='mainContactFormContainer'>
         <video id='formVideoContainer' autoPlay playsInline loop muted>
@@ -527,7 +527,7 @@ const Footer = () => {
                 id='stagger_button_ani_container_4'
                 type='submit'
                 onClick={onSubscribe}
-                className='stagger_animation_btn absolute right-0.5 w-[35%] content-center rounded-sm bg-white py-[0.63vw] font-sfui text-[16px] font-bold text-[#151515] md:text-[0.83vw] xl:text-[0.83vw]'
+                className='stagger_animation_btn absolute right-0.5 w-[35%] content-center rounded-sm bg-white py-[1.1vw] xl:py-[0.63vw] font-sfui text-[16px] font-bold text-[#151515] md:text-[0.83vw] xl:text-[0.83vw]'
               >
                 <span className='stagger_button_ani_wrapper_4'>
                   <p className='stagger_button_4_ani'>S</p>

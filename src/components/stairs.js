@@ -30,11 +30,11 @@ const Stairs = () => {
 
   return (
     <div className='relative w-screen'>
-      <div class='yellow-stairs absolute left-0 top-[0%] z-[99] hidden w-full flex-col overflow-hidden bg-transparent md:flex'>
-        <div class='steps h-16 xl:h-[88px] w-[150vw] bg-[#EFB325]'></div>
-        <div class='steps h-16 xl:h-[88px] w-[125vw] bg-[#EFB325]'></div>
-        <div class='steps h-16 xl:h-[88px] w-[100vw] bg-[#EFB325]'></div>
-        <div class='steps h-16 xl:h-[88px] w-[75vw] bg-[#EFB325]'></div>
+      <div className='yellow-stairs absolute left-0 top-[0%] z-[99] hidden w-full flex-col overflow-hidden bg-transparent md:flex'>
+        <div className='steps h-16 xl:h-[88px] w-[150vw] bg-[#EFB325]'></div>
+        <div className='steps h-16 xl:h-[88px] w-[125vw] bg-[#EFB325]'></div>
+        <div className='steps h-16 xl:h-[88px] w-[100vw] bg-[#EFB325]'></div>
+        <div className='steps h-16 xl:h-[88px] w-[75vw] bg-[#EFB325]'></div>
       </div>
       <div className='hidden md:flex flex-col w-1/2 mx-auto pt-20 lg:pt-32 xl:pt-48 gap-5 justify-center'>
         <h1 className='text-center text-base-text text-[64px] leading-[56px] lg:text-[98px] lg:leading-[88px]'>
