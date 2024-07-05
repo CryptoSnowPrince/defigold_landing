@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import flameVideo from '../assets/img/flames.mp4';
 import lavaVideo from '../assets/img/lava.mp4';
 import heroImage from '../assets/img/hero.webp';
 import { gsap } from 'gsap';
-import Lenis from 'lenis';
 
 const Welcome = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
   useEffect(() => {
     const animateGlobe = () => {
       gsap.from('.globe_parent', {
@@ -28,10 +25,6 @@ const Welcome = () => {
     animateGlobe();
   }, []);
 
-  const handleVideoLoad = () => {
-    setIsVideoLoaded(true);
-  };
-
   return (
     <div className='flex flex-col items-center mx-auto z-[1]'>
       <div className='globe_parent flex flex-col items-center bg-dark-text z-10 overflow-x-hidden mx-auto h-[calc(100vh - 62px)] sm:h-[calc(100vh - 92px)]'>
@@ -47,16 +40,13 @@ const Welcome = () => {
             Your browser does not support the video tag.
           </video>
           <div className='globe__container relative z-[1] h-[90vw] w-[90vw] overflow-hidden rounded-full md:h-[36.5vw] md:w-[36.5vw]'>
-            {isVideoLoaded && (
-              <img className='absolute w-full' src={heroImage} alt='' />
-            )}
+            <img className='absolute w-full' src={heroImage} alt='' />
             <video
               className='absolute -z-10 w-full rounded-full p-[2.5vw] md:p-[0.5vw]'
               autoPlay
               playsInline
               loop
               muted
-              onLoadedData={handleVideoLoad}
             >
               <source src={lavaVideo} type='video/mp4' />
               Your browser does not support the video tag.
