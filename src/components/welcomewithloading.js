@@ -48,7 +48,7 @@ const WelcomeWithLoading = () => {
         setTimeout(() => {
           gsap.to(loading, {
             opacity: 0,
-            duration: 0.5,
+            duration: 2,
             onComplete: () => {
               setIsLoaded(true);
               gsap.fromTo(welcome, { opacity: 0 }, { opacity: 1, duration: 1 });
