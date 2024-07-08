@@ -168,6 +168,7 @@ const Presentation = () => {
             <div className='button-container z-[10]'>
               <a
                 target='_blank'
+                rel='noreferrer'
                 href='https://docsend.com/view/ucfgjceckmzkt2yc'
               >
                 <button

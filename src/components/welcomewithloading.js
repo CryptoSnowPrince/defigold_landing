@@ -18,7 +18,7 @@ const WelcomeWithLoading = () => {
   const welcomeTextRef = useRef(null);
 
   useEffect(() => {
-    const loadingText = loadingTextRef.current;
+    // const loadingText = loadingTextRef.current;
     const loading = loadingRef.current;
     const welcome = welcomeRef.current;
     const globeParent = globeParentRef.current;

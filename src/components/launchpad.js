@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 import monkeyLight from '../assets/img/monkeyLight.gif';
 import DNA from '../assets/img/DNA-2.gif';

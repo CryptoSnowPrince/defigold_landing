@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import galaxy from '../assets/img/galaxy.webp';
 import sparkle1 from '../assets/img/sparkles-bottom.webp';
 import sparkle2 from '../assets/img/sparkles.webp';
-import FlowDirection from './flowdirection';
+// import FlowDirection from './flowdirection';
 import './css/features.css';
 
 const Features = () => {

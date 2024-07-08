@@ -1,4 +1,4 @@
-import investorsBg from '../assets/img/compressed/investors-bg.webp';
+// import investorsBg from '../assets/img/compressed/investors-bg.webp';
 import prevImg from '../assets/img/prev.svg';
 import nextImg from '../assets/img/next.svg';
 import upPointer from '../assets/img/up-pointer.svg';
@@ -19,9 +19,7 @@ import 'swiper/css';
 import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Zoom, Navigation, Pagination } from 'swiper/modules';
-import { useEffect } from 'react';
-import gsap from 'gsap';
+import { Navigation } from 'swiper/modules';
 import ReactPlayer from 'react-player';
 
 const investor_list = [
@@ -209,7 +207,11 @@ const Investors = () => {
 
           <div className='mt-8 flex flex-col items-start gap-4 md:flex-row md:items-center lg:gap-0'>
             <div className='invester-logo bg-white'>
-              <a target='_blank' href='https://www.bluesphere.earth/'>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://www.bluesphere.earth/'
+              >
                 <img
                   src={leadInvester1}
                   className='menu-item'
@@ -223,7 +225,11 @@ const Investors = () => {
               </a>
             </div>
             <div className='invester-logo bg-white lg:ml-5'>
-              <a target='_blank' href='https://www.orthogonalthinker.com/'>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://www.orthogonalthinker.com/'
+              >
                 <img
                   src={leadInvester2}
                   className='menu-item'

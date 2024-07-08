@@ -1,4 +1,4 @@
-import { Fade, Bounce } from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal';
 import './css/summary.css';
 import mobilePath from '../assets/img/path_mobile.png';
 import landPath from '../assets/img/road.svg';

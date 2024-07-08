@@ -6,7 +6,6 @@ import parachutesImg from '../assets/img/compressed/Parachutes.webp';
 import cityImg from '../assets/img/city.webp';
 import lightsImg from '../assets/img/lights.svg';
 import './css/components.css';
-import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -178,6 +177,7 @@ const MarketPlace = () => {
             <a
               href='https://nft.defi.gold'
               target='_blank'
+              rel='noreferrer'
               className='hidden md:inline mr-[160px] mt-9'
             >
               <p className='text-gold text-[50px] leading-[45px] text-end'>
@@ -187,6 +187,7 @@ const MarketPlace = () => {
             <div className='city relative mt-2 md:mt-12 px-2.5'>
               <img
                 src={parachutesImg}
+                alt=''
                 className='parachutes absolute left-[5%] md:left-0 md:top-[10%] md:h-[350px] md:w-[684px]'
               />
               <div className='newHomeCity'>

@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import Logo from '../assets/img/logo.svg';
 import union from '../assets/img/Union.png';
 
@@ -27,7 +26,12 @@ const Header = ({ visibility, setNavbar }) => {
               <div className='h-[1px] bg-white opacity-10'></div>
             </div>
             <div className='flex flex-col pt-5'>
-              <a href='https://nft.defi.gold' className='nav-text-item'>
+              <a
+                href='https://nft.defi.gold'
+                target='_blank'
+                rel='noreferrer'
+                className='nav-text-item'
+              >
                 Marketplace
               </a>
               <div className='h-[1px] bg-white opacity-10'></div>

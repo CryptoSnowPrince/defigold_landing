@@ -347,6 +347,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
+                    rel='noreferrer'
                     href='https://t.me/+lCxBNCrBuNRiNmZh'
                     className='telegram__footer relative'
                   >
@@ -364,6 +365,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
+                    rel='noreferrer'
                     href='https://twitter.com/TeamDefiGold'
                     className='x__footer relative'
                   >
@@ -381,6 +383,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
+                    rel='noreferrer'
                     href='https://medium.com/@teamdefi.gold'
                     className='medium__footer relative'
                   >
@@ -398,6 +401,7 @@ const Footer = () => {
                 <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
+                    rel='noreferrer'
                     href='https://zealy.io/cw/defigoldtoken/questboard'
                     className='zealy__footer relative'
                   >
