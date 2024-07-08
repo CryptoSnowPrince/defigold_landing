@@ -7,7 +7,7 @@ import heroImage from '../assets/img/hero.webp';
 import AnimLine from '../assets/img/animated_lines.png';
 import ExAnimLine from '../assets/img/ex_animated_lines.png';
 
-const WelcomeWithLoading = () => {
+const WelcomeWithLoading = ({ prevStatus }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [percent, setPercent] = useState(0);
   const loadingRef = useRef(null);
@@ -18,6 +18,7 @@ const WelcomeWithLoading = () => {
   const welcomeTextRef = useRef(null);
 
   useEffect(() => {
+    if (prevStatus) setIsLoaded(true);
     // const loadingText = loadingTextRef.current;
     const loading = loadingRef.current;
     const welcome = welcomeRef.current;
@@ -44,7 +45,7 @@ const WelcomeWithLoading = () => {
 
       gsap.to(loadingProgressRef.current, { width: `${percentValue}%` });
 
-      if (loadedAssets === assets.length) {
+      if (loadedAssets === assets.length && !prevStatus) {
         setTimeout(() => {
           gsap.to(loading, {
             opacity: 0,

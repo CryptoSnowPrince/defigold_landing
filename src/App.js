@@ -18,8 +18,10 @@ import WelcomeWithLoading from './components/welcomewithloading';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
+  const [headerOpened, setHeaderOpened] = useState(false);
 
   const modifyNavbarStatus = () => {
+    setHeaderOpened(showNavbar);
     setShowNavbar(!showNavbar);
   };
 
@@ -30,7 +32,7 @@ function App() {
           <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
           {!showNavbar && (
             <>
-              <WelcomeWithLoading />
+              <WelcomeWithLoading prevStatus={headerOpened} />
               <Summary />
               <Pioneer />
               <Stairs />

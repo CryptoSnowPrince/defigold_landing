@@ -7,8 +7,8 @@ const Stairs = () => {
     const yellowStairs = gsap.timeline({
       scrollTrigger: {
         trigger: '.yellow-stairs',
-        start: 'top 100%',
-        end: 'bottom 20%',
+        start: 'top 200%',
+        end: 'bottom 10%',
         scrub: 0.5,
         timeScale: 0.2,
       },
