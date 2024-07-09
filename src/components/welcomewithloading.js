@@ -19,91 +19,93 @@ const WelcomeWithLoading = ({ prevStatus }) => {
 
   useEffect(() => {
     if (prevStatus) setIsLoaded(true);
-    // const loadingText = loadingTextRef.current;
-    const loading = loadingRef.current;
+    else {
+      // const loadingText = loadingTextRef.current;
+      const loading = loadingRef.current;
 
-    // Create Image and Video objects for preloading
-    const image = new Image();
-    const flameVid = document.createElement('video');
-    const lavaVid = document.createElement('video');
+      // Create Image and Video objects for preloading
+      const image = new Image();
+      const flameVid = document.createElement('video');
+      const lavaVid = document.createElement('video');
 
-    const assets = [
-      { type: 'image', src: heroImage, element: image },
-      { type: 'video', src: flameVideo, element: flameVid },
-      { type: 'video', src: lavaVideo, element: lavaVid },
-    ];
+      const assets = [
+        { type: 'image', src: heroImage, element: image },
+        { type: 'video', src: flameVideo, element: flameVid },
+        { type: 'video', src: lavaVideo, element: lavaVid },
+      ];
 
-    let loadedAssets = 0;
+      let loadedAssets = 0;
 
-    const handleAssetLoad = () => {
-      loadedAssets += 1;
-      const percentValue = Math.floor((loadedAssets / assets.length) * 100);
-      setPercent(percentValue);
+      const handleAssetLoad = () => {
+        loadedAssets += 1;
+        const percentValue = Math.floor((loadedAssets / assets.length) * 100);
+        setPercent(percentValue);
 
-      gsap.to(loadingProgressRef.current, { width: `${percentValue}%` });
+        gsap.to(loadingProgressRef.current, { width: `${percentValue}%` });
 
-      if (loadedAssets === assets.length && !prevStatus) {
-        setTimeout(() => {
-          gsap.to(loading, {
-            opacity: 0,
-            duration: 1,
-            onComplete: () => {
-              setIsLoaded(true);
-            },
-          });
-        }, 500); // Optional delay for better UX
-      }
-    };
+        if (loadedAssets === assets.length && !prevStatus) {
+          setTimeout(() => {
+            gsap.to(loading, {
+              opacity: 0,
+              duration: 1,
+              onComplete: () => {
+                setIsLoaded(true);
+              },
+            });
+          }, 500); // Optional delay for better UX
+        }
+      };
 
-    assets.forEach(({ type, src, element }) => {
-      element.src = src;
-      if (type === 'image') {
-        element.onload = handleAssetLoad;
-        element.onerror = handleAssetLoad;
-      } else if (type === 'video') {
-        element.oncanplaythrough = handleAssetLoad;
-        element.onerror = handleAssetLoad;
-      }
-    });
-
-    const lodingText = loadingTextRef.current;
-    const loding = loadingRef.current;
-
-    if (loding) {
-      const heroTimeline = gsap.timeline({
-        onComplete: () => {
-          gsap.to(loding, {
-            opacity: 0,
-            duration: 0.5,
-            onComplete: () => {
-              loding.style.display = 'none';
-            },
-          });
-        },
-      });
-      if (lodingText) {
-        heroTimeline.to(loadingProgressRef.current, {
-          duration: 2.5,
-          width: '100%',
-          onUpdate: function () {
-            const progress = Math.round(this.progress() * 100);
-            if (lodingText) lodingText.innerText = `${progress}%`;
-          },
-        });
-      }
-    }
-
-    return () => {
-      assets.forEach(({ type, element }) => {
+      assets.forEach(({ type, src, element }) => {
+        element.src = src;
         if (type === 'image') {
-          element.onload = null;
-          element.onerror = null;
+          element.onload = handleAssetLoad;
+          element.onerror = handleAssetLoad;
         } else if (type === 'video') {
-          element.oncanplaythrough = null;
-          element.onerror = null;
+          element.oncanplaythrough = handleAssetLoad;
+          element.onerror = handleAssetLoad;
         }
       });
-    };
+
+      const lodingText = loadingTextRef.current;
+      const loding = loadingRef.current;
+
+      if (loding) {
+        const heroTimeline = gsap.timeline({
+          onComplete: () => {
+            gsap.to(loding, {
+              opacity: 0,
+              duration: 0.5,
+              onComplete: () => {
+                loding.style.display = 'none';
+              },
+            });
+          },
+        });
+        if (lodingText) {
+          heroTimeline.to(loadingProgressRef.current, {
+            duration: 2.5,
+            width: '100%',
+            onUpdate: function () {
+              const progress = Math.round(this.progress() * 100);
+              if (lodingText) lodingText.innerText = `${progress}%`;
+            },
+          });
+        }
+      }
+
+      return () => {
+        assets.forEach(({ type, element }) => {
+          if (type === 'image') {
+            element.onload = null;
+            element.onerror = null;
+          } else if (type === 'video') {
+            element.oncanplaythrough = null;
+            element.onerror = null;
+          }
+        });
+      };
+    }
   }, []);
 
   useEffect(() => {
