@@ -34,11 +34,11 @@ function App() {
           <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
           {!showNavbar && (
             <>
-              <div className='flex md:hidden'>
+              <div className='flex md:hidden w-full'>
                 {!headerOpened && <Loading />}
                 <Welcome />
               </div>
-              <div className='hidden md:flex'>
+              <div className='hidden md:flex w-full'>
                 <WelcomeWithLoading prevStatus={headerOpened} />
               </div>
               <Summary />
