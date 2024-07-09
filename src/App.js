@@ -16,6 +16,7 @@ import ScrollToTopButton from './components/scroll';
 import Stairs from './components/stairs';
 import WelcomeWithLoading from './components/welcomewithloading';
 import Welcome from './components/welcome';
+import Loading from './components/loading';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -33,8 +34,13 @@ function App() {
           <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
           {!showNavbar && (
             <>
-              {/* <WelcomeWithLoading prevStatus={headerOpened} /> */}
+              {/* <div className='flex md:hidden'> */}
+              {!headerOpened && <Loading />}
               <Welcome />
+              {/* </div> */}
+              {/* <div className='hidden md:flex'>
+                <WelcomeWithLoading prevStatus={headerOpened} />
+              </div> */}
               <Summary />
               <Pioneer />
               <Stairs />
