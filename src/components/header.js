@@ -54,11 +54,11 @@ const Header = ({ visibility, setNavbar }) => {
                 Subscribe for News, Updates and Articles
               </span>
               <div className='flex flex-row'></div>
-              <div className='flex flex-row p-1 border-solid border-[1px] border-hint-text rounded-md justify-between'>
+              <div className='flex flex-row p-1 gap-1 border-solid border-[1px] border-hint-text rounded-md justify-between'>
                 <input
                   type='email'
                   placeholder='E-mail'
-                  className='text-xl leading-6 p-4 text-white placeholder:text-hint-text'
+                  className='text-xl leading-6 p-4 text-white placeholder:text-hint-text bg-dark-text'
                 />
                 <button className='bg-white font-bold text-base leading-4 px-6 py-4 text-black rounded'>
                   SUBSCRIBE NOW
