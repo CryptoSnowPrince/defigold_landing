@@ -72,7 +72,7 @@ const Header = ({ visibility, setNavbar }) => {
             href='https://docsend.com/view/ucfgjceckmzkt2yc'
             target='_blank'
             rel='noopener noreferrer'
-            className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text'
+            className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text flex items-center'
           >
             VIEW PRESENTATION
           </a>
@@ -83,7 +83,7 @@ const Header = ({ visibility, setNavbar }) => {
           <img src={Logo} alt='logo' className='w-[34px] h-[42px]' />
           <div className='flex flex-row gap-5 items-center'>
             <a
-              className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text'
+              className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text flex items-center'
               target='_blank'
               href='https://docsend.com/view/ucfgjceckmzkt2yc'
               rel='noopener noreferrer'
