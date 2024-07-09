@@ -83,26 +83,29 @@ const WelcomeWithLoading = ({ prevStatus }) => {
     const lodingText = loadingTextRef.current;
     const loding = loadingRef.current;
 
-    const heroTimeline = gsap.timeline({
-      onComplete: () => {
-        gsap.to(loding, {
-          opacity: 0,
-          duration: 0.5,
-          onComplete: () => {
-            loding.style.display = 'none';
+    if (loding) {
+      const heroTimeline = gsap.timeline({
+        onComplete: () => {
+          gsap.to(loding, {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => {
+              loding.style.display = 'none';
+            },
+          });
+        },
+      });
+      if (lodingText) {
+        heroTimeline.to(loadingProgressRef.current, {
+          duration: 2.5,
+          width: '100%',
+          onUpdate: function () {
+            const progress = Math.round(this.progress() * 100);
+            if (lodingText) lodingText.innerText = `${progress}%`;
           },
         });
-      },
-    });
-
-    heroTimeline.to(loadingProgressRef.current, {
-      duration: 2.5,
-      width: '100%',
-      onUpdate: function () {
-        const progress = Math.round(this.progress() * 100);
-        lodingText.innerText = `${progress}%`;
-      },
-    });
+      }
+    }
 
     return () => {
       assets.forEach(({ type, element }) => {
@@ -116,7 +119,6 @@ const WelcomeWithLoading = ({ prevStatus }) => {
       });
     };
   }, []);
-  console.log(isLoaded, prevStatus);
 
   return (
     <>
