@@ -15,6 +15,7 @@ import { Loader } from '@react-three/drei';
 import ScrollToTopButton from './components/scroll';
 import Stairs from './components/stairs';
 import WelcomeWithLoading from './components/welcomewithloading';
+import Welcome from './components/welcome';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -32,7 +33,8 @@ function App() {
           <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} />
           {!showNavbar && (
             <>
-              <WelcomeWithLoading prevStatus={headerOpened} />
+              {/* <WelcomeWithLoading prevStatus={headerOpened} /> */}
+              <Welcome />
               <Summary />
               <Pioneer />
               <Stairs />

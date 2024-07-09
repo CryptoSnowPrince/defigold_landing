@@ -7,24 +7,25 @@ import heroImage from '../assets/img/hero.webp';
 import AnimLine from '../assets/img/animated_lines.png';
 import ExAnimLine from '../assets/img/ex_animated_lines.png';
 
-const useGSAP = (
-  loadingRef,
-  loadingTextRef,
-  loadingProgressRef,
-  welcomeRef,
-  globeParentRef,
-  welcomeTextRef,
-  prevStatus,
-  setPercent,
-  setIsLoaded
-) => {
+const WelcomeWithLoading = ({ prevStatus }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [percent, setPercent] = useState(0);
+  const loadingRef = useRef(null);
+  const loadingTextRef = useRef(null);
+  const loadingProgressRef = useRef(null);
+  const welcomeRef = useRef(null);
+  const globeParentRef = useRef(null);
+  const welcomeTextRef = useRef(null);
+
   useEffect(() => {
     if (prevStatus) setIsLoaded(true);
+    // const loadingText = loadingTextRef.current;
     const loading = loadingRef.current;
     const welcome = welcomeRef.current;
     const globeParent = globeParentRef.current;
     const welcomeText = welcomeTextRef.current;
 
+    // Create Image and Video objects for preloading
     const image = new Image();
     const flameVid = document.createElement('video');
     const lavaVid = document.createElement('video');
@@ -64,7 +65,7 @@ const useGSAP = (
               );
             },
           });
-        }, 500);
+        }, 500); // Optional delay for better UX
       }
     };
 
@@ -114,41 +115,7 @@ const useGSAP = (
         }
       });
     };
-  }, [
-    loadingRef,
-    loadingTextRef,
-    loadingProgressRef,
-    welcomeRef,
-    globeParentRef,
-    welcomeTextRef,
-    prevStatus,
-    setPercent,
-    setIsLoaded,
-  ]);
-};
-
-const WelcomeWithLoading = ({ prevStatus }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [percent, setPercent] = useState(0);
-  const loadingRef = useRef(null);
-  const loadingTextRef = useRef(null);
-  const loadingProgressRef = useRef(null);
-  const welcomeRef = useRef(null);
-  const globeParentRef = useRef(null);
-  const welcomeTextRef = useRef(null);
-
-  useGSAP(
-    loadingRef,
-    loadingTextRef,
-    loadingProgressRef,
-    welcomeRef,
-    globeParentRef,
-    welcomeTextRef,
-    prevStatus,
-    setPercent,
-    setIsLoaded
-  );
-
+  }, []);
   console.log(isLoaded, prevStatus);
 
   return (
