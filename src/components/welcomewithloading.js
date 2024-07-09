@@ -21,9 +21,6 @@ const WelcomeWithLoading = ({ prevStatus }) => {
     if (prevStatus) setIsLoaded(true);
     // const loadingText = loadingTextRef.current;
     const loading = loadingRef.current;
-    const welcome = welcomeRef.current;
-    const globeParent = globeParentRef.current;
-    const welcomeText = welcomeTextRef.current;
 
     // Create Image and Video objects for preloading
     const image = new Image();
@@ -52,17 +49,6 @@ const WelcomeWithLoading = ({ prevStatus }) => {
             duration: 1,
             onComplete: () => {
               setIsLoaded(true);
-              gsap.fromTo(welcome, { opacity: 0 }, { opacity: 1, duration: 1 });
-              gsap.fromTo(
-                globeParent,
-                { scale: 0.3, x: '-60%', y: '-30vw' },
-                { scale: 1, x: 0, y: 0, duration: 2.5 }
-              );
-              gsap.fromTo(
-                welcomeText,
-                { opacity: 0 },
-                { opacity: 1, duration: 1, delay: 1 }
-              );
             },
           });
         }, 500); // Optional delay for better UX
@@ -120,6 +106,25 @@ const WelcomeWithLoading = ({ prevStatus }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isLoaded) {
+      const welcome = welcomeRef.current;
+      const globeParent = globeParentRef.current;
+      const welcomeText = welcomeTextRef.current;
+      gsap.fromTo(welcome, { opacity: 0 }, { opacity: 1, duration: 1 });
+      gsap.fromTo(
+        globeParent,
+        { scale: 0.3, x: '-60%', y: '-30vw' },
+        { scale: 1, x: 0, y: 0, duration: 2.5 }
+      );
+      gsap.fromTo(
+        welcomeText,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, delay: 1 }
+      );
+    }
+  }, [isLoaded]);
+
   return (
     <>
       {!isLoaded && !prevStatus && (
@@ -143,7 +148,6 @@ const WelcomeWithLoading = ({ prevStatus }) => {
           </div>
         </div>
       )}
-
       <div
         ref={welcomeRef}
         className={`welcome-content ${
