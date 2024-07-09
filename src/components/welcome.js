@@ -11,15 +11,13 @@ const Welcome = () => {
         scale: 0.3,
         x: '-60%',
         y: '-30vw',
-        duration: 2.5,
-        opacity: 1,
+        duration: 3.5,
       });
       gsap.to('.globe_parent', {
         scale: 1,
         x: 0,
         y: 0,
         duration: 2.5,
-        opacity: 1,
       });
     };
     animateGlobe();
