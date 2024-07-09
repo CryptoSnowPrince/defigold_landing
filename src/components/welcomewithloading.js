@@ -116,31 +116,31 @@ const WelcomeWithLoading = ({ prevStatus }) => {
       });
     };
   }, []);
+  console.log(isLoaded, prevStatus);
 
   return (
     <>
-      {!isLoaded &&
-        !prevStatus(
-          <div
-            ref={loadingRef}
-            className='loading fixed top-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-y-5 bg-black-600'
-          >
-            <img src={Logo} className='h-20 md:h-[5vw]' alt='' />
-            <p className='font-teko text-[8vw] text-white md:text-[2.604vw]'>
-              DeFi.Gold
-            </p>
+      {!isLoaded && !prevStatus && (
+        <div
+          ref={loadingRef}
+          className='loading fixed top-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-y-5 bg-black-600'
+        >
+          <img src={Logo} className='h-20 md:h-[5vw]' alt='' />
+          <p className='font-teko text-[8vw] text-white md:text-[2.604vw]'>
+            DeFi.Gold
+          </p>
 
-            <div className='progress_wrapper mx-auto flex w-[80%] flex-col items-center justify-center'>
-              <div ref={loadingProgressRef} className='loading__progress'></div>
-              <p
-                ref={loadingTextRef}
-                className='loading__text mt-4 font-teko text-3xl font-light text-gold min-h-[36px]'
-              >
-                {percent}%
-              </p>
-            </div>
+          <div className='progress_wrapper mx-auto flex w-[80%] flex-col items-center justify-center'>
+            <div ref={loadingProgressRef} className='loading__progress'></div>
+            <p
+              ref={loadingTextRef}
+              className='loading__text mt-4 font-teko text-3xl font-light text-gold min-h-[36px]'
+            >
+              {percent}%
+            </p>
           </div>
-        )}
+        </div>
+      )}
 
       <div
         ref={welcomeRef}
