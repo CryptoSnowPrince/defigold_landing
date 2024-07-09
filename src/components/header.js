@@ -68,22 +68,28 @@ const Header = ({ visibility, setNavbar }) => {
           </div>
         </div>
         <div className='flex flex-col shrink-0 items-center px-5 py-5'>
-          <Link
-            to='https://docsend.com/view/ucfgjceckmzkt2yc'
+          <a
+            href='https://docsend.com/view/ucfgjceckmzkt2yc'
             target='_blank'
+            rel='noopener noreferrer'
             className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text'
           >
             VIEW PRESENTATION
-          </Link>
+          </a>
         </div>
       </div>
       <div className='w-screen sm:hidden flex flex-col'>
         <div className='flex flex-row justify-between h-[62px] px-5 py-2.5'>
           <img src={Logo} alt='logo' className='w-[34px] h-[42px]' />
           <div className='flex flex-row gap-5 items-center'>
-            <Link className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text'>
+            <a
+              className='bg-gold h-full font-sfui font-bold text-sm leading-[14px] px-6 rounded text-dark-text'
+              target='_blank'
+              href='https://docsend.com/view/ucfgjceckmzkt2yc'
+              rel='noopener noreferrer'
+            >
               PRESENTATION
-            </Link>
+            </a>
             <button className='anim-button' onClick={setNavbar}>
               <div className={`${visibility ? 'invisible' : ''}`}></div>
               <div></div>
