@@ -209,7 +209,7 @@ const Investors = () => {
               },
             }}
           />
-          <div className='w-full min-h-[30vh]'>
+          <div className='w-4/5 h-4/5 mx-auto'>
             <YouTube videoId='xqKXvy9hJpY' opts={opts} onReady={videoReady} />
           </div>
         </div>
