@@ -21,6 +21,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
 import ReactPlayer from 'react-player';
+import YouTube from 'react-youtube';
 
 const investor_list = [
   {
@@ -111,6 +112,15 @@ const Investors = () => {
     }, 100);
   };
 
+  const opts = {
+    width: '100%',
+    borderRadius: '2rem',
+    playerVars: { autoplay: 1 },
+  };
+  const videoReady = (event) => {
+    event.target.pauseVideo();
+  };
+
   return (
     <section className='w-screen invester-slider relative z-[10] bg-cover bg-no-repeat pl-4 pt-[30vw] md:z-[999] md:pt-[0vw]'>
       <h2 className='absolute top-20 transform text-center font-teko text-[29.3vw] font-medium leading-[90%] text-white md:left-1/2 md:top-[-8vw] md:-translate-x-1/2 md:text-[14.5vw]'>
@@ -180,7 +190,7 @@ const Investors = () => {
         </div>
       </div>
       <div className='pb-20 pt-[95vw] md:pt-[10vw]'>
-        <div className='pr-4 px-auto'>
+        <div className='pr-4 px-auto flex-col gap-4'>
           <ReactPlayer
             url='https://hugh.cdn.rumble.cloud/video/s8/2/4/u/v/r/4uvrs.caa.rec.mp4?u=4&amp;b=0'
             loop
@@ -199,6 +209,9 @@ const Investors = () => {
               },
             }}
           />
+          <div className='w-full min-h-[30vh]'>
+            <YouTube videoId='xqKXvy9hJpY' opts={opts} onReady={videoReady} />
+          </div>
         </div>
         <div className='md:pl-[15vw]'>
           <h6 className='font-teko text-[12.8vw] font-medium leading-[90%] text-white md:text-[5.1vw]'>
