@@ -31,11 +31,11 @@ function App() {
   };
 
   const handleFeatures = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     modifyNavbarStatus();
     // console.log(featuresRef.current);
     // window.scrollTo({ featuresRef, behavior: 'smooth' });
-    featuresRef.current.scrollIntoView({ behavior: 'smooth' });
+    // featuresRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -77,7 +77,7 @@ function App() {
                   </div>
                   <div className='flex flex-col pt-5'>
                     <a
-                      href='#'
+                      href='#features'
                       className='nav-text-item'
                       onClick={handleFeatures}
                     >
@@ -212,7 +212,7 @@ function App() {
               <Summary />
               <Pioneer />
               <Stairs />
-              <div ref={featuresRef}>
+              <div id='features' ref={featuresRef}>
                 <Features />
               </div>
               <MarketPlace />
