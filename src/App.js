@@ -231,9 +231,7 @@ function App() {
               <Launchpad />
               <Presentation />
               <Investors />
-              <div id='footer'>
-                <Footer />
-              </div>
+              <Footer />
             </>
           )}
         </div>
