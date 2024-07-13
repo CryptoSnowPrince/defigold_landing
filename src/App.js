@@ -59,7 +59,11 @@ function App() {
                   }`}
                 >
                   <div className='flex flex-col pt-5'>
-                    <a href='#' className='nav-text-item'>
+                    <a
+                      href='#about'
+                      className='nav-text-item'
+                      onClick={handleFeatures}
+                    >
                       About
                     </a>
                     <div className='h-[1px] bg-white opacity-10'></div>
@@ -150,7 +154,7 @@ function App() {
               >
                 <div className='flex flex-col'>
                   <div className='flex flex-col pt-5'>
-                    <a href='#' className='nav-text-item'>
+                    <a href='#about' className='nav-text-item'>
                       About
                     </a>
                     <div className='h-[1px] bg-white opacity-10'></div>
@@ -224,13 +228,15 @@ function App() {
               <Summary />
               <Pioneer />
               <Stairs />
-              <div id='features' ref={featuresRef}>
+              <div id='features' className='w-full' ref={featuresRef}>
                 <Features />
               </div>
               <MarketPlace />
               <Launchpad />
               <Presentation />
-              <Investors />
+              <div id='about' className='w-full'>
+                <Investors />
+              </div>
               <div id='contact' className='w-full'>
                 <Footer />
               </div>
