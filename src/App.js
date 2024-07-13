@@ -87,7 +87,7 @@ function App() {
                   </div>
                   <div className='flex flex-col pt-5'>
                     <a
-                      href='#footer'
+                      href='#contact'
                       className='nav-text-item'
                       onClick={handleFeatures}
                     >
@@ -173,7 +173,7 @@ function App() {
                   </div>
                   <div className='flex flex-col pt-5'>
                     <a
-                      href='#footer'
+                      href='#contact'
                       className='nav-text-item'
                       onClick={handleFeatures}
                     >
@@ -231,7 +231,9 @@ function App() {
               <Launchpad />
               <Presentation />
               <Investors />
-              <Footer />
+              <div id='contact'>
+                <Footer />
+              </div>
             </>
           )}
         </div>
