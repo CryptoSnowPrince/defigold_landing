@@ -231,7 +231,7 @@ function App() {
               <Launchpad />
               <Presentation />
               <Investors />
-              <div id='contact'>
+              <div id='contact' className='w-full'>
                 <Footer />
               </div>
             </>

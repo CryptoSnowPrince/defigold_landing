@@ -330,10 +330,7 @@ const Footer = () => {
   };
 
   return (
-    <div
-      id='footer'
-      className='static bottom-0 left-0 w-full right-0 hidden md:sticky'
-    >
+    <div id='footer' className='w-full'>
       <div id='mainContactFormContainer'>
         <video id='formVideoContainer' autoPlay playsInline loop muted>
           <source src={FormLight} type='video/mp4' />
