@@ -10,7 +10,7 @@ const Summary = () => {
         <div className='flex-1 w-[1px] split-line mx-auto'></div>
         <div className='w-[9px] h-[9px] my-10 rounded-full bg-gold point mx-auto'></div>
         <div className='w-[38px] h-16 bg-gold candle mx-auto'></div>
-        <div className='absolute h-full w-full xl:px-[250px] lg:px-16 md:px-8 sm:px-14 flex flex-row bottom-0 z-10'>
+        <div className='absolute h-full w-full xl:px-[120px] 2xl:px-[250px] lg:px-16 md:px-8 sm:px-14 flex flex-row bottom-0 z-10'>
           <Fade duration={500} triggerOnce={false} direction='up'>
             <div className='flex-1 lg:pr-[120px] pt-24 lg:pt-32 md:pr-14 sm:pr-6 font-light text-4xl xl:text-[68px] xl:leading-[62px]'>
               <span className='text-gold'>DeFi.Gold</span> is shaking things up

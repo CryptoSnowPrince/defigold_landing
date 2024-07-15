@@ -225,7 +225,9 @@ function App() {
               <div className='hidden md:flex w-full'>
                 <WelcomeWithLoading prevStatus={headerOpened} />
               </div>
-              <Summary />
+              <div id='about' className='w-full'>
+                <Summary />
+              </div>
               <Pioneer />
               <Stairs />
               <div id='features' className='w-full' ref={featuresRef}>
@@ -234,9 +236,7 @@ function App() {
               <MarketPlace />
               <Launchpad />
               <Presentation />
-              <div id='about' className='w-full'>
-                <Investors />
-              </div>
+              <Investors />
               <div id='contact' className='w-full'>
                 <Footer />
               </div>
