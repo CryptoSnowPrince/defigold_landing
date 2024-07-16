@@ -154,7 +154,11 @@ function App() {
               >
                 <div className='flex flex-col'>
                   <div className='flex flex-col pt-5'>
-                    <a href='#about' className='nav-text-item'>
+                    <a
+                      href='#about'
+                      className='nav-text-item'
+                      onClick={handleFeatures}
+                    >
                       About
                     </a>
                     <div className='h-[1px] bg-white opacity-10'></div>
