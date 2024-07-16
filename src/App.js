@@ -72,7 +72,7 @@ function App() {
                     <a
                       href='#about'
                       className='nav-text-item'
-                      onClick={handleAbout}
+                      onClick={handleFeatures}
                     >
                       About
                     </a>
@@ -167,7 +167,7 @@ function App() {
                     <a
                       href='#about'
                       className='nav-text-item'
-                      onClick={handleAbout}
+                      onClick={handleFeatures}
                     >
                       About
                     </a>
