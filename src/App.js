@@ -228,7 +228,7 @@ function App() {
                   </div>
                   <div className='flex flex-col pt-5'>
                     <a
-                      href='#features'
+                      href='#feature'
                       className='nav-text-item'
                       onClick={handleNormalFeatures}
                     >
@@ -352,7 +352,9 @@ function App() {
                 </div>
               </div>
               <Pioneer />
-              <Stairs />
+              <div id='feature' className='w-full' ref={featuresRef}>
+                <Stairs />
+              </div>
               <div id='features' className='w-full' ref={featuresRef}>
                 <Features />
               </div>
