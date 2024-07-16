@@ -17,7 +17,7 @@ const Launchpad = () => {
         start: 'top 75%',
         end: 'top 25%',
         once: true, // Ensures animation runs only once
-        markers: true, // For debugging, remove this in production
+        markers: false, // For debugging, remove this in production
         onUpdate: (self) => {
           self.update(); // Update ScrollTrigger on animation updates
         },
