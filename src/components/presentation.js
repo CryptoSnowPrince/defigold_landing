@@ -68,7 +68,7 @@ const Presentation = () => {
         trigger: '#presetation_section',
         start: '-50% top',
         endTrigger: '.stairs',
-        end: '80% bottom',
+        end: '-10% bottom',
         timeScale: 0.2,
         scrub: 1,
       },
