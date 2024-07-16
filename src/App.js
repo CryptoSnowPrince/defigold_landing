@@ -34,6 +34,7 @@ function App() {
     e.preventDefault(); // Prevent default anchor click behavior
     modifyNavbarStatus(); // Toggle the navbar
     const section = document.getElementById('about'); // Get the section by ID
+    console.log(section);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section
     }
