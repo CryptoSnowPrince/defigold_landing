@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import monkeyLight from '../assets/img/monkeyLight.gif';
 import DNA from '../assets/img/DNA-2.gif';
 import monkeyGroup from '../assets/img/compressed/monkeyGroup.webp';
 import Logo from '../assets/img/icon.svg';
 import ArrowLogo from './arrowlogo';
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const Launchpad = () => {
   useEffect(() => {
@@ -24,6 +25,18 @@ const Launchpad = () => {
       { y: '30%', opacity: 0 },
       { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
     );
+
+    const handleScroll = () => {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100); // Adjust the timeout as needed
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
