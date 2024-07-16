@@ -66,9 +66,9 @@ const Presentation = () => {
     const presentation = gsap.timeline({
       scrollTrigger: {
         trigger: '#presetation_section',
-        start: '-50% top',
+        start: 'top bottom',
         endTrigger: '.stairs',
-        end: '-10% bottom',
+        end: 'top top',
         timeScale: 0.2,
         scrub: 1,
       },
