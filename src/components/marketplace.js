@@ -36,8 +36,8 @@ const MarketPlace = () => {
       ease: 'power4.out',
       scrollTrigger: {
         trigger: '.newHomeCity',
-        start: 'top bottom',
-        end: 'bottom top',
+        start: 'top bottom+=75px',
+        end: 'bottom center+=50px',
       },
     });
 
