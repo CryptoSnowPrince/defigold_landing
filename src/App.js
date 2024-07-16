@@ -212,7 +212,7 @@ function App() {
                 <div className='flex flex-col'>
                   <div className='flex flex-col pt-5'>
                     <a
-                      href='#about'
+                      href='#aboutus'
                       className='nav-text-item'
                       onClick={handleNormalFeatures}
                     >
@@ -281,7 +281,9 @@ function App() {
             <>
               <div className='flex md:hidden w-full'>
                 {!headerOpened && <Loading />}
-                <Welcome />
+                <div id='aboutus' className='w-full'>
+                  <Welcome />
+                </div>
               </div>
               <div className='hidden md:flex w-full'>
                 <WelcomeWithLoading prevStatus={headerOpened} />
