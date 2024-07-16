@@ -14,7 +14,7 @@ const Launchpad = () => {
       scrollTrigger: {
         trigger: '.runes',
         start: '-55% top',
-        end: `bottom bottom`,
+        end: `0% top`,
         scrub: 1,
       },
     });
