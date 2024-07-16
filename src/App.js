@@ -30,6 +30,15 @@ function App() {
     setShowNavbar(!showNavbar);
   };
 
+  const handleAbout = (e) => {
+    e.preventDefault(); // Prevent default anchor click behavior
+    modifyNavbarStatus(); // Toggle the navbar
+    const section = document.getElementById('about'); // Get the section by ID
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section
+    }
+  };
+
   const handleFeatures = (e) => {
     // e.preventDefault();
     modifyNavbarStatus();
@@ -62,7 +71,7 @@ function App() {
                     <a
                       href='#about'
                       className='nav-text-item'
-                      onClick={handleFeatures}
+                      onClick={handleAbout}
                     >
                       About
                     </a>
@@ -157,7 +166,7 @@ function App() {
                     <a
                       href='#about'
                       className='nav-text-item'
-                      onClick={handleFeatures}
+                      onClick={handleAbout}
                     >
                       About
                     </a>
