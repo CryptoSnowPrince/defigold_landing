@@ -15,16 +15,25 @@ const Launchpad = () => {
       scrollTrigger: {
         trigger: '.runes',
         start: 'top 75%',
-        end: `top 25%`,
-        scrub: 1,
+        end: 'top 25%',
+        once: true,
+        markers: true, // For debugging, remove this line in production
+        onEnter: () => {
+          gsap.fromTo(
+            '.launchpadMonkey',
+            { y: '30%', opacity: 0 },
+            { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
+          );
+        },
+        onEnterBack: () => {
+          gsap.fromTo(
+            '.launchpadMonkey',
+            { y: '30%', opacity: 0 },
+            { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
+          );
+        },
       },
     });
-
-    launchpadMonkey.fromTo(
-      '.launchpadMonkey',
-      { y: '30%', opacity: 0 },
-      { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
-    );
 
     const handleScroll = () => {
       setTimeout(() => {
@@ -52,17 +61,17 @@ const Launchpad = () => {
           <img
             className='fallingStars m-auto h-[75vw] w-[56vw] md:m-0 md:h-[40vw] md:w-[27vw] xl:h-[28vw] xl:w-[19vw]'
             src={monkeyLight}
-            alt=''
+            alt='Monkey Light'
           />
           <img
             className='fallingDna m-auto w-[68vw] md:m-0 md:w-full'
             src={DNA}
-            alt=''
+            alt='DNA'
           />
           <img
             className='fallingMonkey m-auto h-[100.8vw] w-[76vw] md:m-0 md:h-[auto] md:w-full xl:w-full'
             src={monkeyGroup}
-            alt=''
+            alt='Monkey Group'
           />
         </div>
       </div>
@@ -77,21 +86,21 @@ const Launchpad = () => {
         </p>
         <div className='md:[100%] mb-auto flex h-fit flex-col xl:mt-auto xl:w-[70%]'>
           <div className='flex flex-col gap-x-3 border-y-[1px] border-white border-opacity-10 py-5 md:mt-5 md:flex-row md:items-center md:py-5 xl:flex-row xl:items-center xl:py-5'>
-            <img className='hidden md:inline xl:inline' src={Logo} alt='' />
+            <img className='hidden md:inline xl:inline' src={Logo} alt='Logo' />
             <ArrowLogo />
             <p className='text-lg leading-6 md:text-2xl mt-2.5 font-sfui text-white md:mt-0'>
               Enables projects to sell their tokens directly to the community
             </p>
           </div>
           <div className='flex flex-col gap-x-3 py-5 md:mt-5 md:flex-row md:items-center md:py-5 xl:mt-0 xl:flex-row xl:items-center xl:pb-5'>
-            <img className='hidden md:inline xl:inline' src={Logo} alt='' />
+            <img className='hidden md:inline xl:inline' src={Logo} alt='Logo' />
             <ArrowLogo />
             <p className='text-lg leading-6 md:text-2xl mt-2.5 font-sfui text-white md:mt-0'>
               Uses a quadratic bonding curve for fair pricing and liquidity
             </p>
           </div>
           <div className='flex flex-col gap-x-3 border-y-[1px] border-white border-opacity-10 py-5 md:mt-5 md:flex-row md:items-center md:py-5 xl:mt-0 xl:flex-row xl:items-center xl:py-5 mb-[60px] md:mb-0'>
-            <img className='hidden md:inline xl:inline' src={Logo} alt='' />
+            <img className='hidden md:inline xl:inline' src={Logo} alt='Logo' />
             <ArrowLogo />
             <p className='text-lg leading-6 md:text-2xl mt-2.5 font-sfui text-white md:mt-0'>
               Opens new avenues for project funding and community engagement
