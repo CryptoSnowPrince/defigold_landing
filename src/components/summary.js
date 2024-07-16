@@ -18,7 +18,7 @@ const Summary = () => {
 
     launchpadMonkey.fromTo(
       '.description',
-      { y: '30%', opacity: 0 },
+      { y: '10%', opacity: 0 },
       { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
     );
   }, []);
