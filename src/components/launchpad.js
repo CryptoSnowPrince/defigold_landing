@@ -16,35 +16,22 @@ const Launchpad = () => {
         trigger: '.runes',
         start: 'top 75%',
         end: 'top 25%',
-        once: true,
-        markers: true, // For debugging, remove this line in production
-        onEnter: () => {
-          gsap.fromTo(
-            '.launchpadMonkey',
-            { y: '30%', opacity: 0 },
-            { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
-          );
-        },
-        onEnterBack: () => {
-          gsap.fromTo(
-            '.launchpadMonkey',
-            { y: '30%', opacity: 0 },
-            { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
-          );
+        once: true, // Ensures animation runs only once
+        markers: true, // For debugging, remove this in production
+        onUpdate: (self) => {
+          self.update(); // Update ScrollTrigger on animation updates
         },
       },
     });
 
-    const handleScroll = () => {
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100); // Adjust the timeout as needed
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    launchpadMonkey.fromTo(
+      '.launchpadMonkey',
+      { y: '30%', opacity: 0 },
+      { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
+    );
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      launchpadMonkey.kill(); // Ensure animation is killed on component unmount
     };
   }, []);
 
