@@ -10,8 +10,8 @@ const Summary = () => {
     const launchpadMonkey = gsap.timeline({
       scrollTrigger: {
         trigger: '.about_section',
-        start: '-55% top',
-        end: `0% top`,
+        start: 'top bottom',
+        end: `top top`,
         scrub: 1,
       },
     });
