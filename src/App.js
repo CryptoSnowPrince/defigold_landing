@@ -214,7 +214,7 @@ function App() {
                     <a
                       href='#about'
                       className='nav-text-item'
-                      onClick={handleAbout}
+                      onClick={handleNormalFeatures}
                     >
                       About
                     </a>
@@ -230,7 +230,7 @@ function App() {
                     <a
                       href='#features'
                       className='nav-text-item'
-                      onClick={handleFeatures}
+                      onClick={handleNormalFeatures}
                     >
                       Features
                     </a>
@@ -240,7 +240,7 @@ function App() {
                     <a
                       href='#contact'
                       className='nav-text-item'
-                      onClick={handleContact}
+                      onClick={handleNormalFeatures}
                     >
                       Contact Us
                     </a>
