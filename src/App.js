@@ -44,7 +44,7 @@ function App() {
     launchpadMonkey.fromTo(
       '.description',
       { y: '10%', opacity: 0 },
-      { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
+      { y: '0%', opacity: 1, duration: 1, ease: 'power2.inOut' }
     );
   }, []);
 

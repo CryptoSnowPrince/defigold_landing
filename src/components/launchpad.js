@@ -14,36 +14,36 @@ const Launchpad = () => {
     const launchpadMonkey = gsap.timeline({
       scrollTrigger: {
         trigger: '.runes',
-        start: 'top 75%',
-        end: 'top 25%',
+        start: 'top bottom',
+        end: 'bottom top',
         scrub: 1,
         markers: false,
         onEnter: ({ progress, direction, isActive }) => {
           gsap.fromTo(
             '.launchpadMonkey',
             { y: '30%', opacity: 0 },
-            { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
+            { y: '0%', opacity: 1, duration: 1, ease: 'power2.inOut' }
           );
         },
         onLeave: ({ progress, direction, isActive }) => {
           gsap.fromTo(
             '.launchpadMonkey',
             { y: '0%', opacity: 1 },
-            { y: '30%', opacity: 0, duration: 3, ease: 'power2.inOut' }
+            { y: '30%', opacity: 0, duration: 1, ease: 'power2.inOut' }
           );
         },
         onEnterBack: ({ progress, direction, isActive }) => {
           gsap.fromTo(
             '.launchpadMonkey',
             { y: '30%', opacity: 0 },
-            { y: '0%', opacity: 1, duration: 3, ease: 'power2.inOut' }
+            { y: '0%', opacity: 1, duration: 1, ease: 'power2.inOut' }
           );
         },
         onLeaveBack: ({ progress, direction, isActive }) => {
           gsap.fromTo(
             '.launchpadMonkey',
             { y: '0%', opacity: 1 },
-            { y: '30%', opacity: 0, duration: 3, ease: 'power2.inOut' }
+            { y: '30%', opacity: 0, duration: 1, ease: 'power2.inOut' }
           );
         },
       },

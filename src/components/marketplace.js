@@ -46,7 +46,7 @@ const MarketPlace = () => {
       gsap.fromTo(
         light,
         { opacity: '100%' },
-        { opacity: '40%', duration: 2, repeat: -1, ease: 'none', yoyo: true }
+        { opacity: '40%', duration: 1, repeat: -1, ease: 'none', yoyo: true }
       );
     });
     var section = document.querySelector('.nft');
@@ -79,7 +79,7 @@ const MarketPlace = () => {
         {
           opacity: 1,
           yPercent: -20,
-          duration: 2,
+          duration: 1.5,
         }
       )
       .from(
@@ -95,7 +95,7 @@ const MarketPlace = () => {
       gsap.fromTo(
         light,
         { opacity: '100%' },
-        { opacity: '40%', duration: 2, repeat: -1, ease: 'none', yoyo: true }
+        { opacity: '40%', duration: 1, repeat: -1, ease: 'none', yoyo: true }
       );
     });
   }, []);
