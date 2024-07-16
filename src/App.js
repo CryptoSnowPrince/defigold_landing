@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -19,11 +19,12 @@ import Welcome from './components/welcome';
 import Loading from './components/loading';
 import Logo from './assets/img/logo.svg';
 import union from './assets/img/Union.png';
+import { useEffect } from 'react';
+import gsap from 'gsap';
 import { Fade } from 'react-awesome-reveal';
 import './components/css/summary.css';
 import mobilePath from './assets/img/path_mobile.png';
 import landPath from './assets/img/road.svg';
-import gsap from 'gsap';
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -36,7 +37,7 @@ function App() {
       scrollTrigger: {
         trigger: '.about_section',
         start: 'top bottom',
-        end: 'top top',
+        end: `top top`,
         scrub: 1,
       },
     });
@@ -60,8 +61,17 @@ function App() {
       aboutSectionRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
-      }); // Scroll to the section
+      });
     }
+    // const section = document.getElementById('about'); // Get the section by ID
+    // console.log(section);
+    // if (section) {
+    //   section.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section
+    // }
+  };
+
+  const handleNormalFeatures = (e) => {
+    modifyNavbarStatus();
   };
 
   const handleFeatures = (e) => {
@@ -73,6 +83,16 @@ function App() {
         block: 'start',
       });
     }
+    // console.log(featuresRef.current);
+    // window.scrollTo({ featuresRef, behavior: 'smooth' });
+    // featuresRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const handleContact = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      bottom: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -99,7 +119,7 @@ function App() {
                     <a
                       href='#about'
                       className='nav-text-item'
-                      onClick={handleAbout}
+                      onClick={handleNormalFeatures}
                     >
                       About
                     </a>
@@ -120,7 +140,7 @@ function App() {
                     <a
                       href='#features'
                       className='nav-text-item'
-                      onClick={handleFeatures}
+                      onClick={handleNormalFeatures}
                     >
                       Features
                     </a>
@@ -130,7 +150,7 @@ function App() {
                     <a
                       href='#contact'
                       className='nav-text-item'
-                      onClick={handleFeatures}
+                      onClick={handleNormalFeatures}
                     >
                       Contact Us
                     </a>
@@ -220,7 +240,7 @@ function App() {
                     <a
                       href='#contact'
                       className='nav-text-item'
-                      onClick={handleFeatures}
+                      onClick={handleContact}
                     >
                       Contact Us
                     </a>
@@ -241,61 +261,95 @@ function App() {
                       SUBSCRIBE NOW
                     </button>
                   </div>
-                  <div className='bg-[#111111] pb-2.5 border-[1px] border-[#F8F8F81A] rounded-md flex justify-between items-center'>
-                    <img
-                      src={mobilePath}
-                      alt='mobile'
-                      className='w-[21px] h-[28px]'
-                    />
-                    <span className='text-white font-sfui font-semibold text-base leading-[18.4px]'>
-                      DOWNLOAD MOBILE APP
-                    </span>
-                    <img
-                      src={union}
-                      alt='union'
-                      className='w-[14px] h-[16px]'
-                    />
+                  <div className='bg-[#111111] pb-2 px-[120px] mx-[-20px] border-t-[1px] border-t-[#f8f8f81a] border-solid'>
+                    <div className='flex flex-col items-center justify-center'>
+                      <div className='flex flex-row gap-[6px] items-center'>
+                        <img src={union} alt='lock' className='w-3 h-3' />
+                        <span className='py-3 mx-auto text-[#676b6c] text-sm leading-[14px] font-sfui'>
+                          defi.gold
+                        </span>
+                      </div>
+                      <div className='w-full h-[3px] rounded bg-white'></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='flex flex-col w-full bg-[#191919] h-full bg-no-repeat bg-center bg-cover'>
-              <div className='bg-[#111111] px-5 pt-5'>
-                <h1 className='text-gold font-sfui font-bold text-[28px] leading-[30.3px] mb-2.5'>
-                  {showNavbar ? (
-                    <span className='anim-text-header'>
-                      {`SUMMARY - SPACE DIGITAL MARKETING
-                      API SOFTWARE PROJECT TO INTEGRATE GLOBAL MARKETS WITH DIGITAL PRODUTCS.`}
-                    </span>
-                  ) : (
-                    `Welcome to Moonfarmer`
-                  )}
-                </h1>
-                <p className='text-[#F8F8F8] font-sfui text-[16px] leading-[28px] mb-2.5'>
-                  We're working on a project to create an intuitive web app to
-                  generate and deploy smart contracts for creating tokens or
-                  deploying simple DAO votes, proof of concept includes a header
-                  with a dark gray background, tab bar with 'Create' and
-                  'History', and a 'Connect' button on the right side, 'Create'
-                  page includes options for 'Create Token' or 'Deploy DAO Vote',
-                  showing relevant input fields based on the selection, and
-                  interacts with smart contracts when clicking the create or
-                  deploy buttons, history page records all token creation
-                  history, including token symbol, name, and supply, backend and
-                  MongoDB database are needed to store the history of created
-                  tokens
-                </p>
-                <button className='bg-gold py-3 px-4 rounded-lg text-dark-text font-sfui font-semibold text-base leading-[22px]'>
-                  CREATE NEW TOKEN
-                </button>
-              </div>
-            </div>
           </div>
+          {/* <Header visibility={showNavbar} setNavbar={modifyNavbarStatus} /> */}
           {!showNavbar && (
             <>
+              <div className='flex md:hidden w-full'>
+                {!headerOpened && <Loading />}
+                <Welcome />
+              </div>
+              <div className='hidden md:flex w-full'>
+                <WelcomeWithLoading prevStatus={headerOpened} />
+              </div>
               <div id='about' className='w-full' ref={aboutSectionRef}>
-                {/* About section content */}
-                <Summary />
+                <div className='about_section hidden sm:flex flex-col h-screen w-full relative'>
+                  <div className='flex-1 w-[1px] split-line mx-auto'></div>
+                  <div className='w-[9px] h-[9px] my-10 rounded-full bg-gold point mx-auto'></div>
+                  <div className='w-[38px] h-16 bg-gold candle mx-auto'></div>
+                  <div className='description absolute h-full w-full xl:px-[120px] 2xl:px-[250px] lg:px-16 md:px-8 sm:px-14 flex flex-row bottom-0 z-10'>
+                    {/* <Fade duration={500} triggerOnce={false} direction='up'> */}
+                    <div className='flex-1 lg:pr-[120px] pt-24 lg:pt-32 md:pr-14 sm:pr-6 font-light text-4xl xl:text-[68px] xl:leading-[62px]'>
+                      <span className='text-gold'>DeFi.Gold</span> is shaking
+                      things up as the first DEX and NFT marketplace on the
+                      Bitcoin blockchain.
+                    </div>
+                    <div className='flex-1 flex flex-col pt-32 lg:pt-52 xl:pt-[342px] lg:pl-[120px] md:pl-14 sm:pl-6'>
+                      <p className='font-sfui text-lg lg:text-xl xl:text-2xl text-base-text pb-[60px]'>
+                        It's all about trading cool stuff like NFTs, tokens,
+                        DAOs, and derivatives, but faster and smarter than ever.
+                        <br />
+                        Plus, it's the first to bring this kind of smart
+                        contract magic to Bitcoin!
+                      </p>
+                      <p className='font-sfui text-lg lg:text-xl xl:text-2xl text-gold'>
+                        DeFi.Gold is a DEX controlled by a network of
+                        stakeholders and run as a public commons, it is not a
+                        company.
+                      </p>
+                    </div>
+                    {/* </Fade> */}
+                  </div>
+                  <div className='pl-10 flex flex-row justify-start ml-0'>
+                    <img src={landPath} alt='path' />
+                  </div>
+                </div>
+                <div className='about_section sm:hidden flex flex-col h-screen w-full relative'>
+                  <div className='flex flex-row my-auto justify-end'>
+                    <img src={mobilePath} alt='path' />
+                  </div>
+                  <div className='description absolute top-0 flex flex-col justify-between h-full w-full z-10 px-5 py-[60px]'>
+                    {/* <Fade duration={500} triggerOnce={false} direction='up'> */}
+                    <p className='text-base-text font-light text-[42px] leading-[38px]'>
+                      <span className='text-gold'>DeFi.Gold</span> is shaking
+                      things up as the first DEX and NFT marketplace on the
+                      Bitcoin blockchain.
+                    </p>
+                    {/* </Fade> */}
+                    <div className='flex flex-col font-sfui text-lg leading-6 gap-5'>
+                      {/* <Fade duration={500} triggerOnce={false} direction='up'> */}
+                      <p className='text-base-text'>
+                        It's all about trading cool stuff like NFTs, tokens,
+                        DAOs, and derivatives, but faster and smarter than ever.
+                        <br />
+                        Plus, it's the first to bring this kind of smart
+                        contract magic to Bitcoin!
+                      </p>
+                      {/* </Fade> */}
+                      {/* <Fade duration={500} triggerOnce={false} direction='up'> */}
+                      <p className='text-gold'>
+                        DeFi.Gold is a DEX controlled by a network of
+                        stakeholders and run as a public commons, it is not a
+                        company.
+                      </p>
+                      {/* </Fade> */}
+                    </div>
+                  </div>
+                </div>
               </div>
               <Pioneer />
               <Stairs />
