@@ -13,8 +13,8 @@ const Launchpad = () => {
     const launchpadMonkey = gsap.timeline({
       scrollTrigger: {
         trigger: '.runes',
-        start: '-55% top',
-        end: `0% top`,
+        start: 'top bottom',
+        end: `top top`,
         scrub: 1,
       },
     });

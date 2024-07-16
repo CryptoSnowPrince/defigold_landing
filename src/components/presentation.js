@@ -81,7 +81,7 @@ const Presentation = () => {
     presentation.fromTo(
       '.leftRectangle',
       { x: '-50%', opacity: 0 },
-      { x: 0, duration: 1, opacity: 1 }
+      { x: 0, duration: 2, opacity: 1 }
     );
     presentation.fromTo(
       '.rightRectangle',
