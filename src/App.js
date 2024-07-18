@@ -29,6 +29,7 @@ import landPath from './assets/img/road.svg';
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
   const [headerOpened, setHeaderOpened] = useState(false);
+  const [skipped, setSkipped] = useState(false);
   const featuresRef = useRef(null);
   const aboutSectionRef = useRef(null);
 
@@ -72,6 +73,7 @@ function App() {
 
   const handleNormalFeatures = (e) => {
     modifyNavbarStatus();
+    setSkipped(true);
   };
 
   const handleFeatures = (e) => {
@@ -355,13 +357,13 @@ function App() {
               </div>
               <Pioneer />
               <div id='feature' className='w-full' ref={featuresRef}>
-                <Stairs />
+                <Stairs skipped={skipped} />
               </div>
               <div id='features' className='w-full' ref={featuresRef}>
                 <Features />
               </div>
-              <MarketPlace />
-              <Launchpad />
+              <MarketPlace skipped={skipped} />
+              <Launchpad skipped={skipped} />
               <Presentation />
               <Investors />
               <div id='contact' className='w-full'>

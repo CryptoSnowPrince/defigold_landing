@@ -9,13 +9,13 @@ import ArrowLogo from './arrowlogo';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Launchpad = () => {
+const Launchpad = ({ skipped }) => {
   useEffect(() => {
     const launchpadMonkey = gsap.timeline({
       scrollTrigger: {
         trigger: '.runes',
-        start: 'top bottom+=100px',
-        end: 'bottom center+=100px',
+        start: skipped ? 'top bottom+=150px' : 'top bottom+=100px',
+        end: skipped ? 'bottom center+=150px' : 'bottom center+=100px',
         scrub: 1,
         markers: false,
         onEnter: ({ progress, direction, isActive }) => {

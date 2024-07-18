@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import FlowDirection from './flowdirection';
 
-const Stairs = () => {
+const Stairs = ({ skipped }) => {
   useEffect(() => {
-    const yellowStairs = gsap.timeline({
+    let yellowStairs = gsap.timeline({
       scrollTrigger: {
         trigger: '.yellow-stairs',
         start: 'top 200%',
@@ -13,6 +13,18 @@ const Stairs = () => {
         timeScale: 0.2,
       },
     });
+    if (skipped) {
+      console.log('here');
+      yellowStairs = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.yellow-stairs',
+          start: 'top 250%',
+          end: 'bottom 70%',
+          scrub: 0.5,
+          timeScale: 0.2,
+        },
+      });
+    }
 
     yellowStairs
       .addLabel('stairsStart')
@@ -25,7 +37,7 @@ const Stairs = () => {
       yellowStairs.scrollTrigger.kill();
       yellowStairs.kill();
     };
-  }, []);
+  }, [window.location.hash]);
 
   return (
     <div className='relative w-screen'>

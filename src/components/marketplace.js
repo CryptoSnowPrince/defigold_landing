@@ -9,7 +9,7 @@ import './css/components.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MarketPlace = () => {
+const MarketPlace = ({ skipped }) => {
   const horizontalLineRef = useRef(null);
   const verticalLineRef = useRef(null);
 
@@ -35,7 +35,7 @@ const MarketPlace = () => {
       duration: 1.5,
       ease: 'power4.out',
       scrollTrigger: {
-        trigger: '.newHomeCity',
+        trigger: '.nft',
         start: 'top bottom+=85px',
         end: 'bottom center+=85px',
       },
@@ -61,7 +61,7 @@ const MarketPlace = () => {
 
     const cityTl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.nft',
+        trigger: skipped ? '.marquee' : '.nft',
         start: window.width > 768 ? '-30% top' : '0% center',
         end: window.width > 768 ? '110% bottom' : '15% bottom',
         scrub: 1, // Smooth animation
