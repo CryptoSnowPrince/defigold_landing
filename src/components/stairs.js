@@ -18,8 +18,8 @@ const Stairs = ({ skipped }) => {
       yellowStairs = gsap.timeline({
         scrollTrigger: {
           trigger: '.yellow-stairs',
-          start: 'top 250%',
-          end: 'bottom 70%',
+          start: 'top 200%',
+          end: 'bottom 120%',
           scrub: 0.5,
           timeScale: 0.2,
         },

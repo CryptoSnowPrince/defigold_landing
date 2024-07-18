@@ -62,7 +62,7 @@ const MarketPlace = ({ skipped }) => {
     const cityTl = gsap.timeline({
       scrollTrigger: {
         trigger: skipped ? '.marquee' : '.nft',
-        start: window.width > 768 ? '-30% top' : '0% center',
+        start: window.width > 768 ? 'top 200%' : '0% center',
         end: window.width > 768 ? '110% bottom' : '15% bottom',
         scrub: 1, // Smooth animation
         timeScale: 0.2,
