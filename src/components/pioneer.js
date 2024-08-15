@@ -18,7 +18,7 @@ const Pioneer = () => {
 
   return (
     <>
-      <div className='hidden md:flex flex-col h-screen md:h-full xl:h-screen w-screen bg-gold px-5 md:px-8 lg:px-16 xl:px-[250px] sm:pt-[100px]'>
+      <div className='hidden md:flex flex-col h-screen md:h-full 2xl:h-screen w-screen bg-gold px-5 md:px-8 lg:px-16 2xl:px-[250px] sm:pt-[100px]'>
         <h1 className='font-medium text-[98px] pb-20 leading-[88px] text-center sm:w-[50vw] md:w-[70vw] mx-auto text-dark-text'>
           Pioneering on Bitcoin's Blockchain
         </h1>
