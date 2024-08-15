@@ -1,4 +1,3 @@
-// import investorsBg from '../assets/img/compressed/investors-bg.webp';
 import prevImg from '../assets/img/prev.svg';
 import nextImg from '../assets/img/next.svg';
 import upPointer from '../assets/img/up-pointer.svg';

@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import DoughnutChart from './doughnut';
-import parachutesImg from '../assets/img/compressed/Parachutes.webp';
+import parachutesImg from '../assets/img/parachutes.webp';
 import cityImg from '../assets/img/city.webp';
 import lightsImg from '../assets/img/lights.svg';
 import './css/components.css';

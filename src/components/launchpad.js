@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import monkeyLight from '../assets/img/monkeyLight.gif';
 import DNA from '../assets/img/DNA-2.gif';
-import monkeyGroup from '../assets/img/compressed/monkeyGroup.webp';
+import monkeyGroup from '../assets/img/monkeyGroup.webp';
 import Logo from '../assets/img/icon.svg';
 import ArrowLogo from './arrowlogo';
 

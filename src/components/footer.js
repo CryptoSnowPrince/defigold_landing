@@ -4,9 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 // import 'animate.css';
-import ContactFormBit from '../assets/img/contactFormAssets/compressed/contactFormBit.webp';
-import FormArrow from '../assets/img/contactFormAssets/formArrow.png';
-import FormLight from '../assets/img/contactFormAssets/compressed/formLight.mp4';
+import ContactFormBit from '../assets/img/contactFormBit.webp';
+import FormArrow from '../assets/img/formArrow.png';
+import FormLight from '../assets/img/formLight.mp4';
 import HorizontalDirection from './horizontaldirection';
 import { toast } from 'react-toastify';
 

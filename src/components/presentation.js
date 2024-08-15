@@ -3,11 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Import your images and assets
-import rectLeft from '../assets/img/contactFormAssets/compressed/rectLeft.webp';
-import rectRight from '../assets/img/contactFormAssets/compressed/rectRight.webp';
-import reactPhone from '../assets/img/contactFormAssets/compressed/reactPhone.webp';
-import hand from '../assets/img/contactFormAssets/compressed/hand.webp';
-import handHold from '../assets/img/contactFormAssets/compressed/handHold.6d174d3d-min.webp';
+import rectLeft from '../assets/img/rectLeft.webp';
+import rectRight from '../assets/img/rectRight.webp';
+import reactPhone from '../assets/img/reactPhone.webp';
+import hand from '../assets/img/hand.webp';
+import handHold from '../assets/img/handHold.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 

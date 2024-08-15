@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import RightArrow from './rightarrow';
 import LeftArrow from './leftarrow';
-import BtcImage from '../assets/img/contactFormAssets/bitcoinImage.png';
+import BtcImage from '../assets/img/bitcoinImage.png';
 
 const Pioneer = () => {
   const imgRef = useRef(null);
