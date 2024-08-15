@@ -54,12 +54,12 @@ const investor_list = [
     summary:
       'Technical Lead at Orthogonal Global Group. Aleksey has a decade of experience in web development, working with financial sector clients such as WU, CIBC, and Société Générale. He got exposed to the crypto and NFT space in 2021 and has since served as a web developer, security advisor, and investment advisor at Orthogonal Thinker (Orthogonal Global Group).',
   },
-  {
-    avatar: Invester6,
-    name: 'Natasha Ingram',
-    summary:
-      'Natasha is the CEO of Metasphere Labs and the Founder of Transparency Digital, a Vancouver-based marketing agency founded in 2013. She is a seasoned consultant on launch, brand development, marketing strategies, acquisition, fundraising and growth. Industry experience includes tech, cannabis, mining and financial services. Natasha is also the Founder of BIA Skin, a D2C e-commerce brand doing 7 figures annually with distribution across North America.',
-  },
+  // {
+  //   avatar: Invester6,
+  //   name: 'Natasha Ingram',
+  //   summary:
+  //     'Natasha is the CEO of Metasphere Labs and the Founder of Transparency Digital, a Vancouver-based marketing agency founded in 2013. She is a seasoned consultant on launch, brand development, marketing strategies, acquisition, fundraising and growth. Industry experience includes tech, cannabis, mining and financial services. Natasha is also the Founder of BIA Skin, a D2C e-commerce brand doing 7 figures annually with distribution across North America.',
+  // },
   {
     avatar: Invester7,
     name: 'Coach K',
