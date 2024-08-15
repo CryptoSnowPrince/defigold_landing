@@ -297,7 +297,7 @@ function App() {
                   <div className='w-[38px] h-16 bg-gold candle mx-auto'></div>
                   <div className='description absolute h-full w-full xl:px-[120px] 2xl:px-[250px] lg:px-16 md:px-8 sm:px-14 flex flex-row bottom-0 z-10'>
                     {/* <Fade duration={500} triggerOnce={false} direction='up'> */}
-                    <div className='flex-1 lg:pr-[120px] pt-24 lg:pt-32 md:pr-14 sm:pr-6 font-light text-4xl 2xl:text-[68px] 2xl:leading-[62px]'>
+                    <div className='flex-1 lg:pr-[120px] pt-24 lg:pt-32 md:pr-14 sm:pr-6 font-light text-4xl xl:text-5xl 2xl:text-[68px] 2xl:leading-[62px]'>
                       <span className='text-gold'>DeFi.Gold</span> is shaking
                       things up as the first DEX and NFT marketplace on the
                       Bitcoin blockchain.
