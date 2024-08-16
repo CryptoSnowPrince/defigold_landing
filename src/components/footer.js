@@ -41,7 +41,7 @@ const Footer = () => {
     const telegramFooter = document.querySelector('.telegram__footer');
     const xFooter = document.querySelector('.x__footer');
     const mediumFooter = document.querySelector('.medium__footer');
-    const zealyFooter = document.querySelector('.zealy__footer');
+    // const zealyFooter = document.querySelector('.zealy__footer');
 
     const telegramTween = gsap.to('.hover__link-telegram', {
       width: '100%',
@@ -72,8 +72,8 @@ const Footer = () => {
     xFooter.addEventListener('mouseleave', () => xTween.reverse());
     mediumFooter.addEventListener('mouseover', () => mediumTween.play());
     mediumFooter.addEventListener('mouseleave', () => mediumTween.reverse());
-    zealyFooter.addEventListener('mouseover', () => zealyTween.play());
-    zealyFooter.addEventListener('mouseleave', () => zealyTween.reverse());
+    // zealyFooter.addEventListener('mouseover', () => zealyTween.play());
+    // zealyFooter.addEventListener('mouseleave', () => zealyTween.reverse());
 
     const btn3Container = document.getElementById(
       'stagger_button_ani_container_3'
