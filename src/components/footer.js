@@ -58,11 +58,11 @@ const Footer = () => {
       duration: 0.4,
       paused: true,
     });
-    const zealyTween = gsap.to('.hover__link-zealy', {
-      width: '100%',
-      duration: 0.4,
-      paused: true,
-    });
+    // const zealyTween = gsap.to('.hover__link-zealy', {
+    //   width: '100%',
+    //   duration: 0.4,
+    //   paused: true,
+    // });
 
     telegramFooter.addEventListener('mouseover', () => telegramTween.play());
     telegramFooter.addEventListener('mouseleave', () =>
@@ -395,7 +395,7 @@ const Footer = () => {
                     className='mainContactForm-head-arrow'
                   />
                 </div>
-                <div className='mainContactForm-con-head'>
+                {/* <div className='mainContactForm-con-head'>
                   <a
                     target='_blank'
                     rel='noreferrer'
@@ -412,7 +412,7 @@ const Footer = () => {
                     alt='arrowLogo'
                     className='mainContactForm-head-arrow'
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             <div id='mainContactForm-copyRight'>
